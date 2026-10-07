@@ -270,8 +270,8 @@ services:
  
   celery-worker-auth:
     build:
-      context: .
-      dockerfile: ./docker/auth/Dockerfile
+      context: ..
+      dockerfile: Production/docker/auth/Dockerfile
 
     container_name: celery-worker-auth
     restart: unless-stopped
@@ -290,8 +290,8 @@ services:
   
   celery-beat-auth:
     build:
-      context: .
-      dockerfile: ./docker/auth/Dockerfile
+      context: ..
+      dockerfile: Production/docker/auth/Dockerfile
     environment:
       - TZ=UTC
     container_name: celery-beat-auth
@@ -309,8 +309,8 @@ services:
 
   auth-app:
     build:
-      context: .
-      dockerfile: ./docker/auth/Dockerfile
+      context: ..
+      dockerfile: Production/docker/auth/Dockerfile
 
     container_name: auth-app
     restart: unless-stopped
@@ -329,8 +329,8 @@ services:
       - production-main-network
   users-app:
     build:
-      context: .
-      dockerfile: ./docker/users/Dockerfile
+      context: ..
+      dockerfile: Production/docker/users/Dockerfile
     container_name: users-app
     restart: unless-stopped
     expose:
@@ -349,8 +349,8 @@ services:
   
   celery-worker-characters:
     build:
-      context: .
-      dockerfile: ./docker/characters/Dockerfile
+      context: ..
+      dockerfile: Production/docker/characters/Dockerfile
 
     container_name: celery-worker-characters
     environment:
@@ -369,8 +369,8 @@ services:
 
   celery-beat-characters:
     build:
-      context: .
-      dockerfile: ./docker/characters/Dockerfile
+      context: ..
+      dockerfile: Production/docker/characters/Dockerfile
 
     container_name: celery-beat-characters
     restart: unless-stopped
@@ -390,8 +390,8 @@ services:
 
   characters-app:
     build:
-      context: .
-      dockerfile: ./docker/characters/Dockerfile
+      context: ..
+      dockerfile: Production/docker/characters/Dockerfile
 
     container_name: characters-app
     restart: unless-stopped
@@ -411,8 +411,8 @@ services:
       
   email-app:
     build:
-      context: .
-      dockerfile: ./docker/email/Dockerfile
+      context: ..
+      dockerfile: Production/docker/email/Dockerfile
 
     container_name: email-app
     restart: unless-stopped
@@ -432,8 +432,8 @@ services:
       
   file-storage-app:
     build:
-      context: .
-      dockerfile: ./docker/file-storage/Dockerfile
+      context: ..
+      dockerfile: Production/docker/file-storage/Dockerfile
 
     container_name: file-storage-app
     restart: unless-stopped
@@ -453,8 +453,8 @@ services:
 
   captcha-app:
     build:
-      context: .
-      dockerfile: ./docker/captcha-service/Dockerfile
+      context: ..
+      dockerfile: Production/docker/captcha-service/Dockerfile
 
     container_name: captcha-app
     restart: unless-stopped
@@ -474,8 +474,8 @@ services:
 
   forum-app:
     build:
-      context: .
-      dockerfile: ./docker/forum/Dockerfile
+      context: ..
+      dockerfile: Production/docker/forum/Dockerfile
 
     container_name: forum-app
     restart: unless-stopped
@@ -495,8 +495,8 @@ services:
       
   chat-app:
     build:
-      context: .
-      dockerfile: ./docker/chat/Dockerfile
+      context: ..
+      dockerfile: Production/docker/chat/Dockerfile
 
     container_name: chat-app
     restart: unless-stopped
@@ -516,8 +516,8 @@ services:
 
   mining-app:
     build:
-      context: .
-      dockerfile: ./docker/mining/Dockerfile
+      context: ..
+      dockerfile: Production/docker/mining/Dockerfile
 
     container_name: mining-app
     restart: unless-stopped
@@ -537,8 +537,8 @@ services:
   
   celery-worker-mining:
     build:
-      context: .
-      dockerfile: ./docker/mining/Dockerfile
+      context: ..
+      dockerfile: Production/docker/mining/Dockerfile
 
     container_name: celery-worker-mining
     restart: unless-stopped
@@ -557,8 +557,8 @@ services:
 
   celery-beat-mining:
     build:
-      context: .
-      dockerfile: ./docker/mining/Dockerfile
+      context: ..
+      dockerfile: Production/docker/mining/Dockerfile
     container_name: celery-beat-mining
     restart: unless-stopped
     entrypoint: /docker/beat.sh
@@ -576,8 +576,8 @@ services:
 
   economy-app:
     build:
-      context: .
-      dockerfile: ./docker/economy/Dockerfile
+      context: ..
+      dockerfile: Production/docker/economy/Dockerfile
 
     container_name: economy-app
     restart: unless-stopped
@@ -601,8 +601,8 @@ services:
 
   frontend:
     build:
-      context: .
-      dockerfile: ./docker/frontend/Dockerfile
+      context: ..
+      dockerfile: Production/docker/frontend/Dockerfile
 
     container_name: echo-smyta-nginx-frontend
     restart: unless-stopped

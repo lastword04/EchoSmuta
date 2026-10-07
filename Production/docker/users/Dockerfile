@@ -14,8 +14,8 @@ COPY ./services/users .
 
 RUN uv sync --frozen
 
-COPY ./docker/scripts/wait-for-it.sh /usr/local/bin/
-COPY ./docker/users/entrypoint.sh /docker/entrypoint.sh
+COPY ./Production/docker/scripts/wait-for-it.sh /usr/local/bin/
+COPY ./Production/docker/users/entrypoint.sh /docker/entrypoint.sh
 
 RUN chmod +x /docker/entrypoint.sh \
     && chmod +x /usr/local/bin/wait-for-it.sh

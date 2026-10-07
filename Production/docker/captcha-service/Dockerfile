@@ -14,6 +14,6 @@ COPY ./services/captcha-service .
 
 RUN uv sync --frozen
 
-COPY ./docker/captcha-service/entrypoint.sh /docker/entrypoint.sh
+COPY ./Production/docker/captcha-service/entrypoint.sh /docker/entrypoint.sh
 
 RUN chmod +x /docker/entrypoint.sh

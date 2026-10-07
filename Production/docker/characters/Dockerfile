@@ -14,10 +14,10 @@ COPY ./services/characters .
 
 RUN uv sync --frozen
 
-COPY ./docker/scripts/wait-for-it.sh /usr/local/bin/
-COPY ./docker/characters/entrypoint.sh /docker/entrypoint.sh
-COPY ./docker/characters/worker.sh /docker/worker.sh
-COPY ./docker/characters/beat.sh /docker/beat.sh
+COPY ./Production/docker/scripts/wait-for-it.sh /usr/local/bin/
+COPY ./Production/docker/characters/entrypoint.sh /docker/entrypoint.sh
+COPY ./Production/docker/characters/worker.sh /docker/worker.sh
+COPY ./Production/docker/characters/beat.sh /docker/beat.sh
 
 
 RUN chmod +x /docker/entrypoint.sh \

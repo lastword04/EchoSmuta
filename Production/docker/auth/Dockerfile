@@ -14,10 +14,10 @@ COPY ./services/auth .
 
 RUN uv sync --frozen
 
-COPY ./docker/scripts/wait-for-it.sh /usr/local/bin/
-COPY ./docker/auth/entrypoint.sh /docker/entrypoint.sh
-COPY ./docker/auth/worker.sh /docker/worker.sh
-COPY ./docker/auth/beat.sh /docker/beat.sh
+COPY ./Production/docker/scripts/wait-for-it.sh /usr/local/bin/
+COPY ./Production/docker/auth/entrypoint.sh /docker/entrypoint.sh
+COPY ./Production/docker/auth/worker.sh /docker/worker.sh
+COPY ./Production/docker/auth/beat.sh /docker/beat.sh
 
 RUN chmod +x /docker/entrypoint.sh \
     && chmod +x /usr/local/bin/wait-for-it.sh \

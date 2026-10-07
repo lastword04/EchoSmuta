@@ -14,8 +14,8 @@ COPY ./services/chat .
 
 RUN uv sync --frozen
 
-COPY ./docker/scripts/wait-for-it.sh /usr/local/bin/
-COPY ./docker/chat/entrypoint.sh /docker/entrypoint.sh
+COPY ./Production/docker/scripts/wait-for-it.sh /usr/local/bin/
+COPY ./Production/docker/chat/entrypoint.sh /docker/entrypoint.sh
 
 
 RUN chmod +x /docker/entrypoint.sh \

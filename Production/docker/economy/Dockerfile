@@ -14,9 +14,9 @@ COPY ./services/economy .
 
 RUN uv sync --frozen
 
-COPY ./docker/scripts/wait-for-it.sh /usr/local/bin/
-COPY ./docker/economy/entrypoint.sh /docker/entrypoint.sh
-COPY ./docker/economy/worker.sh /docker/worker.sh
+COPY ./Production/docker/scripts/wait-for-it.sh /usr/local/bin/
+COPY ./Production/docker/economy/entrypoint.sh /docker/entrypoint.sh
+COPY ./Production/docker/economy/worker.sh /docker/worker.sh
 
 
 RUN chmod +x /docker/entrypoint.sh \
