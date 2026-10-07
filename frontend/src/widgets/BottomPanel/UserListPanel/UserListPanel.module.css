@@ -1,0 +1,198 @@
+.userListPanel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  width: 300px;
+  color: #fff;
+  font-size: 13px;
+  font-family: var(--font-base);
+}
+
+/* Мобильные устройства */
+@media (max-width: 950px) {
+  .userListPanel {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3;
+  background-image: url('/images/station/background.jpg');
+}
+
+.locationName {
+  margin: 0;
+  height: 20px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.activeLink {
+  color: #fff;
+}
+
+.inactiveLink {
+  color: #f3ca8b;
+  text-decoration: underline;
+}
+
+.separator {
+  color: #ccc;
+}
+
+.iconButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 2px 0;
+}
+
+.iconImg {
+  cursor: pointer;
+}
+
+.userList {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 5px;
+  background-image: url("/images/widgets/character-panel/notebook-modal/background.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed; 
+  min-height: auto;
+}
+
+.userListItem {
+  display: flex;
+  align-items: center;
+  color: #471A11;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.userListItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.userStatusOnline {
+  width: 8px;
+  height: 8px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 4px #4CAF50;
+}
+
+.loading {
+  text-align: center;
+  padding: 10px;
+  color: #aaa;
+}
+
+.checkboxImg {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.hiddenSpacer {
+  width: 12px;
+  height: 12px;
+  visibility: hidden;
+}
+
+.spacer {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.additionalIcon {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.pCircle {
+  width: 12px;
+  height: 12px;
+  background-color: #660000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  cursor: pointer;
+}
+
+.userLink {
+  text-decoration: underline;
+  color: #471A11;
+  cursor: pointer;
+  padding-left: 3px;
+  line-height: 1.2;
+  flex-shrink: 1;
+  min-width: 0;
+  display: inline-flex;
+  }
+
+.userLink:hover {
+  text-decoration: none;
+}
+
+.levelShieldContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 3px;
+  position: relative;
+}
+
+.userLevel {
+  color: #471A11;
+  font-weight: bold;
+  cursor: pointer;
+  padding-left: 3px;
+  margin-top: 1px;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.shieldIcon {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  cursor: pointer;
+  margin-left: 0;
+  margin-bottom: 1px;
+  flex-shrink: 0;
+}
+
+.privateIcon {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  align-self: center;
+  flex-shrink: 0;
+}

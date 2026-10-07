@@ -1,0 +1,385 @@
+.page {
+  /*min-height: 100vh;*/
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.referralsCard {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(15, 23, 32, 0.95) 100%);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  padding: 30px;
+  margin: 20px 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--light-gold);
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 12px rgba(230, 193, 79, 0.5);
+  font-weight: 700;
+}
+
+.infoSection {
+  /*background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;*/
+  padding: 15px;
+  margin-bottom: 30px;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.infoSection p {
+  margin: 0 0 15px 0;
+}
+
+.infoSection p:last-child {
+  margin-bottom: 0;
+}
+
+.benefits {
+  background: rgba(45, 90, 61, 0.3);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.benefits p {
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+.benefits a {
+  color: var(--light-gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.benefits a:hover {
+  text-decoration: underline;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--light-gold);
+  margin: 0 0 20px 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.referralSection {
+  /*background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;*/
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.referralInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.referralLinkContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.referralLink {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.referralLink:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+}
+
+.copyButton {
+  min-width: 120px;
+  font-weight: 600;
+  padding: 12px 20px;
+}
+
+.referralStats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+}
+
+.referralStats p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.activeStatus {
+  color: #4caf50;
+}
+
+.inactiveStatus {
+  color: #f44336;
+}
+
+.loadingCard,
+.errorCard {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(15, 23, 32, 0.95) 100%);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  color: var(--text-secondary);
+  font-family: var(--font-text);
+  font-size: 1rem;
+}
+
+.errorMessage {
+  color: #f44336;
+  font-family: var(--font-text);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .referralsCard {
+    padding: 20px 15px;
+    margin: 0;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+
+  .infoSection,
+  .referralSection {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .benefits {
+    padding: 15px;
+    margin-top: 15px;
+  }
+
+  .referralLinkContainer {
+    flex-direction: column;
+  }
+
+  .referralLink {
+    width: 100%;
+  }
+
+  .copyButton {
+    width: 100%;
+  }
+
+  .referralStats {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .referralsCard {
+    padding: 10px 10px 0;
+    border: none;
+    border-radius: 0px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .header {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+
+  .sectionTitle {
+    font-size: 1.3rem;
+    margin: 0 0 10px 0;
+  }
+
+  .infoSection,
+  .referralSection {
+    padding: 5px;
+    margin-bottom: 0px;
+  }
+
+  .infoSection p {
+  margin: 0 0 10px 0;
+}
+
+  .benefits {
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .benefits p {
+    margin: 0 0 5px 0;
+  }
+
+  .referralInfo {
+    gap: 10px;
+  }
+
+  .referralLink {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .copyButton {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+.referralsListSection {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 20px;
+}
+
+.referralsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.referralItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  font-family: var(--font-text);
+  font-size: 0.95rem;
+}
+
+.referralNumber {
+  color: var(--light-gold);
+  font-weight: 600;
+  min-width: 30px;
+}
+
+.referralName {
+  color: var(--text-primary);
+  font-weight: 500;
+  flex: 1;
+  text-align: center;
+}
+
+.referralDate {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Адаптивность для списка рефералов */
+@media (max-width: 768px) {
+  .referralsListSection {
+    margin-top: 15px;
+    padding: 20px;
+  }
+
+  .referralsList {
+    margin-top: 10px;
+  }
+
+  .referralItem {
+    flex-direction: column;
+    padding: 10px 12px;
+    gap: 3px;
+    text-align: center;
+  }
+  
+  .referralNumber {
+    min-width: auto;
+  }
+  
+  .referralName {
+    font-size: 0.95rem;
+  }
+
+  .referralDate {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .referralsListSection {
+    margin-top: 10px;
+    padding: 15px;
+  }
+
+  .referralsList {
+    margin-top: 5px;
+  }
+  
+  .referralItem {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    gap: 0;
+  }
+  
+  .referralName {
+    font-size: 0.9rem;
+  }
+  
+  .referralDate {
+    font-size: 0.75rem;
+  }
+}

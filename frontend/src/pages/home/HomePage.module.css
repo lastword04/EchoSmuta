@@ -1,0 +1,741 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Декоративные элементы */
+.page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Декоративная полоса сверху */
+.headerDecoration {
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--burgundy) 20%, 
+    var(--gold) 50%, 
+    var(--burgundy) 80%, 
+    transparent 100%);
+  position: relative;
+  z-index: 15;
+  box-shadow: 0 0 15px rgba(230, 192, 79, 0.3);
+}
+
+/* Шапка с улучшенным дизайном */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  /*background: rgba(30, 42, 54, 0.92);
+  backdrop-filter: blur(12px);*/
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  gap: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+/* Контейнер для кнопок */
+.controlsButtons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Улучшенное приветствие героя сверху */
+.heroGreeting {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 25px;
+  /*border: 1px solid rgba(230, 192, 79, 0.5);
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 0 15px rgba(230, 192, 79, 0.2);
+  backdrop-filter: blur(5px);*/
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+  justify-content: center;
+}
+
+/*.heroGreeting::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--gold), 
+    transparent);
+}
+
+.heroGreeting::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--burgundy), 
+    transparent);
+}*/
+
+.greetingText {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.heroName {
+  color: var(--light-gold);
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(230, 192, 79, 0.5);
+  position: relative;
+}
+
+.heroName::before,
+.heroName::after {
+  content: '';
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.heroName::before {
+  margin-right: 4px;
+}
+
+.heroName::after {
+  margin-left: 4px;
+}
+
+/* Адаптивность */
+
+
+/* Красивая декоративная полоса вместо простой границы */
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(139, 58, 58, 0.3) 10%, 
+    var(--gold) 25%, 
+    var(--light-gold) 50%, 
+    var(--gold) 75%, 
+    rgba(139, 58, 58, 0.3) 90%, 
+    transparent 100%);
+  box-shadow: 0 0 15px rgba(230, 192, 79, 0.4);
+  z-index: 11;
+}
+
+/* Добавляем анимацию для декоративной полосы */
+.header::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.8), 
+    transparent);
+  animation: borderShimmer 4s infinite linear;
+  z-index: 12;
+}
+
+@keyframes borderShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.logo {
+  background-image: url('/images/logo.png');
+  background-repeat: no-repeat;
+  background-size: contain; /* Масштабировать изображение по размеру блока */
+  background-position: center; 
+  flex-shrink: 0; /* Блок не сжимается */
+  width: 150px; /* Жёстко зафиксированная ширина */
+  height: 120px; /* Жёстко зафиксированная высота */
+  margin: 0 auto; /* Центровка по горизонтали */
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 60px 20px;
+}
+
+/* <div mode={isNightMode ? 'night' : 'day'}
+     className={`${styles.gameTitleContainer} ${isNightMode ? styles['gameTitleContainer-night'] : styles['gameTitleContainer-day']}`}>
+            <h1 mode={isNightMode ? 'night' : 'day'} className={styles.gameTitle}>Эхо Смуты</h1>
+            
+          </div> удаленные строчки jsx*/
+
+/*.gameTitleContainer {
+  display: inline-block;
+  position: relative;
+  padding: 20px 40px;
+  background: rgba(30, 42, 54, 0.85);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  margin: 0 auto;
+}
+
+.gameTitleContainer-day {
+  box-shadow: 
+    0 0 25px rgba(230, 192, 79, 0.5),
+    inset 0 0 20px rgba(230, 192, 79, 0.2);
+}
+.gameTitleContainer-night {
+  box-shadow: 0 0px 20px rgba(0, 150, 255, 0.3);
+}
+
+.gameTitleContainer::before,
+.gameTitleContainer::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gold);
+}
+
+.gameTitleContainer::before {
+  top: -8px;
+  left: -8px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.gameTitleContainer::after {
+  top: -8px;
+  right: -8px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.gameTitleContainer .corner-bottom-left,
+.gameTitleContainer .corner-bottom-right {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gold);
+}
+
+.gameTitle {
+  font-family: var(--font-slavic);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 
+    0 0 20px rgba(230, 192, 79, 0.7),
+    0 0 40px rgba(230, 192, 79, 0.4);
+  letter-spacing: 3px;
+  margin: 0;
+  position: relative;
+  display: block;
+}
+
+
+.gameTitle::before,
+.gameTitle::after {
+  content: '❧'; 
+  color: var(--gold);
+  font-size: 1.2rem;
+  margin: 0 15px;
+  text-shadow: 0 0 10px rgba(230, 192, 79, 0.5);
+}
+
+.gameTitle::before {
+  content: '❧';
+}
+
+.gameTitle::after {
+  content: '❧';
+}*/
+
+.controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.modeToggle {
+  min-width: 130px;
+  font-size: 12px !important;
+  padding: 8px 12px !important;
+  background: rgba(58, 107, 74, 0.8) !important;
+  border: 1px solid rgba(230, 192, 79, 0.5) !important;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.modeToggle:hover {
+  background: rgba(74, 139, 94, 0.9) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.authButton, .forumButton {
+  min-width: 120px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  !!! */
+  position: relative;
+  overflow: hidden;
+}
+
+.authButton::before,
+.forumButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.authButton:hover::before,
+.forumButton:hover::before {
+  left: 100%;
+}
+
+/* Основной контент */
+.main {
+  flex: 1;
+  padding: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Герой-секция */
+.hero {
+  margin-bottom: 50px;
+}
+
+.heroCard {
+  background: linear-gradient(135deg, 
+    rgba(58, 107, 74, 0.88) 0%, 
+    rgba(139, 58, 58, 0.88) 100%);
+  text-align: center;
+  padding: 60px;
+  border: 1px solid rgba(230, 192, 79, 0.4);
+  /*box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); !!! */
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Декоративная рамка вокруг карточки */
+.heroCard::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid rgba(230, 192, 79, 0.2);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.heroCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent, 
+    rgba(230, 192, 79, 0.15), 
+    transparent);
+  transform: rotate(45deg);
+  animation: shine 4s infinite;
+}
+
+@keyframes shine {
+  0% { transform: rotate(45deg) translateX(-100%); }
+  100% { transform: rotate(45deg) translateX(100%); }
+}
+
+.heroTitle {
+  font-family: var(--font-display); /* Используем славянский шрифт для заголовка */
+  font-size: 2.8rem;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 2;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.heroText {
+  font-family: var(--font-serif); /* Основной текст на Cormorant Garamond */
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+  font-weight: 300;
+}
+
+.heroActions {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+/* Новости */
+.newsSection {
+  margin-top: 60px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display); /* Славянский шрифт для заголовков */
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+  font-weight: 700;
+}
+
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 150px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 20px auto;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(230, 192, 79, 0.3);
+}
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+}
+
+.newsCard {
+  background: rgba(30, 42, 54, 0.85);
+  border: 1px solid rgba(230, 192, 79, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+}
+
+.newsCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  border-color: rgba(230, 192, 79, 0.7);
+}
+
+.newsCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--burgundy), var(--gold), var(--dark-green));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.newsCard:hover::before {
+  transform: scaleX(1);
+}
+
+.newsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 15px;
+  padding: 20px 20px 0 20px;
+}
+
+.newsTitle {
+  font-family: var(--font-display); /* UnifrakturCook для заголовков новостей */
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--light-gold);
+  flex: 1;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.newsDate {
+  font-family: var(--font-serif); /* Cormorant Garamond для дат */
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  font-style: italic;
+}
+
+.newsContent {
+  font-family: var(--font-serif); /* Cormorant Garamond для основного текста */
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0 20px 20px 20px;
+}
+
+/* Адаптивность */
+@media (max-width: 965px) {
+  .header {
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+  }
+  .heroGreeting {
+    padding: 10px 20px;
+    min-width: 180px;
+  }  
+}
+@media (max-width: 768px) {
+  
+  
+  .heroGreeting {
+    padding: 8px 15px;
+    min-width: 180px;
+  }
+  
+  .greetingText {
+    font-size: 15px;
+  }
+  
+  .heroName {
+    font-size: 16px;
+  }
+  
+  .controlsButtons {
+    gap: 12px;
+  }
+  .headerDecoration {
+    height: 3px;
+  }
+  .header {
+    padding: 5px;
+  }  
+    .logo {
+   padding: 55px 20px;
+  }
+  /*.gameTitle {
+    font-size: 2.5rem;
+  }*/
+  
+  .controls {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .main {
+    padding: 30px 20px;
+  }
+  
+  .heroCard {
+    padding: 40px 25px;
+  }
+  
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+  
+  .heroText {
+    font-size: 1.1rem;
+  }
+  
+  .heroActions {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  
+  .footerContent {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footerLinks {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .controls {
+    gap: 10px;
+  }
+  
+  .heroGreeting {
+    padding: 5px 10px;
+    min-width: 160px;
+  }
+  
+  .greetingText {
+    font-size: 14px;
+  }
+  
+  .heroName {
+    font-size: 15px;
+  }
+  
+  .controlsButtons {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .header {
+    padding: 3px;
+    gap: 0px;
+  }
+  .logo {
+   padding: 50px 20px;
+  }
+
+  /*.gameTitleContainer-day {
+  box-shadow: 
+    0 0 10px rgba(230, 192, 79, 0.5),
+    inset 0 0 5px rgba(230, 192, 79, 0.2);
+}
+.gameTitleContainer-night {
+  box-shadow: 0 0px 10px rgba(0, 150, 255, 0.5),
+  inset 0 0 5px rgba(0, 150, 255, 0.2);
+}*/
+    
+  .newsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .heroTitle {
+    font-size: 1.9rem;
+  }
+  
+  /*.gameTitle {
+    font-size: 2rem;
+  }*/
+  
+  .newsTitle {
+    font-size: 1.25rem;
+  }
+  
+  .heroCard {
+    padding: 30px 20px;
+  }
+}
+@media (max-width: 430px) {
+  /*.gameTitleContainer {
+  padding: 15px 30px;
+  }*/
+  .authButton, .forumButton {
+  min-width: 100px;
+  }
+  .modeToggle {
+  min-width: 10px;
+  }
+}
+@media (max-width: 390px) {
+  .gameTitleContainer {
+  padding: 10px 20px;
+  }
+  .authButton, .forumButton {
+  min-width: 80px;
+  }
+}
+@media (max-width: 370px) {
+  /*.gameTitleContainer {
+  padding: 10px 10px;
+  }*/
+  .modeToggle, .authButton, .forumButton {
+  padding: 10px;
+  }
+}
+@media (max-width: 350px) {
+  /*.gameTitleContainer {
+  padding: 7px 7px;
+  }
+  .gameTitle {
+  font-size: 1.8rem;
+  }*/
+  .controlsButtons {
+   gap: 4.8px;
+ }
+}
+@media (max-width: 330px) {
+  /*.gameTitleContainer {
+  padding: 5px 0px;
+  }
+  .gameTitle {
+  font-size: 1.6rem;
+  }*/
+  .modeToggle, .authButton, .forumButton {
+  min-width: 60px;
+  }
+}
+

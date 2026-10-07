@@ -1,0 +1,243 @@
+/* ==========================================
+   1. LAYOUT & CONTAINERS
+   ========================================== */
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;  
+}
+
+.leftRightLayout {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.borderBox {
+  background:
+    url("/images/locations/border/border_nut.gif") 0 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 0 100% no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 100% no-repeat,
+    url("/images/locations/border/border-top.gif") top repeat-x,
+    url("/images/locations/border/border-bot.gif") bottom repeat-x,
+    url("/images/locations/border/border-left.gif") 0 repeat-y,
+    url("/images/locations/border/border-right.gif") 100% repeat-y;  
+  max-width: 700px;  
+  width: 100%;
+  padding: 9px;
+  box-sizing: border-box;
+}
+
+.leftColumn, .rightColumn {  
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ==========================================
+   2. TYPOGRAPHY & STATUSES
+   ========================================== */
+.sideHeader {
+  font-size: 15px;
+  font-weight: 600; /* Чуть жирнее для читаемости */
+  padding: 4px 0;
+  color: #f0e6d2; /* Светлый пергаментный/бежевый цвет, отлично читается на темном */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9); /* Жесткая тень отделяет текст от любого фона */
+}
+
+.statusRed {
+  color: #ff5252; /* Яркий, "сигнальный" красный вместо темного бордового */
+  font-weight: bold;
+  font-size: 13px;
+  text-shadow: 0 0 4px rgba(255, 82, 82, 0.5); /* Легкое свечение для объема */
+  word-wrap: break-word;       /* Переносит длинные слова */
+  overflow-wrap: break-word;   /* Современный стандарт переноса */
+  white-space: normal;  
+}
+
+.statusGreen {
+  color: #69f0ae; /* Яркий, светлый зеленый вместо темного лесного */
+  font-weight: bold;
+  font-size: 13px;
+  text-shadow: 0 0 4px rgba(105, 240, 174, 0.5);
+  word-wrap: break-word;       /* Переносит длинные слова */
+  overflow-wrap: break-word;   /* Современный стандарт переноса */
+  white-space: normal;  
+}
+
+.dealTable td.empty {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+.taxRow {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 0;
+  color: #ffcc00; /* Золотой цвет для финансовой информации (налог) */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================
+   3. INPUTS & SELECTS
+   ========================================== */
+
+/* Базовый стиль для всех полей ввода */
+.gameField,
+.qtyInput,
+.moneyInput,
+.currencySelect,
+.partnerSelect {
+  border: 1px solid #a99d9c;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 3px 6px;
+}
+
+.gameField:disabled,
+.qtyInput:disabled,
+.moneyInput:disabled,
+.currencySelect:disabled,
+.partnerSelect:disabled {
+  opacity: 0.6;
+}
+
+/* Поле количества (узкое) */
+.qtyInput {
+  width: 60px;
+  padding: 2px 4px;
+  font-size: 13px;
+  text-align: center;
+  background: #fdf8ec;
+  border-radius: 2px;
+}
+
+/* Ряд с деньгами */
+.moneyRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 4px;
+  font-size: 14px;
+}
+
+/* Поле ввода денег */
+.moneyInput {
+  width: 80px;
+  background: #fdf8ec;
+}
+
+/* Подпись "В сделку:" */
+.moneyLabel {
+  font-weight: 500;
+}
+
+/* Селект валюты */
+.currencySelect {
+  background: #f3eddb;
+}
+
+/* Селект выбора партнёра */
+.partnerSelect {
+  width: 100%;
+  padding: 4px 8px;
+  background: #f3eddb;
+  margin-bottom: 5px;
+}
+
+/* ==========================================
+   4. TABLES
+   ========================================== */
+.dealTable {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;  
+}
+
+.dealTable thead tr {
+  background: url("/images/widgets/chat-panel/buttons/chat-button.png") top repeat-x;
+  height: 19px;
+  line-height: 19px;
+  color: #212529;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid var(--card-bg);
+}
+
+.dealTable tbody tr {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+  color: #000000;
+}
+
+.dealTable td {
+  padding: 4px 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.dealTable td:first-child {
+  font-weight: 500;
+}
+
+/* ==========================================
+   5. ACTIONS & OVERLAYS
+   ========================================== */
+.confirmRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+}
+
+.itemCardOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100vh - var(--panel-height, 30vh));
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 50px 0;
+  z-index: 2000;
+}
+
+/* ==========================================
+   6. MEDIA QUERIES
+   ========================================== */
+@media (max-width: 1400px) {
+  .leftRightLayout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .leftColumn, .rightColumn {
+    width: 100%;         
+    max-width: 100%;      
+    flex: 1 1 100%;       
+  }
+  /* МЕНЯЕМ ПОРЯДОК ОТОБРАЖЕНИЯ */
+  .rightColumn {
+    order: -1; /* Отрицательное значение поднимает элемент наверх */
+  }
+
+  .leftColumn {
+    order: 1;  /* Положительное значение опускает элемент вниз */
+  }
+}
+
+@media (max-width: 480px) {
+  .leftRightLayout {
+    gap: 5px;
+  }
+
+  .leftColumn, .rightColumn {
+    gap: 0;      
+  }
+}

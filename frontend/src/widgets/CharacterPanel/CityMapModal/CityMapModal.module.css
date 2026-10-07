@@ -1,0 +1,175 @@
+/* CityMapModal.module.css - Исправленная адаптивная версия */
+
+.overlay {
+  position: relative;
+  z-index: 1000; 
+  inset: 0; 
+  padding: 50px 0;
+}
+
+.modal {
+  width: 700px;
+  min-height: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 528px;
+  overflow-x: hidden;
+}
+.topScroll,
+.bottomScroll {
+  left: 0;
+  height: 55px;
+  background: url("/images/widgets/character-panel/city-map-modal/top-scroll.png") center no-repeat;
+  position: absolute;
+  z-index: 1001;
+  width: 100%;
+  pointer-events: none;
+}
+/* Верхний декоративный свиток */
+.topScroll {
+  top: 0;
+  margin-top: 45px;
+ }
+.bottomScroll {
+  bottom: 0;
+  margin-bottom: 45px;
+}
+
+/* Заголовок с кнопкой закрытия */
+.header {
+  position: absolute;
+  top: 6px;
+  right: 15%; /* Используем проценты вместо фиксированных пикселей */
+  z-index: 1002;
+}
+
+.closeButton {
+  width: 40px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #000;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  pointer-events: auto;
+}
+/* Обёртка для контента с фоном */
+.contentWrapper {
+  flex: 1;
+  position: relative;
+}
+
+/* Основной контент с повторяющимся фоном */
+.content {
+  background: url("/images/widgets/character-panel/city-map-modal/background.png");
+  background-repeat: repeat-y;
+  background-position: center top;
+  width: 100%;
+  padding: 25px 0;
+  position: relative;
+  z-index: 2;
+  line-height: 1;
+  min-height: 300px;
+  
+}
+
+/* Заголовок города */
+.cityTitle {
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.separator {
+  font-size: inherit;
+  font-weight: bold;
+  color: #471a11;
+}
+
+.clickableLocation {
+  cursor: pointer;
+  padding: 0px;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.clickableLocation:hover {
+  text-decoration: underline;
+}
+
+/* Контейнер с локациями */
+.locationsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+  padding: 10px;
+}
+
+.locationsList {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+
+.location {
+  font-size: 0.9rem;
+  color: #000000;
+  text-align: center;
+  cursor: pointer;
+}
+
+.location:hover {
+  text-decoration: underline;
+}
+
+/* Адаптивные размеры для разных экранов */
+
+@media (max-width: 540px) {
+  .overlay {
+    padding: 0 0 10px;
+  }
+  .topScroll {
+    top: -52px;
+    background-size: 100%;
+    margin-top: 50px;
+  }
+  .bottomScroll {     
+    background-size: 100%;
+    margin-bottom: 10px;
+  }
+  .modal {
+    max-width: 480px; /* Делаем модал чуть уже */
+  }
+  .content {
+    min-height: 250px; /* Уменьшаем минимальную высоту */
+    background-size: 100% auto; /* Делаем фон уже по ширине */
+  }  
+  .header {
+    top: 3px;
+    right: 25%;
+  }
+  .closeButton {
+    font-size: 25px;
+    width: 0px;
+    height: 45px;
+  }
+}

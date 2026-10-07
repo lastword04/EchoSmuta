@@ -1,0 +1,93 @@
+/* ═══ КАРТОЧКА РЕСУРСА ═══ */
+
+.resourceInfoCard {
+  order: 2;
+  width: 400px;
+  max-width: 90%;
+  flex-shrink: 0;
+  background: #eee;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  color: #000;
+  font-size: 14px;
+}
+
+.resourceInfoHeader {
+  background: #282c4b;
+  color: #eee;
+  padding: 3px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.resourceInfoTitle {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.resourceInfoClose {
+  position: absolute;
+  right: 6px;
+  background: none;
+  border: none;
+  color: #eee;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+  line-height: 1;
+}
+
+.resourceInfoClose:hover {
+  transform: scale(1.2);
+  color: #ff6b6b;
+}
+
+
+
+/* Верхняя строка — цена слева, вес по центру */
+.resourceInfoTopRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 8px 8px 0; /* отступы как у itemInfoTopRow */
+}
+
+.priceLeft {
+  text-align: left;
+}
+
+.weightCenter {
+  text-align: center;
+}
+
+.emptyRight {
+  /* невидим, занимает место */
+}
+
+/* Блок с картинкой (вместо старого resourceInfoBody) */
+.resourceInfoImageBox {
+  display: flex;  
+  align-items: center;
+  margin: 8px; 
+  height: 32px; 
+}
+
+.resourceInfoImage {
+  max-width: 64px;
+  max-height: 32px;
+  object-fit: contain;
+}
+
+/* ═══ RESPONSIVE ═══ */
+
+@media (max-width: 768px) {
+  .resourceInfoCard {
+    order: -1;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}

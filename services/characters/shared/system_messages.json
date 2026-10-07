@@ -1,0 +1,307 @@
+{
+    "mining": {
+        "locations": {
+            "swamp": {
+                "resources": {
+                    "progress": "Вы собираете травы еще {time}",
+                    "failure": "Трава оказалась пожухлой",
+                    "success": "Вы собрали {resource} в количестве {amount} шт."
+                },
+                "monsters": {
+                    "attack": "Заросли высокой травы приглушали шаги. Раздался неясный шум и прямо перед вами выскочило оно, и напало на вас!",
+                    "loot": {
+                        "standard": "Вы убили Зверожаба и сняли с него шкуру",
+                        "improved": "Вы убили Лорда Зверожаба и сняли с него шкуру"
+                    }
+                }
+            },
+            "shaft": {
+                 "resources": {
+                    "progress": "Вы копаете породу еще {time}",
+                    "failure": "Порода оказалась пустой",
+                    "success": "Вы выкопали {resource} в количестве {amount} шт."
+                },
+                "monsters": {
+                    "attack": "Стенка туннеля не выдержала удара кирки и из образовавшегося пролома вас атаковало что-то ужасное!",
+                    "loot": {
+                        "standard": "Вы убили Гро и сняли с него шкуру",
+                        "improved": "Вы убили Большого Гро и сняли с него шкуру"
+                    }
+                }
+            },
+            "mine": {
+                "resources": {
+                    "progress": "Вы добываете самоцветы еще {time}",
+                    "failure": "Добыча оказалась неудачной",
+                    "success": "Вы добыли {resource} в количестве {amount} шт."
+                },
+                "monsters": {
+                    "attack": "В густом тумане, окутывающем прииск, послышался пронзительный крик, и на вас напало что-то ужасное!",
+                    "loot": {
+                        "standard": "Вы убили Златоглава и сняли с него шкуру",
+                        "improved": "Вы убили Златогрыза и сняли с него шкуру"
+                    }
+                }
+            },
+            "lake": {
+                 "resources": {
+                    "progress": "Вы ловите рыбу еще {time}",
+                    "failure": "Крючок оказался пустым",
+                    "success": "Вы поймали {resource} в количестве {amount} шт."
+                },
+                "monsters": {
+                    "attack": "Тихo шелестел камыш, все былo так тихo и прекраснo. Вдруг над пoверхнoстью вoды показалась кaкaя-тo гoлoва и чтo-тo прыгнулo на вас!",
+                    "loot": {
+                        "standard": "Вы убили Шишигу и сняли с него шкуру",
+                        "improved": "Вы убили Морену и сняли с него шкуру"
+                    }
+                }
+            },
+            "forest": {
+                 "resources": {
+                    "progress": "Вы рубите деревья еще {time}",
+                    "failure": "Дерево оказалось гнилым",
+                    "success": "Вы срубили {resource} в количестве {amount} шт."
+                },
+                "monsters": {
+                    "attack": "Кoрневища пoваленнoгo дерева прикрывали подземный хoд, из кoтoрoгo выскoчилo что-тo ужаснoе и напалo на вас!",
+                    "loot": {
+                        "standard": "Вы убили Клювозуба и сняли с него шкуру",
+                        "improved": "Вы убили Клювоклыка и сняли с него шкуру"
+                    }
+                }
+            },
+            "sands": {
+                 "resources": {
+                    "progress": "Вы исследуете пустыню еще {time}",
+                    "failure": "Находка оказалась неудачной",
+                    "success": "Вы обнаружили {resource} в количестве {amount} шт."
+                },
+                "monsters": {
+                    "attack": "Словно вихрь, нечто вырвалось из песчаных недр, вынуждая вас защищаться!",
+                    "loot": {
+                        "standard": "Вы убили Скорпиона и сняли с него шкуру",
+                        "improved": "Вы убили Красного Скорпиона и сняли с него шкуру"
+                    }
+                }
+            }
+        }
+    },
+    "items": {
+        "consumable": {
+            "use": "Вы употребили \"{item_name}\""
+        },
+        "locations": {
+            "pharmacy": {
+                "shop": {
+                    "purchase_self": "Вы приобрели Аптеку №{number} в городе {city_name}.",
+                    "purchase_public": "Персонаж {character_name} стал владельцем Аптеки №{number} в городе {city_name}.",
+                    "license_renewal": "Вы обновили лицензию аптеки до {end_license}",
+                    "level_up": "Вы повысили уровень вашей аптеки до {level}"
+                },
+                "trade": {
+                    "purchase_buyer": "Вы приобрели {item_name} за {price} дт.",
+                    "purchase_seller": "У вас в аптеке приобрели {item_name} за {price} дт. Покупатель: {buyer_name}. Вы уплатили налог {tax} дт."
+                },
+                "recipes": {
+                    "purchase": "Вы успешно приобрели рецепт на изготовление {quantity} партий \"{item_name}\" за {price} дт."
+                },
+                "crafting": {
+                    "progress": "Вы варите \"{item_name}\". Этап {stage}/{total_stages}. Осталось {time} сек.",
+                    "stage_success": "Успешно завершен {stage} этап создания \"{item_name}\"",
+                    "stage_failure": "Этап создания \"{item_name}\" оказался неудачным",
+                    "stage_failure_with_loss": "Этап создания \"{item_name}\" оказался неудачным. Вы потеряли 1 ресурс {resource_name}",
+                    "success": "Вы создали \"{item_name}\" в количестве {amount} шт."
+                }
+            },
+            "fish_shop": {
+                "shop": {
+                    "purchase_self": "Вы приобрели Рыбную лавку №{number} в городе {city_name}.",
+                    "purchase_public": "Персонаж {character_name} стал владельцем Рыбной лавки №{number} в городе {city_name}.",
+                    "license_renewal": "Вы обновили лицензию рыбной лавки до {end_license}",
+                    "level_up": "Вы повысили уровень вашей рыбной лавки до {level}"
+                },
+                "trade": {
+                    "purchase_buyer": "Вы приобрели {item_name} за {price} дт.",
+                    "purchase_seller": "У вас в рыбной лавке приобрели {item_name} за {price} дт. Покупатель: {buyer_name}. Вы уплатили налог {tax} дт."
+                },
+                "recipes": {
+                    "purchase": "Вы успешно приобрели рецепт на приготовление {quantity} партий \"{item_name}\" за {price} дт."
+                },
+                "crafting": {
+                    "progress": "Вы готовите \"{item_name}\". Этап {stage}/{total_stages}. Осталось {time} сек.",
+                    "stage_success": "Успешно завершен {stage} этап создания \"{item_name}\"",
+                    "stage_failure": "Этап создания \"{item_name}\" оказался неудачным",
+                    "stage_failure_with_loss": "Этап создания \"{item_name}\" оказался неудачным. Вы потеряли 1 ресурс {resource_name}",
+                    "success": "Вы создали \"{item_name}\" в количестве {amount} шт."
+                }
+            },
+            "furniture_shop": {
+                "shop": {
+                    "purchase_self": "Вы приобрели Мебельную лавку №{number} в городе {city_name}.",
+                    "purchase_public": "Персонаж {character_name} стал владельцем Мебельной лавки №{number} в городе {city_name}.",
+                    "license_renewal": "Вы обновили лицензию мебельной лавки до {end_license}",
+                    "level_up": "Вы повысили уровень вашей мебельной лавки до {level}"
+                },
+                "trade": {
+                    "purchase_buyer": "Вы приобрели {item_name} за {price} дт.",
+                    "purchase_seller": "У вас в мебельной лавке приобрели {item_name} за {price} дт. Покупатель: {buyer_name}. Вы уплатили налог {tax} дт."
+                },
+                "recipes": {
+                    "purchase": "Вы успешно приобрели чертеж на изготовление {quantity} предметов \"{item_name}\" за {price} дт."
+                },
+                "crafting": {
+                    "progress": "Вы мастерите \"{item_name}\". Этап {stage}/{total_stages}. Осталось {time} сек.",
+                    "stage_success": "Успешно завершен {stage} этап создания \"{item_name}\"",
+                    "stage_failure": "Этап создания \"{item_name}\" оказался неудачным",
+                    "stage_failure_with_loss": "Этап создания \"{item_name}\" оказался неудачным. Вы потеряли 1 ресурс {resource_name}",
+                    "success": "Вы создали \"{item_name}\" в количестве {amount} шт."
+                }
+            },
+            "hunting_shop": {
+                "shop": {
+                    "purchase_self": "Вы приобрели Охотничью лавку №{number} в городе {city_name}.",
+                    "purchase_public": "Персонаж {character_name} стал владельцем Охотничьей лавки №{number} в городе {city_name}.",
+                    "license_renewal": "Вы обновили лицензию охотничьей лавки до {end_license}",
+                    "level_up": "Вы повысили уровень вашей охотничьей лавки до {level}"
+                },
+                "trade": {
+                    "purchase_buyer": "Вы приобрели {item_name} за {price} дт.",
+                    "purchase_seller": "У вас в охотничьей лавке приобрели {item_name} за {price} дт. Покупатель: {buyer_name}. Вы уплатили налог {tax} дт."
+                },
+                "recipes": {
+                    "purchase": "Вы успешно приобрели рецепт на изготовление {quantity} партий \"{item_name}\" за {price} дт."
+                },
+                "crafting": {
+                    "progress": "Вы изготавливаете \"{item_name}\". Этап {stage}/{total_stages}. Осталось {time} сек.",
+                    "stage_success": "Успешно завершен {stage} этап создания \"{item_name}\"",
+                    "stage_failure": "Этап создания \"{item_name}\" оказался неудачным",
+                    "stage_failure_with_loss": "Этап создания \"{item_name}\" оказался неудачным. Вы потеряли 1 ресурс {resource_name}",
+                    "success": "Вы создали \"{item_name}\" в количестве {amount} шт."
+                }
+            },
+            "bird_market": {
+                "shop": {
+                    "purchase_self": "Вы приобрели Питомник №{number} в городе {city_name}.",
+                    "purchase_public": "Персонаж {character_name} стал владельцем Питомника №{number} в городе {city_name}.",
+                    "license_renewal": "Вы обновили лицензию питомника до {end_license}",
+                    "level_up": "Вы повысили уровень вашего питомника до {level}"
+                },
+                "trade": {
+                    "purchase_buyer": "Вы приобрели {item_name} за {price} дт.",
+                    "purchase_seller": "У вас в питомнике приобрели {item_name} за {price} дт. Покупатель: {buyer_name}. Вы уплатили налог {tax} дт."
+                },
+                "recipes": {
+                    "purchase": "Вы успешно приобрели секрет на выведение {quantity} драконов \"{item_name}\" за {price} дт."
+                },
+                "crafting": {
+                    "progress": "Вы выращиваете \"{item_name}\". Этап {stage}/{total_stages}. Осталось {time} сек.",
+                    "stage_success": "Успешно завершен {stage} этап создания \"{item_name}\"",
+                    "stage_failure": "Этап создания \"{item_name}\" оказался неудачным",
+                    "stage_failure_with_loss": "Этап создания \"{item_name}\" оказался неудачным. Вы потеряли 1 ресурс {resource_name}",
+                    "success": "Вы создали \"{item_name}\" в количестве {amount} шт."
+                }
+            },
+            "forge": {
+                "shop": {
+                    "purchase_self": "Вы приобрели Кузницу №{number} в городе {city_name}.",
+                    "purchase_public": "Персонаж {character_name} стал владельцем Кузницы №{number} в городе {city_name}.",
+                    "license_renewal": "Вы обновили лицензию кузницы до {end_license}"
+                },
+                "recipes": {
+                    "purchase": "Вы успешно приобрели секрет на изготовление {quantity} партий \"{item_name}\" за {price} дт."
+                },
+                "crafting": {
+                    "progress": "Вы изготавливаете \"{item_name}\". Этап {stage}/{total_stages}. Осталось {time} сек.",
+                    "stage_success": "Успешно завершен {stage} этап создания \"{item_name}\"",
+                    "stage_failure": "Этап создания \"{item_name}\" оказался неудачным",
+                    "stage_failure_with_loss": "Этап создания \"{item_name}\" оказался неудачным. Вы потеряли 1 ресурс {resource_name}",
+                    "success": "Вы создали \"{item_name}\" в количестве {amount} шт."
+                }
+            },
+            "jewelers": {
+                "shop": {
+                    "purchase_self": "Вы приобрели Ювелирную №{number} в городе {city_name}.",
+                    "purchase_public": "Персонаж {character_name} стал владельцем Ювелирной №{number} в городе {city_name}.",
+                    "license_renewal": "Вы обновили лицензию ювелирной до {end_license}"
+                },
+                "recipes": {
+                    "purchase": "Вы успешно приобрели секрет на изготовление {quantity} партий \"{item_name}\" за {price} дт."
+                },
+                "crafting": {
+                    "progress": "Вы изготавливаете \"{item_name}\". Этап {stage}/{total_stages}. Осталось {time} сек.",
+                    "stage_success": "Успешно завершен {stage} этап создания \"{item_name}\"",
+                    "stage_failure": "Этап создания \"{item_name}\" оказался неудачным",
+                    "stage_failure_with_loss": "Этап создания \"{item_name}\" оказался неудачным. Вы потеряли 1 ресурс {resource_name}",
+                    "success": "Вы создали \"{item_name}\" в количестве {amount} шт."
+                }
+            },
+            "trade_hall": {
+                "shop": {
+                    "purchase_self": "Вы приобрели Палатку №{number} в городе {city_name}.",
+                    "purchase_public": "Персонаж {character_name} стал владельцем Палатки №{number} в городе {city_name}.",
+                    "license_renewal": "Вы обновили лицензию палатки до {end_license}",
+                    "level_up": "Вы повысили уровень вашей палатки до {level}"
+                },
+                "trade": {
+                    "purchase_buyer": "Вы приобрели {item_name} за {price} дт.",
+                    "purchase_seller": "У вас в палатке приобрели {item_name} за {price} дт. Покупатель: {buyer_name}. Вы уплатили налог {tax} дт."
+                },
+                "deal": {
+                    "completed_with_tax": "Сделка #{deal_short_id} с {partner_name} успешно завершена. Вы получили {rewards_list}. Налог со сделки составил {tax}",
+                    "completed_without_tax": "Сделка #{deal_short_id} с {partner_name} успешно завершена. Вы получили {rewards_list}"
+                }
+            }
+        },
+        "expiry": {
+            "item_expired": "Истёк срок годности предмета \"{item_name}\"",
+            "item_expired_stack": "Истёк срок годности предмета \"{item_name}\" в количестве {amount} шт.",
+            "animal_died": "Ваше животное \"{item_name}\" умерло от старости"
+        },
+        "trade_license": {
+            "purchase": "Вы купили лицензию торговца",
+            "renewal": "Вы обновили лицензию торговца до {end_license}"
+        }
+    },
+    "character": {
+        "play": {
+            "friends": {
+                "male": "зашел в Эхо Смуты",
+                "female": "зашла в Эхо Смуты"
+            },
+            "info": {
+                "all": "Персонаж <a href='{frontend_url}/characters/{character_id}'>{character_name_html}</a> зарегистрирован в Эхо Смуты!",
+                "self": "Добро пожаловать в мир Эхо Смуты!"
+            }
+        }
+    },
+   "economy": {
+        "tavern": {
+            "buy": "Вы употребили {meal_name} за {price} дт."
+        },
+        "pawnshop": {
+            "buyout": {
+                "buy": "Вы приобрели {items_list} и потратили {price} дт.",
+                "sell": "Вы продали {items_list} и заработали {price} дт."
+            },
+            "exchange": {
+                "deal_buy_executor": "Вы купили на бирже {items} и потратили {price} дт.",
+                "deal_sell_executor": "Вы продали на бирже {items} и заработали {price} дт. Налог составил {tax} дт.",
+                "deal_sell_owner": "Ваш лот на продажу исполнен: {executor_name} забрал {items} за {price} дт. Налог составил {tax} дт.",
+                "deal_buy_owner": "Ваш лот на покупку исполнен: {executor_name} доставил {items} за {price} дт."
+            }
+        }
+    },
+    "rest": {
+        "rent": "Вы сняли комнату в гостинице \"{inn_name}\" на {days_text}",
+        "expired": "Время аренды комнаты в гостинице \"{inn_name}\" истекло",
+        "house": {
+            "purchase_self": "Вы приобрели Дом №{number} в городе {city_name}",
+            "purchase_public": "Персонаж {character_name} стал владельцем Дома №{number} в городе {city_name}",
+            "knock_self": "Вы постучали в дом №{number}",
+            "accepted_guest": "Вас впустили в дом №{number}",
+            "accepted_owner": "Вы открыли дверь гостю {character_name}",
+            "kicked_owner": "Вы выгнали гостя {character_name} из дома"
+        }
+    }
+}

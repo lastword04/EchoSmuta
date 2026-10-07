@@ -1,0 +1,28 @@
+[project]
+name = "file-storage"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aioboto3>=15.0.0",
+    "aiofiles>=24.1.0",
+    "alembic>=1.16.4",
+    "asyncpg>=0.31.0",
+    "fastapi>=0.116.1",
+    "granian[reload]>=2.7.9",
+    "psycopg[binary]>=3.3.2",
+    "pydantic-settings>=2.10.1",
+    "python-jose>=3.5.0",
+    "python-multipart>=0.0.20",
+    "pyyaml>=6.0.2",
+    "redis>=6.4.0",
+    "sqlalchemy>=2.0.42",
+    "sqlalchemy-utils>=0.41.2",
+    "types-aiobotocore[s3]>=2.24.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.9",
+]

@@ -1,0 +1,46 @@
+[project]
+name = "mining"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.17.2",
+    "asyncpg>=0.31.0",
+    "celery>=5.5.3",
+    "fastapi>=0.121.3",
+    "granian[reload]>=2.6.0",
+    "httpx>=0.28.1",
+    "psycopg[binary]>=3.3.2",
+    "pydantic-settings>=2.12.0",
+    "Pillow>=10.0.0",
+    "python-jose>=3.5.0",
+    "pyyaml>=6.0.3",
+    "redis>=7.1.0",
+    "sqlalchemy>=2.0.44",
+    "sqlalchemy-utils>=0.42.0",
+    "pyjwt>=2.13.0",
+    "celery-redbeat>=2.4.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.16.8",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+ignore = [
+    "B008",     # FastAPI Depends()/Query() в дефолтах
+    "BLE001",   # осознанный catch-all для публикаций в redis/шину
+    "UP046",    # Generic[T] — старый синтаксис, работает; PEP 695 сломает __orig_bases__ в base_repository
+    "PLC0105",  # нейминг TypeVar'ов — вкусовщина
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]

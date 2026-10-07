@@ -1,0 +1,218 @@
+.sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  transition: background 1.5s ease;
+}
+
+/* ========== НОЧНОЙ РЕЖИМ ========== */
+.night {
+  background: rgba(10, 15, 30, 0.3);
+}
+
+.moon {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle at 30% 30%, 
+    #f0f0f0 0%, 
+    #d0d0d0 60%, 
+    #a0a0a0 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 30px rgba(255, 255, 255, 0.5),
+    0 0 60px rgba(255, 255, 255, 0.2),
+    inset -8px -8px 15px rgba(0, 0, 0, 0.15);
+  animation: moonGlow 5s ease-in-out infinite;
+}
+
+.moon::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 18px;
+  width: 12px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  box-shadow: 
+    25px 15px 0 -2px rgba(0, 0, 0, 0.1),
+    15px 25px 0 -3px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes moonGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 25px rgba(255, 255, 255, 0.4),
+      0 0 50px rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(255, 255, 255, 0.7),
+      0 0 80px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: starTwinkle ease-in-out infinite;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.shootingStar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0), 
+    rgba(255, 255, 255, 0.8), 
+    rgba(255, 255, 255, 0));
+  transform: rotate(-45deg);
+  animation: shootingStar 10s ease-out infinite;
+  animation-delay: 3s;
+  opacity: 0;
+}
+
+.shootingStar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px white;
+}
+
+@keyframes shootingStar {
+  0%, 90% {
+    opacity: 0;
+    transform: translateX(0) translateY(0) rotate(-45deg);
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-400px) translateY(400px) rotate(-45deg);
+  }
+}
+
+/* ========== ДНЕВНОЙ РЕЖИМ ========== */
+.day {
+  background: transparent; /* Фон виден на 100% */
+}
+
+/* ========== ЧАСТИЦЫ ========== */
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, 
+    rgba(255, 215, 0, 0.8) 0%,
+    rgba(255, 180, 50, 0.3) 50%,
+    transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+  animation: particleDrift ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes particleDrift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translate(10px, -15px) scale(1.1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-5px, -30px) scale(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(15px, -45px) scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* ========== ИСКРЫ (МЕДЛЕННЫЕ) 🔥 ========== */
+.spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, 
+    rgba(255, 140, 0, 1) 0%,
+    rgba(255, 69, 0, 0.8) 40%,
+    rgba(255, 69, 0, 0) 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 8px rgba(255, 140, 0, 0.8),
+    0 0 15px rgba(255, 69, 0, 0.4);
+  animation: sparkRise ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes sparkRise {
+  0% {
+    bottom: -10%;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+    transform: scale(1.2) translateX(20px);
+  }
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 768px) {
+  .moon {
+    width: 50px;
+    height: 50px;
+    top: 60px;
+    left: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .moon {
+    display: none;
+  }
+  
+  .spark {
+    opacity: 0.5;
+  }
+}

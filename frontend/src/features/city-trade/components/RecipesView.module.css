@@ -1,0 +1,263 @@
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                              LAYOUT                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.recipesContainer {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         SELECTORS & FILTERS                        ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Селектор количества ── */
+
+.quantitySelector {
+  display: flex;
+  align-items: center;  
+  padding-bottom: 5px;
+}
+
+.quantityLabel {
+  font-size: 12px;  
+}
+
+.separator {  
+  font-weight: bold;  
+}
+
+/* ── Фильтры ── */
+
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 20px; 
+  padding: 5px 0;
+  border-top: 1px solid #a99d9c;
+}
+
+.filterGroup {
+  display: flex;  
+  flex-direction: column;  
+}
+
+.filterLabel {
+  font-size: 13px;  
+}
+
+.filterSelect {
+  min-width: 120px;
+  padding: 4px 6px;
+  font-size: 13px;  
+  border-radius: 3px;
+  background: #f7f3e8;
+  color: #3a2623;
+  font-family: var(--font-sequel);
+  cursor: pointer;
+}
+
+.filterSelect:hover {
+  border-color: #8a7d7c;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #6b5a5a;
+  box-shadow: 0 0 0 2px rgba(107, 90, 90, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                              TABLES                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.borderBox {
+  background:
+    url("/images/locations/border/border_nut.gif") 0 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 0 100% no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 100% no-repeat,
+    url("/images/locations/border/border-top.gif") top repeat-x,
+    url("/images/locations/border/border-bot.gif") bottom repeat-x,
+    url("/images/locations/border/border-left.gif") 0 repeat-y,
+    url("/images/locations/border/border-right.gif") 100% repeat-y;
+  max-width: 700px;
+  width: 100%;
+  padding: 9px;
+  box-sizing: border-box;
+}
+
+/* ── Таблица рецептов ── */
+
+.recipesTable {
+  width: 100%;
+  table-layout: fixed; 
+  border-collapse: collapse;
+  color: #000;
+}
+
+.recipesTable tbody {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+}
+
+.tableHeader {
+  background: url("/images/widgets/chat-panel/buttons/chat-button.png") top repeat-x;
+  height: 19px;
+  line-height: 19px;  
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 2px solid var(--card-bg);
+}
+
+.recipeRow {
+  border-bottom: 1px solid var(--card-table);
+}
+
+.recipeRow:last-child {
+  border-bottom: none;
+}
+
+.recipeRow:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.recipesTable td {
+  padding: 3px;
+  font-size: 14px;
+}
+
+.recipesTable th {
+  padding: 0px 3px;
+  font-size: 14px;
+}
+
+.recipesTable td,
+.recipesTable th {
+  text-align: center;
+}
+
+.actionCell {
+  text-align: right;
+}
+
+/* ── Колонки: десктоп (4 колонки) ── */
+
+.recipesTable col:nth-child(1) { width: 30%; }
+.recipesTable col:nth-child(2) { width: 45%; }
+.recipesTable col:nth-child(3) { width: 10%; }
+.recipesTable col:nth-child(4) { width: 15%; }
+
+/* ── Колонки: десктоп с расой (5 колонок) ── */
+
+.recipesTable.withRace col:nth-child(1) { width: 30%; }
+.recipesTable.withRace col:nth-child(2) { width: 15%; }
+.recipesTable.withRace col:nth-child(3) { width: 30%; }
+.recipesTable.withRace col:nth-child(4) { width: 10%; }
+.recipesTable.withRace col:nth-child(5) { width: 15%; }
+
+/* ── Оверлей карточки предмета ── */
+
+.itemCardOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100vh - var(--panel-height, 30vh));
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 50px 0;
+  z-index: 2000;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                           MESSAGES                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.noRecipes {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+.title {
+  margin: 0;
+  font-size: 14px;
+  color: #212529;
+  font-family: var(--font-sequel);
+  font-weight: bold;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                   МОБИЛЬНЫЕ ВСТАВКИ                               ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.mobileExtra,
+.mobileBuy {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                        RESPONSIVE                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 830px) {
+  .recipesContainer {
+    max-width: 100%;
+  }
+
+  .filters {
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) { 
+  
+  /* Прячем колонки Раса и Цена */
+  .hideOnMobile {
+    display: none !important;
+  }
+
+  /* Показываем мобильные вставки */
+  .mobileExtra {
+    display: block;
+    font-size: 13px;
+    color: #555;
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+
+  .mobileBuy {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;    
+  }
+
+  /* Видимые колонки занимают слоты 1-3, остальные обнуляем */
+  .recipesTable col:nth-child(1) { width: 40% !important; }
+  .recipesTable col:nth-child(2) { width: 40% !important; }
+  .recipesTable col:nth-child(3) { width: 20% !important; }
+  .recipesTable col:nth-child(n+4) { width: 0 !important; } 
+}
+
+@media (max-width: 480px) {
+  .quantitySelector {
+    flex-wrap: wrap;
+  }
+}

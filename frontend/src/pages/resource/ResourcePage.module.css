@@ -1,0 +1,304 @@
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         LAYOUT & CONTAINERS                        ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.mainResource {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 900px auto;
+  display: flex;
+  color: #fff;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.contentBox {
+  width: 100%;
+  margin-left: 420px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.leftRightLayout {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         BORDER BOX                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.borderBox {
+  background:
+    url("/images/locations/border/border_nut.gif") 0 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 0 100% no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 100% no-repeat,
+    url("/images/locations/border/border-top.gif") top repeat-x,
+    url("/images/locations/border/border-bot.gif") bottom repeat-x,
+    url("/images/locations/border/border-left.gif") 0 repeat-y,
+    url("/images/locations/border/border-right.gif") 100% repeat-y;
+  max-width: 400px;
+  width: 100%;
+  padding: 9px;
+  box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                           TABLE                                    ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #eee;
+  font-size: 14px;
+  line-height: 0;
+  table-layout: fixed;
+}
+
+.table thead tr {
+  background: url("/images/widgets/chat-panel/buttons/chat-button.png") top repeat-x;
+  height: 19px;
+  line-height: 19px;
+  color: #212529;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 2px solid var(--card-bg);
+}
+
+.table tbody tr {
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: left;
+}
+
+.table td:last-child,
+.table th:last-child {
+  width: 8%;
+  text-align: center;
+}
+
+.table td,
+.table th {
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hiddenBody tr {
+  display: none;
+}
+
+.resourceImage {
+  width: 32px;       /* Базовый размер для большинства ресурсов */
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}  
+
+/* Специальный размер для рыбы (Озеро) */
+.resourceImageWide {
+  width: 64px;
+  height: 32px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                          INFO BOX                                  ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.infoBox {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color: rgba(63, 63, 63, 0.8);
+  color: #eee;
+  padding: 6px;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1.3;
+  max-width: 500px;
+  min-width: 400px;
+  min-height: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                           CAPTCHA                                  ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.captchaMiniRow {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.captchaMiniImage {
+  width: 80px;
+  height: 36px;
+  cursor: pointer;
+  border: 1px solid #6b4740;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-right: none;  
+}
+
+.captchaMiniInput {
+  color: #000000;
+  padding: 4px 8px;
+  height: 36px;
+  font-size: 14px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  outline: none;
+  width: 80px;
+  background-color: #f3eddb;
+  border: 1px solid #6b4740;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.captchaMiniInput:focus {
+  box-shadow: 0 0 6px #6b4740;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                       ACTION BUTTON                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.actionButton {
+  margin-top: 0.25rem;
+  width: 160px;
+  padding: 1px 6px;
+  font-size: 14px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background-image: linear-gradient(#ececec, #a5a195);
+  background-color: #f3eddb;
+  border: 1px solid #a99d9c;
+  color: #3a2623;
+  text-shadow: 0 1px 3px #f3eddb;
+  cursor: pointer;  
+}
+
+.actionButton:disabled {  
+  cursor: not-allowed;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         RESPONSIVE                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1220px) {
+  .leftRightLayout {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 950px) {
+  .contentBox {
+    margin-left: 0;
+  }
+
+  .leftRightLayout {
+    flex-direction: row;
+  }
+
+  .borderBox {
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 830px) {
+  .contentBox {
+    display: flex;
+    justify-content: center;
+  }
+
+  .leftRightLayout {
+    flex-direction: column;
+  }
+
+  .infoBox {
+    margin-bottom: 10px;
+  }
+
+  .borderBox {
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leftRightLayout {
+    width: 100%;
+  }
+
+  .borderBox {
+    max-width: 100%;
+  }
+
+  .infoBox {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .captchaMiniRow {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 350px) {
+
+
+  /* 1) Полностью убираем 2-й столбец:
+        и ячейки, и его <col>, чтобы не осталось пустого места */
+  .table col:nth-child(2),
+  .table th:nth-child(2),
+  .table td:nth-child(2) {
+    display: none;
+  }
+
+  /* 2) Пересчитываем ширины оставшихся 4 колонок.
+        !important нужен, чтобы перебить inline style="width: ..."
+        который React ставит на <col> из LOCATION_COLUMN_WIDTHS. */
+  .table col:nth-child(1) { width: 18% !important; } /* иконка  */
+  .table col:nth-child(3) { width: 38% !important; } /* Доступно */
+  .table col:nth-child(4) { width: 22% !important; } /* Успех   */
+  .table col:nth-child(5) { width: 22% !important; } /* стрелка */
+
+  /* 3) Перебиваем правило `.table th:last-child { width: 8% }`,
+        иначе оно конфликтует с новой шириной 5-го столбца */
+  .table th:last-child,
+  .table td:last-child {
+    width: auto;
+  }
+
+   /* переопределение для озера (класс через локацию) */
+  .loc_2_4_lake col:nth-child(1) { width: 26% !important; } /* иконка шире — рыба */
+  .loc_2_4_lake col:nth-child(3) { width: 34% !important; }
+  .loc_2_4_lake col:nth-child(4) { width: 20% !important; }
+  .loc_2_4_lake col:nth-child(5) { width: 20% !important; }
+}
+

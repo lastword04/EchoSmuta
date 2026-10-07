@@ -1,0 +1,305 @@
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         LAYOUT & CONTAINERS                        ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url('/images/station/background.jpg');
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  display: flex;
+  overflow-y: auto;
+}
+
+.contentBox {
+  width: 100%;
+  margin-left: 420px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.leftRightLayout {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.tables {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         BORDER BOX                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.borderBox {
+  background:
+    url("/images/locations/border/border_nut.gif") 0 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 0 100% no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 100% no-repeat,
+    url("/images/locations/border/border-top.gif") top repeat-x,
+    url("/images/locations/border/border-bot.gif") bottom repeat-x,
+    url("/images/locations/border/border-left.gif") 0 repeat-y,
+    url("/images/locations/border/border-right.gif") 100% repeat-y;
+  max-width: 400px;
+  width: 100%;
+  padding: 9px;
+  box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                           TABLES                                   ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.statsTable,
+.weaponTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  border: none;
+}
+
+.statsTable thead tr,
+.weaponTable thead tr {
+  background: url("/images/widgets/chat-panel/buttons/chat-button.png") top repeat-x;
+  height: 19px;
+  line-height: 19px;
+  color: #212529;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid var(--card-bg);
+}
+
+.statsTable tbody tr,
+.weaponTable tbody tr,
+.infoBox {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+  color: #000000;
+  width: 100%;
+}
+
+.statsTable td,
+.statsTable th,
+.weaponTable td,
+.weaponTable th {
+  font-size: 14px;
+  text-align: center;
+}
+
+.statsTable td,
+.weaponTable td {
+  padding: 4px 0px;
+}
+
+.statsTable tbody tr:first-child td,
+.weaponTable tbody tr:first-child td {
+  padding: 1px;
+}
+
+.statsTable tbody tr:nth-child(2) td,
+.weaponTable tbody tr:nth-child(2) td {
+  padding: 1px 1px 10px;
+}
+
+.weaponTable tbody tr:nth-child(4) td,
+.weaponTable tbody tr:nth-child(5) td,
+.weaponTable tbody tr:nth-child(6) td {
+  text-align: end;
+  padding-right: 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                     CONTROL BUTTONS (+/-)                          ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.controls {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 10px;
+}
+
+.controls:last-child {
+  gap: 0;
+}
+
+.controlButton {
+  background-image: linear-gradient(#f3c892, #d48b5c);
+  background-color: #f3eddb;
+  border: 1px solid #a99d9c;
+  color: #000000;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.15s ease;
+}
+
+.controlButton:hover:not(:disabled) {
+  background-image: linear-gradient(#ffdb9d, #e69b6d);
+}
+
+.controlButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                       ACTION BUTTONS                               ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.buttons {
+  display: flex;
+  padding: 5px 20px;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                      INFO & MESSAGES                               ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.infoBox {
+  padding-top: 10px !important;
+  width: 100%;
+}
+
+.messageContainer {
+  color: black;
+  margin-top: 0.5rem;
+}
+
+.balanceItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-right: 20px;
+  font-family: var(--font-text);
+  font-weight: 500;
+  justify-content: flex-end;
+}
+
+.currencyIcon {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         RESPONSIVE                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1250px) {
+  .tables {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 950px) {
+  .contentBox {
+    margin-left: 0;
+  }
+  
+  .tables {
+    flex-direction: row;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 830px) {
+  .contentBox {
+    display: flex;
+    justify-content: center;
+    margin-right: 0;
+  }
+  
+  .tables {
+    flex-direction: column;
+    margin-left: 0;    
+  }
+}
+
+@media (max-width: 480px) {
+  .leftRightLayout {
+    width: 100%;
+  }
+  
+  .borderBox {
+    max-width: 100%;
+  }
+  
+  .tables {
+    gap: 5px;
+  }
+  
+  .contentBox {
+    margin-top: 0;
+  }
+  
+.infoBox {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .messageContainer {
+    margin-top: 0; 
+  }
+  
+  .buttons {
+    flex-direction: row;  /* Изменили с column на row */
+    justify-content: center;    
+    padding: 5px 10px;
+    flex-wrap: wrap;  /* На случай если не влезут */
+  }
+  
+  .buttons .gameButton {
+    flex: 1;
+    min-width: 120px;
+    max-width: calc(50% - 4px);
+  }
+  
+  .balanceItem {
+    margin-right: 0;
+    justify-content: center;   
+  }
+}
+
+@media (max-width: 380px) {
+  .controlButton {
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+  }
+ 
+}

@@ -1,0 +1,182 @@
+.commentCard {
+  background: linear-gradient(135deg, rgba(26, 36, 47, 0.85) 0%, rgba(15, 23, 32, 0.9) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.commentCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.authorName {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin: 0;
+  font-weight: 600;
+}
+
+.commentDate {
+  font-family: var(--font-text);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.commentContent {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.commentText {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.commentFiles {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fileItem {
+  max-width: 200px;
+}
+
+.imagePreview {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: block;
+}
+
+.imagePreview:hover {
+  transform: scale(1.05);
+}
+
+.fileLink {
+  font-size: 0.9rem;
+  color: var(--gold);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.fileLink:hover {
+  text-decoration: underline;
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .commentCard {
+    border-radius: 10px;
+  }
+  
+  .commentHeader {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  
+  .authorInfo {
+    gap: 3px;
+  }
+  
+  .authorName {
+    font-size: 1rem;
+  }
+  
+  .commentDate {
+    font-size: 0.8rem;
+  }
+  
+  .commentText {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .commentCard {
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .commentHeader {
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+  
+  .authorName {
+    font-size: 0.95rem;
+  }
+  
+  .commentDate {
+    font-size: 0.75rem;
+  }
+  
+  .commentText {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .commentContent {
+    margin-bottom: 12px;
+  }
+}
+
+/* Ночной режим */
+body.night-mode .commentCard {
+  background: linear-gradient(135deg, rgba(8, 12, 16, 0.95) 0%, rgba(18, 32, 21, 0.95) 100%);
+  border-color: rgba(196, 159, 42, 0.3);
+}
+
+body.night-mode .commentCard:hover {
+  border-color: rgba(196, 159, 42, 0.6);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.night-mode .authorName {
+  color: var(--night-gold);
+}
+
+body.night-mode .commentDate {
+  color: var(--text-secondary);
+}
+
+body.night-mode .commentText {
+  color: var(--text-primary);
+}
+
+body.night-mode .commentHeader {
+  border-bottom-color: rgba(196, 159, 42, 0.2);
+}

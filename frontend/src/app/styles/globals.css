@@ -1,0 +1,225 @@
+@font-face {
+  font-family: 'customComic';
+  src: url('/fonts/comic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Kelly Slab';
+  src: url('/fonts/kelly-slab-v18-cyrillic_latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('/fonts/caveat-v23-cyrillic_latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ponomar';
+  src: url('/fonts/ponomar-v5-cyrillic_latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-v21-cyrillic_latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-v21-cyrillic_latin-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-v21-cyrillic_latin-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-v21-cyrillic_latin-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-v21-cyrillic_latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+:root {
+  /* Основные цвета - более яркие */
+  --dark-bg: #0f1a24; /* Более тёмный фон */
+  --darker-bg: #0a121a; /* Ещё более тёмный */
+  --dark-green: #2d5a3d; /* Более насыщенный зелёный */
+  --burgundy: #7a2a2a; /* Более насыщенный бордовый */
+  --gold: #e6c14f; /* Более яркое золото */
+  --light-gold: #ffd85c; /* Более яркое светлое золото */
+  --text-primary: #f0f0f0; /* Более светлый основной текст */
+  --text-secondary: #c0c0c0; /* Более контрастный вторичный текст */
+  --accent-blue: #5d9fd1; /* Более яркая синяя акцентная */
+  --red-accent: #ff4d4d; /* Яркий красный акцент */
+  
+  /* Цвета для светлых элементов */
+  --light-bg: #1a2a3a; /* Светлый фон для карточек */
+  --card-bg: rgba(26, 42, 58, 0.92); /* Фон карточек */
+  --card-border: rgba(230, 193, 79, 0.25); /* Более заметная граница */
+  --card-table: rgba(71, 26, 17, 0.15); /* Для игровых таблиц */  
+  
+  /* Ночные цвета */
+  --night-dark-bg: #0d1620;
+  --night-darker-bg: #080f16;
+  --night-dark-green: #254a33;
+  --night-burgundy: #652222;
+  --night-gold: #d4af37;
+  --night-light-gold: #f0c808;
+  --night-accent-blue: #4a85b0;
+  
+  /* Шрифты */
+  --font-display: 'Kelly Slab', serif;
+  --font-handwritten: 'Caveat', cursive;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-slavic: 'Ponomar', system-ui; /* Новый шрифт */
+  --font-base: 'Arial', 'Helvetica', 'sans-serif';
+  --font-sequel: 'Trebuchet Ms', 'Helvetica', 'sans-serif';
+  --font-text: var(--font-sequel);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-text);
+  color: var(--text-primary);
+  line-height: 1.6;
+  position: relative;
+}
+
+/* Добавим декоративный орнамент поверх фона */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(230, 193, 79, 0.04) 0%, transparent 25%),
+    radial-gradient(circle at 90% 80%, rgba(122, 42, 42, 0.04) 0%, transparent 25%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+body.night-mode {
+  --dark-bg: var(--night-dark-bg);
+  --darker-bg: var(--night-darker-bg);
+  --dark-green: var(--night-dark-green);
+  --burgundy: var(--night-burgundy);
+  --gold: var(--night-gold);
+  --light-gold: var(--night-light-gold);
+  --accent-blue: var(--night-accent-blue);
+  background-image: 
+    linear-gradient(rgba(13, 22, 32, 0.97), rgba(13, 22, 32, 0.99)),
+    url("/images/background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.night-mode::before {
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(212, 175, 55, 0.05) 0%, transparent 30%),
+    radial-gradient(circle at 85% 75%, rgba(101, 34, 34, 0.05) 0%, transparent 30%);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(135deg, rgba(10, 15, 20, 0.95) 0%, rgba(26, 44, 30, 0.95) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--burgundy), var(--gold), var(--dark-green));
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--gold), var(--light-gold), var(--gold));
+}
+
+*[style*="--show-scroll: 0"]::-webkit-scrollbar-thumb {
+  display: none;
+}
+/*@-moz-document url-prefix() {
+* {
+scrollbar-width: thin !important;
+scrollbar-color: var(--gold) rgba(0, 0, 0, 0.15) !important;
+}
+}
+[style="--show-scroll: 0"] {
+scrollbar-width: none !important;
+}
+*/
+@media (max-width: 950px) {
+  *::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    
+  }
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: none;
+    border-radius: 3px;
+  }
+}
+
+textarea[style*="--show-scroll: 0"]::-webkit-scrollbar-thumb {
+  display: none !important;
+}
+
+textarea[style*="--show-scroll: 0"]::-webkit-scrollbar-track {
+  background: transparent !important;
+}

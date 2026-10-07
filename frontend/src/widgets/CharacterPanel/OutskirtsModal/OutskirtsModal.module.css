@@ -1,0 +1,298 @@
+.overlay {
+  position: relative;
+  z-index: 1000;  
+  padding: 50px 0;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.modal {
+  max-width: 100vw;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  background-size: contain;
+  position: relative;
+  flex-shrink: 1;
+  overflow-x: hidden;
+}
+
+.header {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1001;
+}
+
+.closeButton {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 25px;
+  cursor: pointer;
+  color: #000000;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.content {
+  display: flex;
+  width: auto;
+  min-width: 0;
+  overflow: visible;
+  flex-direction: row;
+  line-height: 1.1;
+  flex: 1 1 auto; /* Занимает всё доступное пространство */
+  min-height: 0; /* Позволяет сжиматься ниже контента */
+  background: #eee;
+  box-sizing: border-box;
+  flex-shrink: 1;
+}
+
+.leftPanel {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-right: 0px solid #ddd;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.mapImage {
+  position: relative;
+  width: 800px;
+  height: 533px;
+  display: block;
+}
+.blinkingDot {
+  position: absolute;
+  top: 307px;
+  left: 370px;
+  width: 13px;
+  height: 13px;
+  background-color: #ff0000;
+  border: 2px solid #000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: blink 1s infinite;
+  box-shadow: 0 0 10px #ff0000;
+  z-index: 10;
+}
+
+@keyframes blink {
+  0%, 100% { 
+    background-color: #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+  }
+  50% { 
+    background-color: #ffff00;
+    box-shadow: 0 0 15px #ffff00;
+  }
+}
+
+.rightPanel {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Позволяет сжиматься ниже контента */
+  flex-grow: 1;
+  flex-shrink: 1;
+  /*flex-basis: 0;*/
+  min-width: 300px;
+  max-width: 600px;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.locationsList {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.location {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 16px;
+  color: #000000;
+  border-radius: 4px;
+  padding: 4px 0;
+  flex-shrink: 0;
+}
+
+.location:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.clickableLocation {
+  display: inline-block;
+  align-self: flex-start;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.clickableLocation:hover {
+  text-decoration: underline;
+}
+
+.currentLocation {
+  font-weight: bold;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0px;
+  border-radius: 4px;
+  background: none;
+  text-decoration: none;
+}
+
+.currentLocation::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #ff0000;
+  border: 3px solid #000;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+}
+.currentLocation:hover {
+  text-decoration: none;
+  cursor: auto;
+}
+
+.spacer {
+  height: 10px;
+  flex-shrink: 0;
+}
+
+
+@media (max-width: 1280px) {
+  .overlay {
+    padding: 8px 0px 10px;
+  }
+  .content {
+    flex-direction: column;
+  }
+    
+  .leftPanel {
+    aspect-ratio: unset;
+    min-height: unset;
+    order: 1;
+  }
+  .cityMap{
+    margin-left: 20px;
+  }
+  .header {
+    position: static; /* убираем абсолютное позиционирование */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    order: 2;
+
+  }
+  .mapContainer {
+    background-size: cover;
+  }
+  .closeButton {
+    position: static;
+    width: 16px;
+    height: 16px;
+    margin-right: 20px;
+  }
+  
+  .rightPanel {
+    max-width: 800px;
+    min-height: 250px;
+    order: 3;
+    padding-top: 10px;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  .mobileColumns {
+    display: flex;
+    gap: 20px;
+  }
+  .mobileColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobileColumn:nth-of-type(1) > :nth-child(4) {
+    margin-top: 15px;
+  }
+  .mobileColumn:nth-of-type(2) > :nth-child(7) {
+    margin-top: 10px; /* Величина отступа регулируется */
+  }
+  /*.locationsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }*/
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 800px) {
+  /*.overlay {
+    padding-top: 8px;
+  }*/
+  .modal {
+    width: 100%;
+    border-radius: 0;
+  }
+  .content {
+    position: relative;
+    flex-direction: column;
+  }
+  .header {
+    top: 0; /* Фиксируется сверху */
+    left: 0;
+  }
+
+  .rightPanel {
+    order: 3;
+    padding-top: 10px;
+    padding-right: 5px;
+    max-height: 300px;
+  }
+  
+  .mapContainer {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mapImage {
+    min-width: 800px;    
+    display: block;
+  }
+  .mobileColumns {
+    gap: 5px;
+  }
+}

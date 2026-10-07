@@ -1,0 +1,1 @@
+uv add fastapi pydantic_settings sqlalchemy sqlalchemy_utils psycopg alembic granian[reload] pyyaml python-jose

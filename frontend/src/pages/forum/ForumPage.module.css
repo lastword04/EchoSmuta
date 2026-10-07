@@ -1,0 +1,161 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(26, 44, 30, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(74, 21, 21, 0.1) 0%, transparent 20%);
+  background-attachment: fixed;
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.forumCard {
+  background: linear-gradient(135deg, rgba(10, 15, 20, 0.95) 0%, rgba(26, 44, 30, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 40px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.subtitle {
+  font-family: var(--font-handwritten);
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.errorMessage {
+  background: rgba(231, 76, 60, 0.15);
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  color: #e74c3c;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 0;
+  color: var(--text-secondary);
+}
+
+.forumsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.forumSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.forumsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  text-align: center;
+  display: flex;
+  gap: 20px; /* Добавляет отступ между кнопками */
+  justify-content: center; /* Центрирует кнопки */
+  flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку при необходимости */
+}
+
+.backButton {
+  font-size: 0.9rem !important;
+  padding: 10px 20px !important;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .page {
+    padding: 15px;
+  }
+  
+  .forumCard {
+    padding: 30px 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  
+  .forumsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .footer {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 10px;
+  }
+  
+  .forumCard {
+    padding: 25px 15px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+  
+  .forumsGrid {
+    gap: 15px;
+  }
+}

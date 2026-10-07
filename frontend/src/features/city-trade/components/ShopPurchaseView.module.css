@@ -1,0 +1,86 @@
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                          LAYOUT                                   ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.purchaseContainer {
+  width: 100%;  
+}
+
+.borderBox {
+  background:
+    url("/images/locations/border/border_nut.gif") 0 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 0 100% no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 100% no-repeat,
+    url("/images/locations/border/border-top.gif") top repeat-x,
+    url("/images/locations/border/border-bot.gif") bottom repeat-x,
+    url("/images/locations/border/border-left.gif") 0 repeat-y,
+    url("/images/locations/border/border-right.gif") 100% repeat-y;
+  max-width: 800px;    
+  width: 100%;
+  padding: 9px;
+  box-sizing: border-box;
+}
+
+.content {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;    
+  padding: 0 5px 5px;
+  color: #000;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                        TYPOGRAPHY                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.description {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.paragraph {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         BUTTONS                                   ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.purchaseButton {
+  display: block;
+  margin: 0 auto;
+  min-width: 250px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                        RESPONSIVE                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 830px) {
+  .purchaseContainer {
+    max-width: 100%;
+  }    
+}
+
+@media (max-width: 480px) {  
+  .paragraph {
+    font-size: 13px;
+  }
+
+  .description {
+    margin-bottom: 10px;
+  }
+}

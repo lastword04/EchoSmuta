@@ -1,0 +1,35 @@
+.filesContainer {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fileItem {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+}
+
+.imagePreview {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.imagePreview:hover {
+  transform: scale(1.05);
+}
+
+.fileLink {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.fileLink:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,406 @@
+/* ═══════════════════════════════════════════════════════════════ */
+/* ОБЩИЕ СТИЛИ КНОПОК                                               */
+/* Импорт: import btn from '.../shared/styles/buttons.module.css' */
+/* Комбинация: className={`${btn.gameButton} ${btn.sizeSmall}`}   */
+/* ═══════════════════════════════════════════════════════════════ */
+
+
+/* ─── 1. ИГРОВАЯ КНОПКА (градиент) ───────────────────────────────── */
+
+.gameButton {
+  padding: 6px 16px;
+  font-size: 14px;
+  font-family: var(--font-sequel);
+  background-image: linear-gradient(#ececec, #a5a195);
+  background-color: #f3eddb;
+  border: 1px solid #a99d9c;
+  color: #3a2623;
+  text-shadow: 0 1px 3px #f3eddb;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  min-width: 50px;
+}
+
+.gameButton:hover:not(:disabled):not(.gameButtonActive) {
+  background-image: linear-gradient(#f5f5f5, #b5b1a5);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.gameButton:active:not(:disabled):not(.gameButtonActive) {
+  background-image: linear-gradient(#a5a195, #ececec);
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.gameButton:disabled {
+  cursor: not-allowed;
+  color: #6b5a5a;
+  transform: none;
+  box-shadow: none;
+}
+
+.gameButton:disabled:hover {
+  background-image: linear-gradient(#ececec, #a5a195);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Модификатор: активная (вдавленная) */
+.gameButtonActive {
+  background-image: linear-gradient(#a5a195, #ececec);
+  color: #1a0f0d;
+  font-weight: bold;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.gameButtonActive:hover:not(:disabled) {
+  background-image: linear-gradient(#b5b1a5, #f5f5f5);
+  transform: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ─── 2. АКЦЕНТНАЯ КНОПКА (оранжевая) ────────────────────────────── */
+
+.accentButton {
+  background: linear-gradient(90deg, #f3c892, #d48b5c);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+  min-width: 160px;
+}
+
+.accentButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.accentButton:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.accentButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* ─── 3. ТОРГОВАЯ КНОПКА (золотая) ───────────────────────────────── */
+
+.tradeButton {
+  padding: 6px 16px;
+  font-size: 14px;
+  font-family: var(--font-sequel);
+  background-image: linear-gradient(#f5e6c8, #d4b878);
+  background-color: #f3eddb;
+  border: 1px solid #b8860b;
+  color: #6b4e0b;
+  text-shadow: 0 1px 2px #f5e6c8;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.tradeButton:hover:not(:disabled) {
+  background-image: linear-gradient(#faf0dc, #e0c68a);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.tradeButton:active:not(:disabled) {
+  background-image: linear-gradient(#d4b878, #f5e6c8);
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tradeButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* ─── 4. ТЕКСТОВАЯ ВКЛАДКА ───────────────────────────────────────── */
+
+.textTab {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 2px 4px;
+  padding: 0 0 2px 0;           
+  box-shadow: inset 0 -1px 0 transparent;   
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.textTab:hover:not(:disabled):not(.textTabActive) {
+  box-shadow: inset 0 -1px 0 black;
+}
+
+.textTab:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.textTab:active {
+  transform: translateY(1px);
+  opacity: 0.7;  
+}
+
+/* Модификатор: активная вкладка */
+.textTabActive {
+  box-shadow: inset 0 -2px 0 black;
+  font-weight: 600;
+}
+
+.textTabActive:hover {
+  box-shadow: inset 0 -2px 0 black;
+}
+
+.textTabActive:active {
+  box-shadow: inset 0 -2px 0 black;
+  transform: translateY(1px) scale(0.97);
+  opacity: 0.6;
+}
+
+.textTabActive:focus {
+  animation: tabClickPulse 0.4s ease;
+  outline: none;
+}
+
+@keyframes tabClickPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+
+/* Модификатор: светлая (для тёмного фона) */
+.textTabLight {
+  color: #b8ada9;
+}
+
+.textTabLight:hover:not(:disabled):not(.textTabActive) {
+  color: #f3eddb;
+  box-shadow: inset 0 -1px 0 #f3eddb;
+}
+
+.textTabLight.textTabActive {
+  color: #f3eddb;
+  box-shadow: inset 0 -2px 0 #f3eddb;
+}
+
+/* Модификатор: маленький размер */
+.textTabSmall {
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+/* Модификатор: некликабельная вкладка-инфо (напр. «Вес») */
+.textTabInfo {
+  pointer-events: none;
+  cursor: default;
+}
+
+.textTabInfo:hover {
+  border-bottom: none;
+}
+
+
+/* ─── 5. ТЕКСТОВЫЕ ССЫЛКИ-КНОПКИ ─────────────────────────────────── */
+
+/* Красная (опасное действие) */
+.textLinkDanger {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  font-family: var(--font-sequel);
+  color: #6b1a1a;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.textLinkDanger:hover:not(:disabled) {  
+  color: #a02020;
+}
+
+.textLinkDanger:disabled {
+  opacity: 0.5;
+  cursor: default; 
+}
+
+/* Коричневая (действия инвентаря: Съесть / Надеть / Использовать) */
+.textLinkAction {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  font-family: var(--font-sequel);
+  color: #471a11;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.textLinkAction:hover:not(:disabled) {
+  text-decoration: underline;
+  color: #a00;
+}
+
+.textLinkAction:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+
+/* ─── 6. ПЛОСКАЯ ЦВЕТНАЯ КНОПКА ──────────────────────────────────── */
+
+.simpleButton {
+  padding: 6px 14px;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: 0.15s;
+  color: white;
+}
+
+.simpleButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.simpleButtonSuccess {
+  background: #2d7a2d;
+  border-color: #1f5a1f;
+}
+
+.simpleButtonSuccess:hover:not(:disabled) {
+  background: #3a8f5c;
+}
+
+.simpleButtonDanger {
+  background: #b22222;
+  border-color: #8b1a1a;
+}
+
+.simpleButtonDanger:hover:not(:disabled) {
+  background: #c62828;
+}
+
+.simpleButtonSecondary {
+  background: #4a9e4a;
+  border-color: #3a7e3a;
+}
+
+.simpleButtonSecondary:hover:not(:disabled) {
+  background: #5ab05a;
+}
+
+.simpleButtonPrimary {
+  background: #2d734a;
+  border-color: #1a4d2e;
+}
+
+.simpleButtonPrimary:hover:not(:disabled) {
+  background: #3a8f5c;
+}
+
+.simpleButtonGold {
+  background: linear-gradient(#e9cd8b, #c99b4a);
+  border: 1px solid #8a6a1f;
+  color: #3a2a05;
+  text-shadow: 0 1px 1px rgba(255, 244, 214, 0.6);
+  font-weight: bold;
+}
+
+.simpleButtonGold:hover:not(:disabled) {
+  background: linear-gradient(#f4dc9d, #d7aa58);
+}
+
+.simpleButtonGold:active:not(:disabled) {
+  background: linear-gradient(#c99b4a, #e9cd8b);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ─── 7. КОНТЕЙНЕРЫ ──────────────────────────────────────────────── */
+
+.tabGroup {  
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; 
+}
+
+/* Вторая строка табов (маленький отступ) */
+.tabGroupSecond {
+  padding-top: 0px;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+
+/* ─── 8. РАЗМЕРЫ (модификаторы) ──────────────────────────────────── */
+
+.sizeSmall {
+  padding: 4px 12px;
+  font-size: 13px;
+  min-width: 40px;
+}
+
+.sizeLarge {
+  padding: 8px 20px;
+  font-size: 15px;
+}
+
+.sizeFull {
+  width: 100%;
+}
+
+
+/* ─── 9. ЦВЕТА (модификаторы) ────────────────────────────────────── */
+
+.colorDanger  { color: #991b1b; }
+.colorSuccess { color: #166534; }
+.colorPrimary { color: #1a365d; }
+.colorGold    { color: #b8860b; }
+.colorWhite   { color: #f3eddb; }
+
+/* ─── 10. КЛИКАБЕЛЬНЫЙ ТЕКСТ (имена предметов) ───────────────────── */
+
+.clickableItemName {
+  cursor: pointer;
+  color: #471a11;
+  transition: color 0.15s ease;
+}
+
+.clickableItemName:hover {
+  text-decoration: underline;
+  color: #a00;
+}

@@ -1,0 +1,290 @@
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         LAYOUT & CONTAINERS                        ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url('/images/station/background.jpg');
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  display: flex;
+  overflow-y: auto;
+}
+
+.contentBox {
+  width: 100%;
+  margin-left: 420px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.tables {
+  width: 100%;
+  display: flex;  
+  align-items: flex-start;
+  flex-direction: column;  
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         BORDER BOX                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.borderBox {
+  background:
+    url("/images/locations/border/border_nut.gif") 0 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 0 100% no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 100% no-repeat,
+    url("/images/locations/border/border-top.gif") top repeat-x,
+    url("/images/locations/border/border-bot.gif") bottom repeat-x,
+    url("/images/locations/border/border-left.gif") 0 repeat-y,
+    url("/images/locations/border/border-right.gif") 100% repeat-y;
+  width: 100%;  
+  padding: 9px;
+  max-width: 700px;
+  box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                     HEADER & TIMERS                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.tavernTitle {
+  padding: 0 10px;  
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+.timers {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 10px;  
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.timerItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         MESSAGES                                   ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.messageContainer {
+  padding: 0 10px;  
+  color: #fff;
+  font-size: 13px;  
+}
+
+
+.errorMessage {
+    color: #ff5252;  
+    font-weight: 500;
+    text-shadow: 0 0 4px rgba(255, 82, 82, 0.5);
+}
+
+.imageCell { 
+  text-align: center;
+}
+
+.mealImage {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                          TABLES                                    ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.mealsTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse; 
+  border: none;
+}
+
+.colImage   { width: 8%;  }   
+.colName    { width: 27%; }
+.colEffects { width: 26%; }
+.colPrice   { width: 14%; }
+.colStock   { width: 10%; }
+.colAction  { width: 15%; }
+
+.mealsTable thead tr {
+  background: url("/images/widgets/chat-panel/buttons/chat-button.png") top repeat-x;
+  height: 19px;
+  line-height: 19px;
+  color: #212529;
+  font-weight: bold;
+  text-align: center;  
+  border-bottom: 2px solid var(--card-bg);
+}
+
+.mealsTable tbody tr {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+  color: #000;
+}
+
+.mealsTable td,
+.mealsTable th {
+  font-size: 14px;
+  text-align: center; 
+  vertical-align: middle;
+}
+
+.mealsTable tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* ── Строки таблицы ── */
+.tableRow {
+  border-bottom: 1px solid var(--card-table);
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:hover {
+  background-color: rgba(241, 160, 160, 0.05);
+}
+
+.mealNameCell {
+  text-align: left;
+  font-weight: 600;  
+}
+
+.effectsCell {
+  text-align: left;
+  font-size: 13px;  
+}
+
+.effect {
+  display: inline-block;  
+}
+
+.stockCell {  
+  font-size: 13px;
+}
+
+.priceValue {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;  
+}
+
+
+.currencyIcon {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         RESPONSIVE                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 950px) {
+  .contentBox {
+    margin-left: 0;
+  }
+
+  .tables {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 830px) {
+  .contentBox {
+    display: flex;
+    justify-content: center;
+    margin-right: 0;
+  }  
+}
+
+@media (max-width: 600px) {
+  /* Шапку таблицы скрываем — из colgroup в мобильной сетке толку нет */
+  .mealsTable thead { display: none; }
+
+  .mealsTable,
+  .mealsTable tbody {
+    display: block;
+  }
+
+  /* Каждая строка — грид 3×2 */
+  .mealsTable tr {
+    display: grid;    
+    grid-template-areas:
+      "image   name    stock"
+      "price   effects action";
+    align-items: center;
+    column-gap: 5px;    
+    padding: 0 5px;  
+  }
+
+  .mealsTable td {
+    padding: 0;
+    text-align: left;
+    width: auto;         /* перебиваем возможные ширины */
+  }
+
+  /* Раскладка по областям */
+  .imageCell   { grid-area: image;   }
+  .priceCell   { grid-area: price;   }
+
+  .mealNameCell { grid-area: name;   }
+  .effectsCell  { grid-area: effects; }
+
+  .stockCell   { grid-area: stock;   }
+  .actionCell  { grid-area: action;  justify-self: end; }
+
+  /* Подписи для цены/порций, чтобы было понятно, что это */
+  .priceCell::before {
+    content: "Цена: ";
+    opacity: 0.7;
+  }
+  .stockCell::before {
+    content: "Порций: ";
+    opacity: 0.7;
+  }
+
+  /* Чуть компактнее шрифты */
+  .mealsTable     { font-size: 12px; }
+  .effectsCell    { font-size: 11px; }
+  .mealNameCell   { font-size: 13px; }
+}
+
+@media (max-width: 480px) {  
+  .tables {
+    padding: 0;
+  }
+  
+}

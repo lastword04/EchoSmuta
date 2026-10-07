@@ -1,0 +1,125 @@
+.button {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-text);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.button-day {
+  box-shadow: 0px 0px 10px rgba(217, 255, 0, 0.2);
+  /*box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f0f, 0 0 40px #0ff, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;*/
+}
+.button-night {
+  box-shadow: 0 0px 10px rgba(0, 150, 255, 0.3);
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+/* Размеры */
+.small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.medium {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.large {
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+/* Варианты */
+.primary {
+  background: var(--burgundy);
+  color: white;
+  border: 1px solid var(--gold);
+  /*box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2); box-shadow: 0 2px 18px rgba(252, 252, 252, 0.986); !!!*/
+}
+
+.primary:hover {
+  background: #5a1a1a;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.secondary {
+  background: var(--dark-green);
+  color: var(--text-primary);
+  border: 1px solid var(--gold);
+}
+
+.secondary:hover {
+  background: #223a25;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.outline:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Добавим в конец файла */
+
+/* Вариант для ссылок */
+.link {
+  background: none;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+  font-weight: 500;
+  font-family: var(--font-text);
+  transition: color 0.2s ease;
+  padding: 0;
+  text-decoration: none;
+  display: inline;
+}
+
+.link:hover {
+  color: var(--light-gold);
+  text-decoration: underline;
+}
+
+.link.small {
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+@media (max-width: 330px) {
+.button-day {
+  box-shadow: 0px 0px 5px rgba(217, 255, 0, 0.2);
+}
+.button-night {
+  box-shadow: 0 0px 5px rgba(0, 150, 255, 0.3);
+}
+}

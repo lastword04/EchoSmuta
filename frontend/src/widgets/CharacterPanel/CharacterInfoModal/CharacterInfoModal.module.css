@@ -1,0 +1,228 @@
+.overlay {
+  position: relative;
+  z-index: 1000; 
+  inset: 0; 
+  padding: 50px 0;
+}
+
+.modal {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+  width: 700px;
+  border-radius: 8px;
+  padding: 10px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 95vw;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  font-size: 27px;
+  cursor: pointer;
+  color: #000000;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disclaimer {
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+}
+
+.form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  font-size: 14px;
+  color: #000000;
+  font-weight: normal;
+  margin-bottom: 2px;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #471a11;
+  border-radius: 8px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #000000;
+}
+
+.textarea {
+  padding: 10px;
+  border: 1px solid #471a11;
+  border-radius: 8px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #000000;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.saveMessage {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.success {
+  color: #166534;
+}
+
+.error {
+  color: #ef4444;
+}
+
+.inputError {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.counter {
+  font-size: 12px;
+  color: #471a11;
+  opacity: 0.8;
+  margin-top: 3px;
+  text-align: right;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  .modal {
+    width: 95vw;
+    padding: 5px 15px 15px;
+    border-radius: 8px;
+  }
+  .header {
+    margin-bottom: 10px;
+  }
+  .title {
+    font-size: 22px;
+  }
+  .closeButton {
+    font-size: 25px;
+    width: 22px;
+    height: 22px;
+  }
+  .disclaimer {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .form {
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  .inputGroup {
+    gap: 3px;
+  }
+  .input, .textarea {
+    padding: 8px;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .leftSection {
+    justify-content: space-between;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .overlay {
+    padding: 8px 0px 10px;
+  }
+  .modal {
+    width: 98vw;
+    padding: 0 10px 10px;
+  }
+  .header {
+    margin-bottom: 5px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .closeButton {
+    font-size: 23px;
+    width: 20px;
+    height: 20px;
+  }
+  .disclaimer {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  .form {
+    gap: 0;
+    margin-bottom: 5px;
+  }
+  .inputGroup {
+    gap: 1px;
+  }
+  .input, .textarea {
+    padding: 6px;
+  }
+  .leftSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .footer {
+    gap: 5px;
+  }
+  .counter {
+    font-size: 11px;
+  }
+}

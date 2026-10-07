@@ -1,0 +1,44 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url('/images/station/background.jpg');
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  display: flex;
+  overflow-y: auto;
+}
+
+.contentBox {
+  width: 100%;
+  margin-left: 420px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.contentArea {
+  width: 100%;
+}
+
+/* ========== MEDIA QUERIES ========== */
+
+@media (max-width: 950px) {
+  .contentBox {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .contentArea {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  
+  .contentArea {
+    padding: 0;
+  }
+}

@@ -1,0 +1,27 @@
+[project]
+name = "email"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiofiles>=24.1.0",
+    "aiosmtplib>=4.0.1",
+    "alembic>=1.16.4",
+    "asyncpg>=0.31.0",
+    "fastapi>=0.116.1",
+    "granian[reload]>=2.7.9",
+    "jinja2>=3.1.6",
+    "psycopg[binary]>=3.3.2",
+    "pydantic-settings>=2.10.1",
+    "pydantic[email]>=2.11.7",
+    "python-jose>=3.5.0",
+    "pyyaml>=6.0.2",
+    "sqlalchemy>=2.0.42",
+    "sqlalchemy-utils>=0.41.2",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.9",
+]

@@ -1,0 +1,29 @@
+[project]
+name = "auth"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "alembic>=1.16.4",
+    "bcrypt>=4.3.0",
+    "celery[redis]>=5.5.3",
+    "fastapi>=0.116.1",
+    "httpx>=0.28.1",
+    "pydantic-settings>=2.10.1",
+    "pydantic[email]>=2.11.7",
+    "python-jose>=3.5.0",
+    "pyyaml>=6.0.2",
+    "sqlalchemy[asyncio]>=2.0.42",
+    "sqlalchemy-utils>=0.41.2",
+    "psycopg[binary]>=3.3.2",
+    "uvicorn>=0.52.0",
+    "granian[reload]>=2.7.9",
+    "asyncpg>=0.31.0",
+    "celery-redbeat>=2.4.2",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.9",
+]

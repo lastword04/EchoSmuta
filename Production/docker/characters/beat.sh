@@ -1,0 +1,3 @@
+#!/bin/bash
+export PYTHONPATH="/app${PYTHONPATH:+:$PYTHONPATH}"
+uv run celery -A characters_app.core.celery_app.celery_app beat --loglevel=info

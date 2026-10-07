@@ -1,0 +1,187 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(26, 44, 30, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(74, 21, 21, 0.1) 0%, transparent 20%);
+  background-attachment: fixed;
+}
+
+.content {
+  width: 100%;
+  max-width: 450px;
+}
+
+.loginCard {
+  background: linear-gradient(135deg, rgba(10, 15, 20, 0.95) 0%, rgba(26, 44, 30, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3); 
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 15px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--gold);  
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.subtitle {
+  font-family: var(--font-handwritten);
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.generalError {
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: #e74c3c;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+.forgotPassword {
+  text-align: right;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+.forgotPasswordLink {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  font-family: var(--font-text);
+}
+
+.forgotPasswordLink:hover {
+  color: var(--light-gold);
+  text-decoration: underline;
+}
+
+.forgotPasswordButton {
+  font-size: 0.9rem !important;
+  padding: 6px 12px !important;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.submitButton {
+  width: 100%;
+  font-weight: 600;
+}
+
+.footer {
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding-top: 10px;
+  margin-top: 15px;
+}
+
+.noAccount {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.registerLink {
+  display: inline;
+  padding: 0;
+  text-decoration: none;
+}
+
+.registerLink:hover {
+  color: var(--light-gold);
+  text-decoration: underline;
+}
+
+.backToHome {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  text-decoration: none;
+  text-align: center;
+}
+
+.backToHome:hover {
+  color: var(--text-primary);
+}
+
+.successMessage {
+  background: rgba(42, 77, 58, 0.3);
+  border: 1px solid rgba(76, 175, 80, 0.5);
+  color: #4caf50;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .page {
+    padding: 15px;
+  }
+  
+  .title {
+    font-size: 1.7rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Ночной режим */
+body.night-mode .loginCard {
+  background: linear-gradient(135deg, rgba(8, 12, 16, 0.95) 0%, rgba(18, 32, 21, 0.95) 100%);
+  border-color: rgba(196, 159, 42, 0.3);
+}
+
+body.night-mode .generalError {
+  background: rgba(231, 76, 60, 0.15);
+  border-color: rgba(231, 76, 60, 0.4);
+}
+
+body.night-mode .footer {
+  border-top-color: rgba(196, 159, 42, 0.2);
+}
+
+.infoMessage {
+  background: rgba(58, 107, 74, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: var(--light-gold);
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  animation: fadeIn 0.3s ease-in;
+}

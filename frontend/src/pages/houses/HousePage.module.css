@@ -1,0 +1,393 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url('/images/station/background.jpg');
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  display: flex;
+  overflow-y: auto;
+  transition: background-image 0.3s ease;
+}
+
+.contentBox {
+  width: 100%;
+  margin-left: 420px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.tables {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* Две рамки рядом (вид внутри дома) */
+.twoBoxes {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+
+
+.borderBox {
+  background:
+    url("/images/locations/border/border_nut.gif") 0 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 0 100% no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 100% no-repeat,
+    url("/images/locations/border/border-top.gif") top repeat-x,
+    url("/images/locations/border/border-bot.gif") bottom repeat-x,
+    url("/images/locations/border/border-left.gif") 0 repeat-y,
+    url("/images/locations/border/border-right.gif") 100% repeat-y;
+  width: 100%;
+  padding: 9px;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+
+.availability {
+  padding: 0 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.infoTable,
+.housesTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: none;
+}
+
+.infoTable thead tr,
+.housesTable thead tr {
+  background: url("/images/widgets/chat-panel/buttons/chat-button.png") top repeat-x;
+  height: 19px;
+  line-height: 19px;
+  color: #212529;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid var(--card-bg);
+}
+
+.infoTable tbody tr,
+.housesTable tbody tr {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+  color: #000;
+}
+
+.infoTable thead th {
+  text-align: center !important;
+}
+
+.housesTable thead th {
+  padding: 0 3px;
+}
+
+.infoTable tbody td,
+.housesTable tbody td {
+  padding: 3px;
+}
+
+.infoTable td,
+.infoTable th,
+.housesTable td,
+.housesTable th {
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Выравнивание как в оригинале: содержимое таблиц мебели слева */
+.alignLeft td,
+.alignLeft th {
+  text-align: left;
+}
+
+.housesTable.alignLeft td:not(:first-child),
+.housesTable.alignLeft th:not(:first-child) {
+  text-align: center;
+}
+
+.columnHeader {
+  text-align: center;
+}
+
+.housesTable tbody tr {
+  border-bottom: 1px solid var(--card-table);
+}
+
+.housesTable tbody tr:last-child {
+  border-bottom: none;
+}
+
+.housesTable tbody tr:hover {
+  background-color: rgba(241, 160, 160, 0.05);
+}
+
+.bonusCell {
+  font-weight: 500;
+}
+
+.actionCell {
+  text-align: center;
+}
+
+.houseInfo {
+  padding: 5px 5px;
+}
+
+.bonuses {
+  margin-bottom: 10px;
+}
+
+.enterButton {
+  padding: 0 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Переключатель "Дом • Мебель в рюкзаке" */
+.tabLine {
+  margin-bottom: 0px;
+}
+
+/* Строка мебели в рюкзаке: название слева, кнопка справа */
+.backpackRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;  
+  border-bottom: 1px solid var(--card-table);
+  padding: 3px 0;
+}
+
+.backpackRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Цвета бонусов как в оригинале */
+.green { color: #2e7d32; }
+.blue { color: #1565c0; }
+.red { color: #b3261e; }
+
+.noItems {
+  text-align: center !important;
+  color: #666;
+  font-size: 13px !important;
+}
+
+
+/* Секция обоев */
+.wallpaperSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wallpaperControls {
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+  justify-content: center;  
+}
+
+.wallpaperButtons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fileName {
+  font-size: 12px;
+  color: #555;
+  text-align: center;
+}
+
+.fileInput {
+  display: none;
+}
+
+
+/* Гости */
+.ownerLine {  
+  font-size: 14px;  
+}
+
+.guestsCount { 
+  font-size: 13px;
+  font-weight: 600;     
+}
+
+.guestsList,
+.requestsList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;  
+}
+
+.guestRow,
+.requestRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;   
+  font-size: 13px;
+}
+
+.guestRow span,
+.requestRow span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.requestRow button + button {
+  margin-left: 4px;
+}
+
+/* Стук */
+
+.knockRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+.knockRow span {
+  font-size: 13px;  
+}
+
+.knockInput {
+  width: 70px;
+  padding: 4px 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.knockInput::-webkit-outer-spin-button,
+.knockInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Выйти из дома */
+.exitButton {
+  margin-top: 20px;
+}
+
+
+@media (max-width: 1450px) {
+  .twoBoxes {
+    flex-direction: column;    
+  }
+}
+
+@media (max-width: 950px) {
+  .contentBox {
+    margin-left: 0;
+  }
+
+  .tables {
+    padding: 0 10px;
+  }
+
+  .twoBoxes {   
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 830px) {
+  .contentBox {
+    display: flex;
+    justify-content: center;
+    margin-right: 0;
+  } 
+}
+
+  
+@media (max-width: 480px) {
+  /* Скрываем только 3 пустых th. Износ (2) и объём (6) остаются */
+  .housesTable.alignLeft thead th:nth-child(3),
+  .housesTable.alignLeft thead th:nth-child(4),
+  .housesTable.alignLeft thead th:nth-child(5) {
+    display: none;
+  }
+
+  /* Таблица → блок, чтобы grid работал и colgroup не мешал */
+  .housesTable.alignLeft,
+  .housesTable.alignLeft thead,
+  .housesTable.alignLeft tbody {
+    display: block;
+  }
+
+  /* Шапка: 3 колонки */
+  .housesTable.alignLeft thead tr {
+    display: grid;
+    grid-template-columns: 44% 33% 23%;    
+  }  
+  .housesTable.alignLeft thead th:nth-child(6) { text-align: right !important; }
+ 
+
+  /* Строка: имя/износ/действие — сверху, три статы — снизу */
+  .housesTable.alignLeft tbody tr {
+    display: grid;
+    grid-template-columns: 44% 33% 23%;
+    grid-template-areas:
+      "name   wear   action"
+      "health tired  mana";   
+    padding: 3px;
+    align-items: center;   
+  }
+
+  .housesTable.alignLeft tbody td { padding: 0; width: auto; }
+
+  .housesTable.alignLeft tbody td:nth-child(1) { grid-area: name;   text-align: left; }
+  .housesTable.alignLeft tbody td:nth-child(2) { grid-area: wear;   text-align: center; }
+  .housesTable.alignLeft tbody td:nth-child(3) { grid-area: health; text-align: left;   font-size: 12px; }
+  .housesTable.alignLeft tbody td:nth-child(4) { grid-area: tired;  text-align: center;   font-size: 12px; }
+  .housesTable.alignLeft tbody td:nth-child(5) { grid-area: mana;   text-align: right;   font-size: 12px; }
+  .housesTable.alignLeft tbody td:nth-child(6) { grid-area: action; justify-self: end; } 
+
+  /* Подписи статов */
+  .housesTable.alignLeft tbody td:nth-child(3)::before { content: "Здоровье: "; color: #555; }
+  .housesTable.alignLeft tbody td:nth-child(4)::before { content: "Усталость: "; color: #555; }
+  .housesTable.alignLeft tbody td:nth-child(5)::before { content: "Мана: "; color: #555; }
+
+  .housesTable.alignLeft tbody td.noItems {
+    grid-column: 1 / -1 !important;
+    text-align: center !important;
+  }
+
+
+
+
+  .contentBox {
+    margin-top: 0;
+  }  
+
+  .tables {
+    padding: 10px 0;
+  }
+  .twoBoxes {
+    gap: 5px;
+    padding: 0;
+  }
+}

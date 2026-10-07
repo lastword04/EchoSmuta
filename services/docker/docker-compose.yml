@@ -1,0 +1,245 @@
+services:
+  user_service_db:
+    image: postgres:17-bookworm
+    container_name: user_service_db
+    environment:
+      POSTGRES_USER: '${USER_DB_USER}'
+      POSTGRES_PASSWORD: '${USER_DB_PASSWORD}'
+      POSTGRES_DB: '${USER_DB_NAME}'
+    networks:
+      - smyta_network
+    ports:
+      - '${USER_DB_PORT}:5432'
+    expose:
+      - 5432
+    volumes:
+      - user_service_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${USER_DB_USER} -d ${USER_DB_NAME}"]
+      interval: 10s
+      timeout: 2s
+      retries: 10
+
+  character_service_db:
+    image: postgres:17-bookworm
+    container_name: character_service_db
+    environment:
+      POSTGRES_USER: '${CHARACTER_DB_USER}'
+      POSTGRES_PASSWORD: '${CHARACTER_DB_PASSWORD}'
+      POSTGRES_DB: '${CHARACTER_DB_NAME}'
+    networks:
+      - smyta_network
+    ports:
+      - '${CHARACTER_DB_PORT}:5432'
+    expose:
+      - 5432
+    volumes:
+      - character_service_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${CHARACTER_DB_USER} -d ${CHARACTER_DB_NAME}"]
+      interval: 10s
+      timeout: 2s
+      retries: 10
+
+
+  auth_service_db:
+    image: postgres:17-bookworm
+    container_name: auth_service_db
+    environment:
+      POSTGRES_USER: '${AUTH_DB_USER}'
+      POSTGRES_PASSWORD: '${AUTH_DB_PASSWORD}'
+      POSTGRES_DB: '${AUTH_DB_NAME}'
+    networks:
+      - smyta_network
+    ports:
+      - '${AUTH_DB_PORT}:5432'
+    expose:
+      - 5432
+    volumes:
+      - auth_service_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${AUTH_DB_USER} -d ${AUTH_DB_NAME}"]
+      interval: 10s
+      timeout: 2s
+      retries: 10
+
+  notification_email_service_db:
+    image: postgres:17-bookworm
+    container_name: notification_email_service_db
+    environment:
+      POSTGRES_USER: '${NOTIFICATION_EMAIL_DB_USER}'
+      POSTGRES_PASSWORD: '${NOTIFICATION_EMAIL_DB_PASSWORD}'
+      POSTGRES_DB: '${NOTIFICATION_EMAIL_DB_NAME}'
+    networks:
+      - smyta_network
+    ports:
+      - '${NOTIFICATION_EMAIL_DB_PORT}:5432'
+    expose:
+      - 5432
+    volumes:
+      - notification_email_service_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${NOTIFICATION_EMAIL_DB_USER} -d ${NOTIFICATION_EMAIL_DB_NAME}"]
+      interval: 10s
+      timeout: 2s
+      retries: 10
+
+  file_storage_service_db:
+    image: postgres:17-bookworm
+    container_name: file_storage_service_db
+    environment:
+      POSTGRES_USER: '${FILE_STORAGE_DB_USER}'
+      POSTGRES_PASSWORD: '${FILE_STORAGE_DB_PASSWORD}'
+      POSTGRES_DB: '${FILE_STORAGE_DB_NAME}'
+    networks:
+      - smyta_network
+    ports:
+      - '${FILE_STORAGE_DB_PORT}:5432'
+    expose:
+      - 5432
+    volumes:
+      - file_storage_service_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${FILE_STORAGE_DB_USER} -d ${FILE_STORAGE_DB_NAME}"]
+      interval: 10s
+      timeout: 2s
+      retries: 10
+
+  forum_service_db:
+    image: postgres:17-bookworm
+    container_name: forum_service_db
+    environment:
+      POSTGRES_USER: '${FORUM_DB_USER}'
+      POSTGRES_PASSWORD: '${FORUM_DB_PASSWORD}'
+      POSTGRES_DB: '${FORUM_DB_NAME}'
+    networks:
+      - smyta_network
+    ports:
+      - '${FORUM_DB_PORT}:5432'
+    expose:
+      - 5432
+    volumes:
+      - forum_service_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${FORUM_DB_USER} -d ${FORUM_DB_NAME}"]
+      interval: 10s
+      timeout: 2s
+      retries: 10
+
+  chat_service_db:
+    image: postgres:17-bookworm
+    container_name: chat_service_db
+    environment:
+      POSTGRES_USER: '${CHAT_DB_USER}'
+      POSTGRES_PASSWORD: '${CHAT_DB_PASSWORD}'
+      POSTGRES_DB: '${CHAT_DB_NAME}'
+    networks:
+      - smyta_network
+    ports:
+      - '${CHAT_DB_PORT}:5432'
+    expose:
+      - 5432
+    volumes:
+      - chat_service_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${CHAT_DB_USER} -d ${CHAT_DB_NAME}"]
+      interval: 10s
+      timeout: 2s
+      retries: 10
+
+  mining_service_db:
+    image: postgres:17-bookworm
+    container_name: mining_service_db
+    environment:
+      POSTGRES_USER: '${MINING_DB_USER}'
+      POSTGRES_PASSWORD: '${MINING_DB_PASSWORD}'
+      POSTGRES_DB: '${MINING_DB_NAME}'
+    ports:
+      - '${MINING_DB_PORT}:5432'
+    expose:
+      - 5432
+    volumes:
+      - mining_service_data:/var/lib/postgresql/data
+    networks:
+      - smyta_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${MINING_DB_USER} -d ${MINING_DB_NAME}"]
+      interval: 10s
+      timeout: 2s
+      retries: 10
+
+  economy_service_db:
+    image: postgres:17-bookworm
+    container_name: economy_service_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: economy_service
+    ports:
+      - "5552:5432"
+    expose:
+      - 5432
+    volumes:
+      - economy_service_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d economy_service"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - smyta_network	
+
+  minio:
+    image: pgsty/silo:latest
+    ports:
+      - "9003:9000"
+      - "9004:9001"
+    volumes:
+      - minio_data:/data
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    networks:
+      - smyta_network
+    command: server --console-address ":9004" /data
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "${REDIS_PORT}:6379"
+    expose:
+      - 6379
+    volumes:
+      - redis_data:/data
+    environment:
+      REDIS_PASSWORD: '${REDIS_PASSWORD}'
+    networks:
+      - smyta_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}", "--appendonly", "yes"]
+
+volumes:
+  user_service_data:
+  character_service_data:
+  auth_service_data:
+  notification_email_service_data:
+  file_storage_service_data:
+  mining_service_data:
+  minio_data:
+  redis_data:
+  forum_service_data:
+  chat_service_data:
+  economy_service_data:
+
+
+networks:
+  smyta_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24 

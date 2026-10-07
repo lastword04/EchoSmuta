@@ -1,0 +1,177 @@
+.overlay {
+  position: relative;
+  z-index: 1000; 
+  inset: 0; 
+  padding: 50px 0;
+  /*display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  overflow-y: auto;*/
+}
+
+.modal {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+  width: 700px;
+  border-radius: 8px;
+  padding: 10px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 95vw; /* Адаптивная ширина */
+  
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-shrink: 0; /* Заголовок не сжимается */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  font-size: 27px;
+  cursor: pointer;
+  color: #000000;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textarea {
+  flex-grow: 1;
+  resize: none;
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid #471a11;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #000000;
+  margin-bottom: 15px;
+  min-height: 400px; /* Минимальная высота */
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0; /* Футер не сжимается */
+}
+
+.counter {
+  font-size: 12px;
+  color: #471a11;
+  opacity: 0.8;
+  padding-top: 3px;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap; /* Перенос элементов при необходимости */
+}
+
+.saveMessage {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.success {
+  color: #166534;
+}
+
+.error {
+  color: #ef4444;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  .modal {
+    width: 95vw;
+    
+    border-radius: 8px;
+    padding: 5px 15px 15px;
+  }
+  .header {
+    margin-bottom: 10px;
+  }
+  .title {
+    font-size: 22px;
+  }
+
+  .closeButton {
+    font-size: 25px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .leftSection {
+    justify-content: space-between;
+  }
+
+  .counter {
+    font-size: 12px;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .overlay {
+    padding: 8px 0px 10px;
+  }
+  .modal {
+    width: 98vw;
+    
+    padding: 0 10px 10px;
+  }
+  .header {
+    margin-bottom: 5px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .closeButton {
+    font-size: 23px;
+    width: 20px;
+    height: 20px;
+  }
+  .textarea {
+    padding: 6px;
+    margin-bottom: 5px;
+  }
+  .footer {
+    gap: 5px;
+  }
+  .leftSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .counter {
+    padding-top: 0;
+    font-size: 11px;
+  }
+}

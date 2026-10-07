@@ -1,0 +1,1 @@
+"""Административные read-only endpoints."""

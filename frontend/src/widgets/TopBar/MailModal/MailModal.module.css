@@ -1,0 +1,294 @@
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                              LAYOUT                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.overlay {
+  position: relative;
+  z-index: 1000;
+  inset: 0;
+  padding: 50px 0;
+}
+
+.modal {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+  width: 700px;
+  min-height: 130px;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 95vw;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         TABS & TABS BUTTONS                        ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.header {
+  position: relative;
+  margin-bottom: 10px;
+  margin-top: -4px;  
+}
+
+
+.tabsAndCloseButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dot {  
+  font-size: 12px;
+  color: #000;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                          MESSAGE ELEMENTS                          ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.messagesList {
+  display: flex;
+  flex-direction: column;  
+  border-top: 1px solid var(--card-table);
+  padding-top: 5px;
+}
+
+.messageCard {
+  border-bottom: 1px solid var(--card-table);
+  padding: 2px 0;
+  position: relative;
+}
+
+.messageCard:last-child {
+  border-bottom: none;
+}
+
+.messageHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.messageDate {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: #000;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.middleDot {
+  color: #000;
+  font-size: 12px;
+}
+
+.messageHeader a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.messageHeader a:hover {
+  text-decoration: underline;
+}
+
+.characterSender {
+  word-break: break-word;
+}
+
+.systemMessage {
+  color: #a00;
+}
+
+.messageBody {
+  margin-top: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #000;
+  font-size: 14px;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ef4444;
+  margin-bottom: 1px;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.deleteButton:hover:not(:disabled) {
+  color: #a00;
+  transform: scale(1.2);
+}
+
+.deleteButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         TABLES (LEGACY)                            ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid #ddd;
+  padding: 6px;
+  text-align: left;
+  vertical-align: top;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  max-width: 200px;
+}
+
+.table th {
+  font-weight: 600;
+}
+
+.table a {
+  color: #000;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                        MESSAGES / EMPTY                            ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.empty {
+  text-align: center;
+  padding: 20px;
+  color: #000;
+  font-size: 13px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                          PAGINATION                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: 8px;
+}
+
+.pagination button {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  border-radius: 3px;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #999;
+}
+
+.pagination button:active:not(:disabled) {
+  transform: translateY(1px);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageNumber {
+  font-weight: 600;
+  color: #000;
+  font-size: 14px;
+}
+
+.pageDisabled {
+  color: #aaa;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                          CLOSE BUTTON                              ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.closeButton {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #471a11;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.15s ease, color 0.15s ease;
+  line-height: 1;
+}
+
+.closeButton:hover {
+  transform: scale(1.2);
+  color: #a00;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         RESPONSIVE                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 8px 0 10px;
+  }
+
+  .tabs {
+    justify-content: flex-start;
+    gap: 0.25rem;
+  }
+
+  .tabButton {
+    font-size: 14px;
+  }
+
+  .messagesList {
+    gap: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  .tabs {
+    padding-top: 20px;
+    gap: 0.1rem;
+  }
+
+}
+
+@media (max-width: 350px) {
+  .tabButton {
+    font-size: 13px;
+  }
+}

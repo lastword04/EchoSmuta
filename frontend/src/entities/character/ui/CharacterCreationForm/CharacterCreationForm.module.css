@@ -1,0 +1,365 @@
+.creationCard {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(15, 23, 32, 0.95) 100%);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  padding: 25px;
+  margin: 20px 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--light-gold);
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 12px rgba(230, 193, 79, 0.5);
+  font-weight: 700;
+}
+
+.subtitle {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 400;
+}
+
+.generalError {
+  background: linear-gradient(135deg, rgba(211, 47, 47, 0.2), rgba(198, 40, 40, 0.3));
+  border: 1px solid rgba(211, 47, 47, 0.5);
+  color: #ffcdd2;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-family: var(--font-text);
+  font-size: 0.95rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.charCounter {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+  margin-top: 4px;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formSection h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--light-gold);
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+.raceDescription {
+  background: linear-gradient(135deg, rgba(45, 90, 61, 0.3), rgba(26, 42, 58, 0.5));
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.raceTitle {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--light-gold);
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.raceText {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify;
+}
+
+.characterPreview {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.previewTitle {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--light-gold);
+  margin: 0 0 15px 0;
+  font-weight: 500;
+}
+
+.characterImage {
+  max-width: 150px;
+  height: 200px;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.25);
+  /*border-radius: 12px;*/
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.characterImage:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+}
+
+.placeholderImage {
+  width: 200px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(212, 175, 55, 0.4);
+  /*border-radius: 12px;*/
+  color: var(--gold);
+  font-size: 3rem;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.placeholderImage span {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.placeholderImage small {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+  padding-top: 25px;
+  border-top: 1px solid var(--card-border);
+}
+
+.cancelButton,
+.submitButton {
+  min-width: 150px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submitButton {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.cancelButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .creationCard {
+    padding: 20px 15px;
+    margin: 0;
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+
+  .form {
+    gap: 15px;
+  }
+
+  .formSection {
+    gap: 10px;
+  }
+
+  .formSection h3 {
+    font-size: 1.1rem;
+  }
+
+  .raceDescription {
+    padding: 15px;
+    margin: 10px 0;
+  }
+
+  .raceTitle {
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+  }
+
+  .raceText {
+    font-size: 0.95rem;
+  }
+
+  .characterPreview {
+  margin-top: 15px;
+  }
+
+  .previewTitle {
+    font-size: 1.1rem;
+    margin: 0 0 10px 0;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 20px;
+  }
+
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+    min-width: auto;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .creationCard {
+    padding: 10px 10px 0;
+  }
+  .characterPreview {
+  margin-top: 10px;
+  }
+  .actions {
+    margin-top: 10px;
+    padding-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .creationCard {
+    padding: 0px 10px 0;
+    border: none;
+    border-radius: 0px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin: 0 0 5px 0;
+  }
+
+  .header {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+
+  .generalError {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+
+  .form {
+    gap: 5px;
+  }
+
+  .formSection {
+    gap: 5px;
+  }
+
+  .raceDescription {
+    padding: 10px;
+    margin: 5px 0;
+  }
+
+.raceTitle {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .raceText {
+    font-size: 0.9rem;
+  }
+
+  .characterPreview {
+    margin-top: 5px;
+  }
+
+  .characterImage,
+  .placeholderImage {
+    max-width: 120px;
+    height: 160px;
+    font-size: 2.5rem;
+  }
+
+  .previewTitle {
+    font-size: 1rem;
+    margin: 0 0 5px 0;
+  }
+  
+  .placeholderImage span {
+    font-size: 0.9rem;
+  }
+
+  .actions {
+    margin-top: 15px;
+    padding-top: 0px;
+    border-top: none;
+  }
+
+  .cancelButton,
+  .submitButton {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

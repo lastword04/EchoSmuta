@@ -1,0 +1,190 @@
+.mobileMenu {
+  display: flex;
+  background-color: white;
+  width: 100%;
+  line-height: 1.2;
+  flex-direction: column;
+}
+
+.mobileList {
+  display: flex;
+  width: 100%;
+}
+
+.menuLeft {
+  flex: 1;
+  padding: 20px 20px 0px;
+  border-right: 1px solid #eee;
+}
+
+.menuRight {
+  flex: 1;
+  padding: 20px 20px 0px;
+}
+
+.menuLeft h4,
+.menuRight h4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #000000;
+  font-size: 1rem;
+}
+
+.characterStats {
+  display: flex;
+  flex-direction: column;
+}
+
+.onlyStats {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+.statItem {
+  display: flex;
+  font-size: 0.9rem;
+  gap: 5px;
+}
+
+.statLabel {
+  color: #000000;
+}
+
+.statValue {
+  color: #000000;
+}
+
+.additionalStats {
+  display: grid;
+  grid-template-columns: 1fr;
+  /*padding-top: 8px;
+  gap: 4px;*/
+}
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+.balanceItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.currencyIcon {
+  width: 10px;
+  height: 10px;
+  margin-top: 1px;
+}
+
+.skillsSection {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: #000000;
+  text-align: left;
+  border-bottom: none;
+  padding-bottom: 0;
+  display: inline-block;
+  position: relative;
+}
+
+.skillsText {
+ cursor: pointer; 
+ animation: gradientShift 5s ease infinite,
+            fade 2.5s infinite alternate ease-in-out; 
+ background: linear-gradient(270deg, #000000, #f9d423, #ffee73, #000000); /* добавляем промежуточные оттенки */
+ background-size: 500% 500%; /* увеличение размера градиента */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skillsText:hover {
+  text-decoration: underline;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobileExitButton {
+  padding: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px 0px;
+}
+
+.mobileExitButton:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+  
+  .menuLeft {
+    border-right: none;
+    /*border-bottom: 1px solid #eee;*/
+  }
+  
+  .statsGrid,
+  .additionalStats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .onlyStats {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .additionalStats {
+    gap: 4px;
+  }
+
+  .skillsSection {
+    margin: 10px 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menuLeft,
+  .menuRight {
+    padding: 10px 10px 0px;
+  }
+
+  .menuLeft h4,
+  .menuRight h4 {
+    margin-bottom: 10px;
+  }
+}

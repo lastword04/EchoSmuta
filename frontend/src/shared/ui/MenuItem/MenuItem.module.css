@@ -1,0 +1,107 @@
+.menuItem {
+  padding: 4px 10px;
+  color: #471A11;
+  font-family: var(--font-sequel);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid var(--card-table);
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.menuItem:last-child {
+  border-bottom: none;
+}
+
+.menuItem:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9) 0%,   /* чуть белого только на старте */
+    rgba(255, 220, 220, 0.6) 20%,  /* лёгкий розовый */
+    rgba(200, 120, 120, 0.5) 50%,  /* насыщенный розовый */
+    rgba(120, 50, 40, 0.6) 80%,    /* тёплый тёмно-розовый */
+    rgba(71, 26, 17, 0.8) 100%     /* бордовый */
+  );
+  color: #471a11;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.menuLabel {
+  flex: 1;
+  text-align: left;
+  margin-left: 8px;
+}
+
+/* Стили для чекбокса */
+.checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #471A11;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.checkbox:hover {
+  border-color: #8B4513;
+  background: rgba(71, 26, 17, 0.05);
+  transform: scale(1.05);
+}
+
+.checkbox.checked {
+  background: linear-gradient(135deg, #471A11 0%, #8B4513 100%);
+  border-color: #471A11;
+  box-shadow: 0 2px 4px rgba(71, 26, 17, 0.3);
+}
+
+.checkbox.checked:hover {
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+  border-color: #8B4513;
+}
+
+
+/* Стили для галочки */
+.checkmark {
+  width: 12px;
+  height: 12px;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.15s ease;
+}
+
+.checked .checkmark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Анимация появления галочки */
+@keyframes checkmarkAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.checked .checkmark {
+  animation: checkmarkAppear 0.2s ease;
+}

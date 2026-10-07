@@ -1,0 +1,258 @@
+/* Контейнер */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.containerDisabled {
+  opacity: 0.6;
+}
+
+/* Лейбл */
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary, #f9fafb);
+  margin-bottom: 4px;
+  display: block;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.required {
+  color: var(--color-error, #ef4444);
+  margin-left: 2px;
+}
+
+/* Обертка для textarea */
+.textareaWrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Основные стили textarea */
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.5;
+  color: var(--color-text-primary, #f9fafb);
+  background: linear-gradient(135deg, rgba(10, 15, 20, 0.95) 0%, rgba(26, 44, 30, 0.95) 100%);
+  transition: all 0.3s ease;
+  resize: vertical;
+  min-height: 80px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.textarea::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(10, 15, 20, 0.95) 0%, rgba(26, 44, 30, 0.95) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(212, 175, 55, 0.1);
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.95) 0%, rgba(31, 49, 35, 0.95) 100%);
+}
+
+.textarea:hover:not(:disabled):not(.error) {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.textarea::placeholder {
+  color: rgba(156, 163, 175, 0.7);
+  font-style: italic;
+}
+
+/* Состояние ошибки */
+.textarea.error {
+  border-color: rgba(239, 68, 68, 0.6);
+  background: linear-gradient(135deg, rgba(15, 10, 10, 0.95) 0%, rgba(35, 20, 20, 0.95) 100%);
+}
+
+.textarea.error:focus {
+  border-color: rgba(239, 68, 68, 0.8);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Отключенное состояние */
+.textarea:disabled,
+.textarea.disabled {
+  cursor: not-allowed;
+  background: linear-gradient(135deg, rgba(5, 8, 10, 0.8) 0%, rgba(15, 22, 18, 0.8) 100%);
+  color: rgba(156, 163, 175, 0.5);
+  border-color: rgba(212, 175, 55, 0.1);
+  box-shadow: none;
+}
+
+/* Подвал с текстом ошибки или подсказкой */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 20px;
+  margin-top: 4px;
+}
+
+.errorText {
+  font-size: 12px;
+  color: var(--color-error, #ef4444);
+  margin: 0;
+  flex: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
+.helperText {
+  font-size: 12px;
+  color: rgba(212, 175, 55, 0.7);
+  margin: 0;
+  margin-left: auto;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+}
+
+/* Темная тема (основная тема теперь) */
+@media (prefers-color-scheme: light) {
+  /* Переопределяем для светлой темы, если нужно */
+  .label {
+    color: var(--color-text-primary-light, #1a1a1a);
+    text-shadow: none;
+  }
+  
+  .textarea {
+    color: var(--color-text-primary-light, #1a1a1a);
+    background: linear-gradient(135deg, rgba(245, 247, 250, 0.95) 0%, rgba(235, 245, 240, 0.95) 100%);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .textarea:focus {
+    background: linear-gradient(135deg, rgba(250, 252, 255, 0.95) 0%, rgba(240, 250, 245, 0.95) 100%);
+    border-color: rgba(212, 175, 55, 0.7);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(212, 175, 55, 0.1);
+  }
+  
+  .textarea::placeholder {
+    color: rgba(107, 114, 128, 0.8);
+  }
+  
+  .textarea:disabled,
+  .textarea.disabled {
+    background: linear-gradient(135deg, rgba(240, 242, 245, 0.8) 0%, rgba(230, 240, 235, 0.8) 100%);
+    color: rgba(107, 114, 128, 0.6);
+  }
+  
+  .helperText {
+    color: rgba(120, 100, 40, 0.8);
+    text-shadow: none;
+  }
+  
+  .errorText {
+    text-shadow: none;
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .textarea {
+    padding: 10px 14px;
+    font-size: 16px; /* Предотвращает зум на iOS */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .label {
+    font-size: 13px;
+  }
+  
+  .errorText,
+  .helperText {
+    font-size: 11px;
+  }
+}
+
+/* Различные размеры изменения размера */
+.textarea[style*="resize: none"] {
+  resize: none;
+}
+
+.textarea[style*="resize: both"] {
+  resize: both;
+}
+
+.textarea[style*="resize: horizontal"] {
+  resize: horizontal;
+}
+
+.textarea[style*="resize: vertical"] {
+  resize: vertical;
+}
+
+/* Дополнительные эффекты для темной атмосферы */
+.textarea:focus::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(212, 175, 55, 0.1) 0%, 
+    rgba(212, 175, 55, 0.05) 50%, 
+    rgba(212, 175, 55, 0.1) 100%
+  );
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: -1;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Улучшенный скроллбар для темной темы */
+.textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.textarea::-webkit-scrollbar-track {
+  background: rgba(10, 15, 20, 0.3);
+  border-radius: 4px;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+
+/* Firefox scrollbar */
+.textarea {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.3) rgba(10, 15, 20, 0.3);
+}

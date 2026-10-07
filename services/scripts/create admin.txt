@@ -1,0 +1,7 @@
+После того как сотрёшь базы и зарегистрируешься через игру:
+cd D:\Newgame\EchoSmyta\services\users
+uv run python scripts/make_admin.py ТВОЙ_EMAIL@mail.com
+
+✅ Роль обновлена: ТВОЙ_EMAIL@mail.com → ADMIN
+   Перелогинься в игре чтобы получить новый токен
+Выйди из игры → зайди заново → открой http://localhost:5173/admin

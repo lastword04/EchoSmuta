@@ -1,0 +1,119 @@
+/* --- СУЩЕСТВУЮЩИЕ СТИЛИ (без изменений) --- */
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* вместо 100vh */
+  min-height: 100vh;
+  max-height: 100%;
+  font-family: Trebuchet MS, Helvetica, sans-serif;
+}
+
+.mainContent {
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  overflow-y: auto;
+}
+
+.footer {
+  display: flex;
+}
+.newPanel {
+  flex: 1 1 auto;
+  display: flex;
+
+}
+
+.characterPanelNew {
+  min-height: 320px;
+}
+
+.content {
+  flex: 1 1 auto;
+  width: 100%;
+  position: relative;
+}
+
+.loadingContainer, .errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 20px;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.errorText {
+  color: #ff6b6b;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 950px) {
+  .page {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
+  .mainContent {
+    flex: 1;
+    flex-direction: column;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100vw;
+    display: flex;
+  }
+
+  .footer {
+    width: 100vw;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    direction: ltr;
+    z-index: 2002;
+  }
+  
+  .newPanel {
+    display: flex;
+    flex: 1;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    direction: ltr;
+    overflow-x: auto;
+    height: 100%;
+    position: relative;
+  }  
+ 
+  /* Измененные стили для мобильных */
+  .content, 
+  .characterPanelNew {
+    flex: 0 0 100vw; 
+    width: 100vw;
+    scroll-snap-align: start;
+    height: 100%;
+    overflow-y: auto;
+    direction: ltr;
+    min-height: 0;
+  }
+  
+  .characterPanelNew {
+    background-image: url('/images/station/background.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: top left;
+    padding: 0;
+  }
+
+  /*.mainContent::-webkit-scrollbar, .footer::-webkit-scrollbar {
+    display: none;
+  }*/
+}

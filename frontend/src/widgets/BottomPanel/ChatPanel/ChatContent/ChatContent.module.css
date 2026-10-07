@@ -1,0 +1,104 @@
+.chatMessages {
+  flex-grow: 1;
+  overflow-y: auto;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatMessages > *:first-child {
+  margin-top: auto;
+}
+
+.chatMessage {
+  line-height: 1.1;
+  padding-left: .25rem;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.chatTime {
+  color: #000;
+}
+
+.chatUser {
+  text-decoration: underline;
+  cursor: pointer;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.chatUser:hover {
+  text-decoration: none;
+}
+
+.chatText {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.chatText a{
+  font-weight: normal;
+}
+
+.smileyImage {
+  vertical-align: -0.30em;
+  cursor: pointer;
+  margin: 0 1px;
+  display: inline-block;
+}
+
+.contextMenu {
+  position: fixed;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: .25rem;
+  z-index: 1000;
+  padding: 4px;
+}
+
+.contextMenuItem {
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.contextMenuItem span:first-child {
+  color: #000; /* Чёрный цвет для "Инфо" */
+}
+
+.contextMenuItem span:last-child {
+  color: #471a11; /* Цвет для ника */
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.contextMenuItem span:last-child:hover {
+  text-decoration: underline;
+}
+
+.blockLink {
+  color: #8b0000;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: normal;
+}
+.blockLink:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.youtubeIcon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (max-width: 480px) {
+  .chatMessage {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,29 @@
+[project]
+name = "characters"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "alembic>=1.16.4",
+    "asyncpg>=0.31.0",
+    "celery>=5.5.3",
+    "celery-redbeat>=2.4.2",
+    "fastapi>=0.116.1",
+    "granian[reload]>=2.7.9",
+    "httpx>=0.28.1",
+    "psycopg2-binary>=2.9.12",
+    "pydantic-settings>=2.10.1",
+    "pyjwt>=2.13.0",
+    "python-jose>=3.5.0",
+    "pyyaml>=6.0.2",
+    "redis>=6.4.0",
+    "sqlalchemy>=2.0.42",
+    "sqlalchemy-utils>=0.41.2",
+    "uvicorn>=0.52.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.9",
+]

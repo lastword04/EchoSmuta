@@ -1,0 +1,728 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(26, 44, 30, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(74, 21, 21, 0.1) 0%, transparent 20%);
+  background-attachment: fixed;
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Добавьте эти стили в TopicCommentsPage.module.css */
+
+.notificationBanner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #e8f5e8;
+  border-bottom: 1px solid #4caf50;
+  color: #2e7d32;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Область прикрепления файлов */
+.fileAttachmentCompact {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  background: rgba(26, 36, 47, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.fileAttachmentCompact:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  background: rgba(26, 36, 47, 0.8);
+}
+
+.fileInput {
+  display: none;
+}
+
+/* Кнопка в виде булавки */
+.pinButton {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pinButton:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: scale(1.1);
+}
+
+.pinButton:active {
+  transform: scale(0.95);
+}
+
+/* Счетчик файлов */
+.fileCounter {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--gold);
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+}
+
+/* Кнопка загрузки */
+.uploadButton {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  color: #4caf50;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.uploadButton:hover:not(:disabled) {
+  background: rgba(76, 175, 80, 0.2);
+  border-color: rgba(76, 175, 80, 0.6);
+  transform: scale(1.1);
+}
+
+.uploadButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Превью файлов */
+.filesPreview {
+  background: rgba(26, 36, 47, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 15px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.filesPreviewHeader {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.attachedFilesList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fileItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.fileName {
+  color: var(--text-primary);
+  flex-grow: 1;
+  margin-right: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.removeFileButton {
+  color: #e74c3c;
+  font-size: 16px;
+  padding: 0;
+  min-width: auto;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeFileButton:hover {
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 50%;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .fileAttachmentCompact {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  
+  .pinButton,
+  .uploadButton {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  
+  .fileCounter {
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    top: -5px;
+    right: -5px;
+  }
+  
+  .filesPreview {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .filesPreviewHeader {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  
+  .fileItem {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fileAttachmentCompact {
+    padding: 5px 8px;
+    gap: 5px;
+  }
+  
+  .pinButton,
+  .uploadButton {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+  
+  .fileCounter {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    top: -4px;
+    right: -4px;
+  }
+  
+  .filesPreview {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .filesPreviewHeader {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  
+  .fileItem {
+    padding: 4px 6px;
+    font-size: 11px;
+  }
+  
+  .fileName {
+    margin-right: 6px;
+  }
+}
+
+/* Ночной режим */
+body.night-mode .fileAttachmentCompact {
+  background: rgba(8, 12, 16, 0.6);
+  border-color: rgba(196, 159, 42, 0.3);
+}
+
+body.night-mode .fileAttachmentCompact:hover {
+  border-color: rgba(196, 159, 42, 0.6);
+  background: rgba(8, 12, 16, 0.8);
+}
+
+body.night-mode .pinButton {
+  background: rgba(196, 159, 42, 0.1);
+  border-color: rgba(196, 159, 42, 0.3);
+  color: var(--light-gold);
+}
+
+body.night-mode .pinButton:hover {
+  background: rgba(196, 159, 42, 0.2);
+  border-color: rgba(196, 159, 42, 0.6);
+}
+
+body.night-mode .uploadButton {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: rgba(76, 175, 80, 0.3);
+  color: #81c784;
+}
+
+body.night-mode .uploadButton:hover:not(:disabled) {
+  background: rgba(76, 175, 80, 0.2);
+  border-color: rgba(76, 175, 80, 0.6);
+}
+
+body.night-mode .filesPreview {
+  background: rgba(8, 12, 16, 0.4);
+  border-color: rgba(196, 159, 42, 0.2);
+}
+
+body.night-mode .fileItem {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(196, 159, 42, 0.1);
+}
+
+body.night-mode .fileName {
+  color: var(--text-primary);
+}
+
+body.night-mode .fileCounter {
+  background: var(--light-gold);
+  color: #000;
+  border-color: #000;
+}
+
+/* Добавляем отступ сверху для контента, когда показано уведомление */
+.page:has(.notificationBanner) {
+  padding-top: 60px;
+}
+
+/* Альтернатива для браузеров, не поддерживающих :has() */
+.pageWithNotification {
+  padding-top: 60px;
+}
+
+.notificationActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notificationActions button {
+  min-height: auto;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* Для темной темы (если используется) */
+@media (prefers-color-scheme: dark) {
+  .notificationBanner {
+    background: #1b4332;
+    border-color: #4caf50;
+    color: #81c784;
+  }
+}
+
+.commentsCard {
+  background: linear-gradient(135deg, rgba(10, 15, 20, 0.95) 0%, rgba(26, 44, 30, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  z-index: 10;
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--gold);
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-family: var(--font-handwritten);
+  font-size: 1.4rem;
+  color: var(--light-gold);
+  margin: 0 0 5px 0;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+}
+
+.forumSubtitle {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+.headerActions {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.backButton {
+  font-size: 0.9rem !important;
+  padding: 8px 16px !important;
+  min-width: auto !important;
+}
+
+.errorMessage {
+  background: rgba(231, 76, 60, 0.15);
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  color: #e74c3c;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 0;
+  color: var(--text-secondary);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 50px 0;
+  color: var(--text-secondary);
+}
+
+.emptyState p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.commentsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.paginationInfo {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.paginationButton {
+  font-size: 0.9rem !important;
+  padding: 6px 12px !important;
+  min-width: auto !important;
+}
+
+.paginationCurrent {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .page {
+    padding: 15px;
+  }
+  
+  .content {
+    max-width: 100%;
+  }
+  
+  .commentsCard {
+    padding: 30px 20px;
+    border-radius: 10px;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .headerContent {
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+  }
+  
+  .forumSubtitle {
+    font-size: 1rem;
+  }
+  
+  .headerActions {
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .backButton {
+    font-size: 0.85rem !important;
+    padding: 6px 12px !important;
+  }
+  
+  .loading {
+    padding: 40px 0;
+    gap: 15px;
+  }
+  
+  .loading span {
+    font-size: 0.95rem;
+  }
+  
+  .emptyState {
+    padding: 40px 0;
+  }
+  
+  .emptyState p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  
+  .commentsContainer {
+    gap: 20px;
+  }
+  
+  .commentsList {
+    gap: 15px;
+  }
+  
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 15px;
+  }
+  
+  .paginationControls {
+    order: -1;
+  }
+  
+  .paginationInfo {
+    font-size: 0.85rem;
+  }
+  
+  .paginationCurrent {
+    font-size: 0.9rem;
+    min-width: 50px;
+  }
+  
+  .paginationButton {
+    font-size: 0.85rem !important;
+    padding: 5px 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 10px;
+  }
+  
+  .commentsCard {
+    padding: 25px 15px;
+    border-radius: 8px;
+  }
+  
+  .header {
+    gap: 15px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+  }
+  
+  .forumSubtitle {
+    font-size: 0.95rem;
+  }
+  
+  .headerActions {
+    gap: 10px;
+  }
+  
+  .backButton {
+    font-size: 0.8rem !important;
+    padding: 5px 10px !important;
+  }
+  
+  .loading {
+    padding: 30px 0;
+    gap: 12px;
+  }
+  
+  .loading span {
+    font-size: 0.9rem;
+  }
+  
+  .emptyState {
+    padding: 30px 0;
+  }
+  
+  .emptyState p {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  
+  .commentsContainer {
+    gap: 15px;
+  }
+  
+  .commentsList {
+    gap: 12px;
+  }
+  
+  .pagination {
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 12px;
+  }
+  
+  .paginationInfo {
+    font-size: 0.8rem;
+  }
+  
+  .paginationCurrent {
+    font-size: 0.85rem;
+    min-width: 40px;
+  }
+  
+  .paginationButton {
+    font-size: 0.8rem !important;
+    padding: 4px 8px !important;
+  }
+}
+
+/* Ночной режим */
+body.night-mode .commentsCard {
+  background: linear-gradient(135deg, rgba(8, 12, 16, 0.95) 0%, rgba(18, 32, 21, 0.95) 100%);
+  border-color: rgba(196, 159, 42, 0.3);
+}
+
+body.night-mode .header {
+  border-bottom-color: rgba(196, 159, 42, 0.2);
+}
+
+body.night-mode .errorMessage {
+  background: rgba(231, 76, 60, 0.15);
+  border-color: rgba(231, 76, 60, 0.4);
+}
+
+body.night-mode .pagination {
+  border-top-color: rgba(196, 159, 42, 0.2);
+}
+
+body.night-mode .paginationInfo {
+  color: var(--text-secondary);
+}
+
+body.night-mode .paginationCurrent {
+  color: var(--text-primary);
+}

@@ -1,0 +1,210 @@
+.topicCard {
+  background: linear-gradient(135deg, rgba(26, 36, 47, 0.85) 0%, rgba(15, 23, 32, 0.9) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.topicCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+.topicHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.topicName {
+  font-family: var(--font-handwritten);
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  display: block;
+  padding: 12px 15px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+}
+
+.topicName:hover {
+  color: var(--light-gold);
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.topicName:active {
+  transform: translateY(0);
+  background: rgba(212, 175, 55, 0.2);
+}
+
+/* Добавим визуальный индикатор кликабельности */
+.topicName::after {
+  content: '→';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.topicName:hover::after {
+  opacity: 1;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.enterButton {
+  font-size: 0.9rem !important;
+  padding: 8px 16px !important;
+  min-width: auto !important;
+  flex-shrink: 0;
+}
+
+.topicInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.topicAuthor {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.infoLabel {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.infoValue {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.topicStats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.statLabel {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.statValue {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.lastComment {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.lastCommentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.85rem;
+}
+
+.lastCommentAuthor {
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.lastCommentDate {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.noComments {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: auto;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .topicHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .topicName {
+    margin-right: 0;
+    font-size: 1.2rem;
+  }
+  
+  .enterButton {
+    align-self: flex-end;
+  }
+  
+  .topicStats {
+    gap: 15px;
+  }
+  
+  .statLabel,
+  .statValue {
+    font-size: 0.85rem;
+  }
+  
+  .lastCommentAuthor {
+    font-size: 0.8rem;
+  }
+  
+  .lastCommentDate {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topicName {
+    font-size: 1.1rem;
+  }
+  
+  .topicStats {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .infoLabel,
+  .infoValue {
+    font-size: 0.85rem;
+  }
+}

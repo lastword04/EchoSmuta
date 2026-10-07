@@ -1,0 +1,21 @@
+[project]
+name = "captcha-service"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "asyncpg>=0.31.0",
+    "captcha>=0.7.1",
+    "fastapi>=0.116.1",
+    "granian[reload]>=2.5.1",
+    "pydantic-settings>=2.10.1",
+    "python-jose>=3.5.0",
+    "pyyaml>=6.0.2",
+    "redis>=6.4.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.9",
+]

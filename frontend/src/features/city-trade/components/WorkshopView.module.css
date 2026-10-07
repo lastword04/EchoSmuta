@@ -1,0 +1,350 @@
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                              LAYOUT                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.workshopContainer {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.dot {
+  color: #ddd;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+.mainContent {
+  display: flex;
+  gap: 10px;
+  min-height: 400px;
+}
+
+.leftColumn {  
+  min-width: 0;
+}
+
+.rightColumn {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.itemCardOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100vh - var(--panel-height, 30vh));
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 50px 0;
+  z-index: 2000;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                              TABLES                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.borderBox,
+.infoBox {
+  background:
+    url("/images/locations/border/border_nut.gif") 0 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 0 100% no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 0 no-repeat,
+    url("/images/locations/border/border_nut.gif") 100% 100% no-repeat,
+    url("/images/locations/border/border-top.gif") top repeat-x,
+    url("/images/locations/border/border-bot.gif") bottom repeat-x,
+    url("/images/locations/border/border-left.gif") 0 repeat-y,
+    url("/images/locations/border/border-right.gif") 100% repeat-y;  
+  width: 100%;
+  padding: 9px;
+  box-sizing: border-box;
+}
+
+.recipesTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  color: #000;  
+}
+
+.recipesTable tbody {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+}
+
+.tableHeader {
+  background: url("/images/widgets/chat-panel/buttons/chat-button.png") top repeat-x;
+  height: 19px;
+  line-height: 19px;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 2px solid var(--card-bg);
+}
+
+.recipeRow {
+  border-bottom: 1px solid var(--card-table);
+}
+
+.recipeRow:last-child {
+  border-bottom: none;
+}
+
+.recipeRow:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.recipesTable td {
+  padding: 3px;
+  font-size: 14px;
+  overflow-wrap: break-word;
+  vertical-align: middle;
+}
+
+.recipesTable th {
+  padding: 0px 3px;
+  font-size: 14px;
+}
+
+.recipesTable td,
+.recipesTable th {
+  text-align: center;
+}
+
+.recipeCheckbox:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.recipeCheckbox:disabled::after {
+  content: '🔒';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* ── Колонки: десктоп (4 колонки) ── */
+
+.recipesTable col:nth-child(1) { width: 5%; }
+.recipesTable col:nth-child(2) { width: 35%; }
+.recipesTable col:nth-child(3) { width: 20%; }
+.recipesTable col:nth-child(4) { width: 40%; }
+
+/* ── Колонки: десктоп с расой (5 колонок) ── */
+
+.recipesTable.withRace col:nth-child(1) { width: 5%; }
+.recipesTable.withRace col:nth-child(2) { width: 30%; }
+.recipesTable.withRace col:nth-child(3) { width: 18%; }
+.recipesTable.withRace col:nth-child(4) { width: 17%; }
+.recipesTable.withRace col:nth-child(5) { width: 30%; }
+
+/* ── Компоненты рецептов ── */
+
+.components {    
+  gap: 5px;
+}
+
+.inStock {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.outOfStock {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+.noRecipes {
+  text-align: center;
+  padding: 40px;
+  font-family: var(--font-sequel);
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         RIGHT PANEL                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.craftTable {
+  padding: 5px;
+  background: url(/images/widgets/character-panel/notebook-modal/background.jpg) center / cover no-repeat;
+}
+
+.statsInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-sequel);
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.errorMessage {
+  color: #dc3545;
+  margin-top: 12px;
+  font-size: 14px;
+  font-family: var(--font-sequel);
+}
+
+.successMessage {
+  color: #28a745;
+  margin-top: 12px;
+  font-size: 14px;
+  font-family: var(--font-sequel);
+}
+
+.timerMessage {
+  color: #d7980d;
+  margin-top: 12px;
+  font-size: 14px;
+  font-family: var(--font-sequel);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                           CAPTCHA                                  ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.captchaMiniRow {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.captchaMiniImage {
+  width: 80px;
+  height: 36px;
+  cursor: pointer;
+  border: 1px solid #6b4740;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-right: none;
+}
+
+.captchaMiniImage:hover {
+  opacity: 0.8;
+}
+
+.captchaMiniInput {
+  color: #000000;
+  padding: 4px 8px;
+  height: 36px;
+  font-size: 14px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  outline: none;
+  width: 80px;
+  background-color: #f3eddb;
+  border: 1px solid #6b4740;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.captchaMiniInput:focus {
+  box-shadow: 0 0 6px #6b4740;
+}
+
+/* ── Кнопки ── */
+
+.submitButton {
+  width: 160px;
+  margin-top: 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                   МОБИЛЬНЫЕ ВСТАВКИ                               ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.mobileExtra {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                        RESPONSIVE                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1300px) {
+  .mainContent {
+    flex-direction: column;    
+  }
+  .rightColumn {
+    align-self: center;
+  }
+}
+
+@media (max-width: 830px) {
+  .workshopContainer {
+    max-width: 100%;
+  }    
+}
+
+@media (max-width: 600px) {
+  .mainContent {    
+    gap: 5px;    
+  }
+
+  .tabs {    
+    gap: 5px;
+    margin-bottom: 10px;    
+  }
+
+  /* Прячем колонки Раса и Цена */
+  .hideOnMobile {
+    display: none !important;
+  }
+
+  /* Показываем мобильные вставки */
+  .mobileExtra {
+    display: block;
+    font-size: 13px;
+    color: #555;
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+
+  /* Видимые колонки занимают слоты 1-3, остальные обнуляем */
+  .recipesTable col:nth-child(1) { width: 5% !important; }
+  .recipesTable col:nth-child(2) { width: 35% !important; }
+  .recipesTable col:nth-child(3) { width: 20% !important; }
+  .recipesTable col:nth-child(4) { width: 40% !important; }
+  .recipesTable col:nth-child(n+5) { width: 0 !important; }   
+}
+
+@media (max-width: 480px) {
+  .rightColumn {
+    width: 100%;
+    text-align: center;
+  }
+  .captchaMiniRow {
+    justify-content: center;
+  }
+}

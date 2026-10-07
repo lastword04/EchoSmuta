@@ -1,0 +1,789 @@
+/* Обновим фон карточки для лучшей читаемости */
+.characterCard {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(15, 23, 32, 0.95) 100%);
+  border: 1px solid var(--card-border);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+/* Улучшим заголовок */
+.characterHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 90px;
+  justify-content: space-between; /* !!!изменено с flex-start*/
+  margin-bottom: 15px;
+  padding: 15px 10px 10px 10px;
+  border-bottom: 1px solid var(--card-border);
+  text-align: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.characterName {
+  font-family: var(--font-handwritten);
+  color: var(--light-gold);
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(230, 193, 79, 0.5);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  text-align: center;
+  /* !!!Добавляем Flexbox для вертикального выравнивания */
+  display: flex;
+  align-items: center;
+  height: 100%; /* Устанавливаем высоту элемента */
+}
+
+/* Улучшим статусы */
+.characterStatus {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.statusIndicator {
+  font-family: var(--font-text);
+  font-size: 0.8rem;
+  padding: 5px 14px;
+  border-radius: 16px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 85px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.statusIndicator:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+.online {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.4), rgba(56, 142, 60, 0.6));
+  color: #e8f5e9;
+  border: 1px solid rgba(76, 175, 80, 0.8);
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+}
+
+.offline {
+  background: linear-gradient(135deg, rgba(158, 158, 158, 0.4), rgba(117, 117, 117, 0.6));
+  color: #fafafa;
+  border: 1px solid rgba(158, 158, 158, 0.8);
+  box-shadow: 0 0 12px rgba(158, 158, 158, 0.3);
+}
+
+.characterType {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  color: var(--light-gold);
+  background: linear-gradient(135deg, rgba(230, 193, 79, 0.2), rgba(212, 175, 55, 0.3));
+  padding: 5px 14px;
+  border-radius: 16px;
+  font-weight: 500;
+  border: 1px solid var(--card-border);
+  white-space: nowrap;
+  min-width: 85px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.imageWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 185px;
+}
+
+.raceContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.raceShield {
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.characterType:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Фиксируем изображение - НЕ растягиваем */
+.characterImageContainer {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 auto; /* Фиксированный размер, не растягиваем */
+  min-height: 160px;
+  max-height: 250px; /* Максимальная высота */
+  position: relative;
+}
+
+.imagePlaceholder {
+  width: 100%;     
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Оставляем только dashed border для плейсхолдера */
+  color: var(--gold);
+  font-size: 2.5rem;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.characterImage {
+  object-fit: contain;
+  background: transparent;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.characterImageBackground {
+  display: flex;
+  background-color: #f1f1f1;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  width: 212px;
+  height: 233px;
+}
+
+.squares {
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+
+
+/* Улучшим расу */
+.characterRace {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрируем содержимое */
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--light-gold);
+  text-align: center;
+  margin: 10px 0 20px 0;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, rgba(45, 90, 61, 0.3), rgba(26, 42, 58, 0.5));
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.fallbackGender {
+  margin-left: 4px;
+}
+
+/* НЕ растягиваем статистику */
+.characterStats {
+  flex: 0 0 auto; /* Фиксированный размер */
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0 0 20px 0;
+  padding: 0 15px;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-text);
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.statLabel {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.statValue {
+  color: var(--text-primary);
+  font-weight: 550;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+/* Улучшим прогресс-бары для лучшей видимости */
+.progressBarContainer {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.progressLabel {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.progressBar {
+  width: 100%;
+  height: 18px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 9px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progressBar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 50%, rgba(255, 255, 255, 0.08) 50%);
+  background-size: 100% 4px;
+}
+
+.progressFill {
+  height: 100%;
+  transition: width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  border-radius: 9px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.progressFill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: translateX(-100%);
+  animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Обновленные цвета прогресс-баров с лучшей контрастностью */
+.progress-green {
+  background: linear-gradient(90deg, #388e3c, #4caf50, #2e7d32);
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.4);
+}
+
+.progress-red {
+  background: linear-gradient(90deg, #d32f2f, #f44336, #c62828);
+  box-shadow: 0 0 12px rgba(244, 67, 54, 0.4);
+}
+
+.progress-yellow {
+  background: linear-gradient(90deg, #f57f17, #fbc02d, #f57f17);
+  box-shadow: 0 0 12px rgba(251, 192, 45, 0.4);
+}
+
+.progress-blue {
+  background: linear-gradient(90deg, #1976d2, #2196f3, #1565c0);
+  box-shadow: 0 0 12px rgba(33, 150, 243, 0.4);
+}
+
+/* Растягиваем блок с кнопками - он заполнит оставшееся место */
+.characterActions {
+  margin-top: auto; /* Прижимаем к низу */
+  padding: 20px;
+  border-top: 1px solid var(--card-border);
+  background: rgba(0, 0, 0, 0.2);
+  flex-grow: 1; /* Растягиваем блок с кнопками */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  gap: 10px;
+}
+
+.playButton {
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 15px 20px;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.playButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.playButton:hover::before {
+  left: 100%;
+}
+
+.exitButton {
+  width: 100%;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивность */
+@media (max-width: 650px) {
+  .characterCard {
+    border-radius: 10px;
+  }
+  
+  .characterHeader {
+    padding: 12px 8px 8px 8px;
+    gap: 6px;
+  }
+  
+  .characterName {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+  }
+  
+  .characterStatus {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .statusIndicator,
+  .characterType {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    min-width: 75px;
+  }
+  
+  /*.characterImage {
+    width: 120px;
+    height: 150px;
+  }*/
+  
+  /*.imagePlaceholder {
+    width: 120px;
+    height: 150px;
+    font-size: 2rem;
+  }*/
+  
+  .characterRace {
+    font-size: 0.95rem;
+    padding: 12px 14px;
+  }
+  
+  .characterStats {
+    padding: 0 12px;
+    gap: 12px;
+  }
+  
+  .stat {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  
+  .progressLabel {
+    font-size: 0.85rem;
+  }
+  
+  .playButton {
+    font-size: 1rem;
+    padding: 13px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .characterHeader {
+    padding: 10px 6px 6px 6px;
+    gap: 5px;
+  }
+  
+  .characterStatus {
+    gap: 6px;
+  }
+  
+  .statusIndicator,
+  .characterType {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    min-width: 65px;
+  }
+  
+  /*.characterImageContainer {
+    min-height: 140px;
+  }
+  
+  .characterImage {
+    width: 110px;
+    height: 140px;
+  }
+
+  .imagePlaceholder {
+    width: 110px;
+    height: 140px;
+    font-size: 2rem;
+  }*/
+
+  .characterRace {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+    margin: 8px 0 15px 0;
+  }
+  
+  .characterStats {
+    gap: 10px;
+  }
+
+  .square {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .squarePattern {
+    width: 35px;
+    padding: 12px 8px;
+    gap: 6px;
+  }
+  
+  .stat {
+    font-size: 0.85rem;
+    padding: 7px 10px;
+  }
+  
+  .progressLabel {
+    font-size: 0.8rem;
+  }
+  
+  .progressBar {
+    height: 16px;
+  }
+  
+  .playButton {
+    font-size: 0.95rem;
+    padding: 12px 14px;
+  }
+
+}
+
+
+.mobileCharacterCard {
+  padding: 12px;
+  min-height: auto;
+}
+
+.mobileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.mobileStatusInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobileStatusIndicator {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.mobileStatusIndicator.online {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+}
+
+.mobileStatusIndicator.offline {
+  background: linear-gradient(135deg, #F44336, #C62828);
+  box-shadow: 0 0 8px rgba(244, 67, 54, 0.6);
+}
+
+.mobileName {
+  font-family: var(--font-handwritten);
+  color: var(--light-gold);
+  font-weight: 500;
+  text-shadow: 0 0 8px rgba(230, 193, 79, 0.5);
+  line-height: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+  margin-right: 3px;
+  margin-bottom: 1px;
+}
+
+.mobileNameInfo {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.mobileNameWrapper {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+}
+
+.mobileLevel {
+  font-family: var(--font-base);
+  font-size: 13px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.mobileRaceShield {
+  width: 12px;
+  height: 12px;
+  margin-bottom: 0px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.mobileActions {
+  display: flex;
+  gap: 8px;
+}
+
+.mobileActionButton {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 1px solid var(--card-border);
+}
+
+.mobileActionButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.mobileActionButton img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.mobileContent {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.mobileImageSection {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+.mobileStatsSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 233px;
+}
+
+.mobileStatsContainer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px; 
+}
+
+.mobileStatItem {
+  display: flex;
+  gap: 10px;
+  /*justify-content: space-between;*/
+  font-family: var(--font-base);
+  font-size: 0.9rem;
+  /*line-height: 2;*/
+  border-bottom: none !important;
+}
+
+.mobileStatItem .statValue {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Расстояние между значком и текстом */
+}
+
+.mobileStatItem:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.currencyIcon {
+  width: 10px;
+  height: 10px;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+.mobileProgressBars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 480px) {
+  .mobileCharacterCard {
+    padding: 10px;
+    border: none;
+    border-radius: 0px;
+    /*border-radius: 0px !important;*/
+  }
+  
+  .mobileHeader {
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+  }
+
+  .mobileLevel {
+    margin-top: 2px;
+  }
+
+  
+  .mobileActionButton {
+    width: 26px;
+    height: 26px;
+  }  
+ 
+  
+  .mobileContent {
+    gap: 8px;
+  }
+
+  .mobileImageSection .square {
+    width: 12px; /* Уменьшил с 16px до 12px */
+    height: 12px; /* Уменьшил с 16px до 12px */
+  }
+
+  .mobileStatItem {
+    font-size: 0.8rem;
+  }
+  .currencyIcon {
+    margin-top: -1px;
+  }
+}
+
+@media (max-width: 360px) {
+  .characterImageBackground {
+  width: 158px;
+  height: 173px;
+}
+
+  .mobileImageSection .characterImage,
+  .mobileImageSection .imagePlaceholder {
+    width: 158px;
+    height: 173px;
+    font-size: 1.8rem;
+  }
+
+  .mobileImageSection .imageWrapper {
+    width: 95px; /* Увеличил ширину */
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+  
+  .mobileImageSection .square {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .mobileImageSection .squares {
+    padding-top: 6px;
+    padding-bottom: 3px;
+  }
+  
+  .mobileStatsSection {
+    height: 173px;
+  }
+  
+  /*.mobileLevel {
+    font-size: 0.7rem;
+    padding: 1px 4px;
+  }*/
+  
+  .mobileActionButton {
+    width: 24px;
+    height: 24px;
+  }  
+ 
+  
+  .mobileStatItem {
+    font-size: 0.75rem;
+  }
+    .currencyIcon {
+    margin-top: -2px;
+  }
+}

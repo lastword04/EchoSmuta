@@ -1,0 +1,370 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(26, 44, 30, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(74, 21, 21, 0.1) 0%, transparent 20%);
+  background-attachment: fixed;
+}
+
+.content {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Шапка личного кабинета */
+.personalCabinetHeader {
+  background: linear-gradient(135deg, rgba(10, 15, 20, 0.95) 0%, rgba(26, 44, 30, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 25px 30px;
+  border-radius: 12px;
+}
+
+
+
+.cabinetTitle h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--gold);
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.cabinetTitleLink {
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.greeting {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+  margin: 0;
+  font-style: italic;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.cabinetNavigation {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.navTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.navButton {
+  font-size: 0.9rem !important;
+  padding: 8px 16px !important;
+  white-space: nowrap;
+}
+
+/* Основная карточка с персонажами */
+.charactersCard {
+  background: linear-gradient(135deg, rgba(10, 15, 20, 0.95) 0%, rgba(26, 44, 30, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.logoutButton {
+  font-size: 0.9rem !important;
+  padding: 8px 16px !important;
+}
+
+.errorMessage {
+  background: rgba(231, 76, 60, 0.15);
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  color: #e74c3c;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 0;
+  color: var(--text-secondary);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 50px 0;
+  color: var(--text-secondary);
+}
+
+.emptyState p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.charactersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding-bottom: 10px;
+}
+
+/* Стили для контента вкладок */
+.tabContent {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabPlaceholder {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 50px 20px;
+}
+
+.tabPlaceholder h3 {
+  color: var(--gold);
+  font-family: var(--font-display);
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* Кнопки действий */
+.actions {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.actionButton {
+  width: 100%;
+  font-weight: 500;
+  justify-content: center;
+}
+
+/* Адаптивность */
+@media (max-width: 1070px) {
+  .personalCabinetHeader {
+    padding: 20px;
+  }
+  
+  .cabinetTitle h1 {
+    font-size: 1.8rem;
+  }
+  
+  .navTabs {
+    gap: 10px;
+  }
+  
+  .navButton {
+    font-size: 0.85rem !important;
+    padding: 6px 12px !important;
+  }
+  
+  .charactersCard {
+    padding: 25px 20px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .charactersGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .content {
+    gap: 10px;
+    padding: 0px;
+  }
+  .personalCabinetHeader {
+    padding-top: 10px;
+  }
+  .charactersCard {
+    padding: 15px;
+  }
+  .cabinetNavigation {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: none;
+  }
+  
+  .navTabs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navButton {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .cabinetTitle {
+    text-align: center;
+  }
+  
+  .cabinetTitle h1 {
+    font-size: 1.5rem;
+    margin: 0 0 5px 0;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: none;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .charactersGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-bottom: 0;
+  }
+
+  .actions {
+    margin-top: 20px;
+    padding-top: 0px;
+    border-top: none;
+  }
+  
+  .actionButtons {
+    max-width: 100%;
+  }
+  .greeting {
+    line-height: 1;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 0px;
+  }
+
+  .content {
+    gap: 0px;
+    padding: 0px;
+  }
+  
+  .personalCabinetHeader {
+    padding-top: 3px;
+    padding-bottom: 10px;
+    border-radius: 0px;
+  }
+    
+  .cabinetNavigation {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  .header {
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    gap: 0px;
+  }
+
+  .cabinetTitle h1 {
+    font-size: 1.4rem;
+    margin: 0 0 3px 0;
+  }
+  
+  .charactersCard {
+    border-radius: 0px;
+    padding: 10px 0;
+  }
+  
+  .title {
+    font-size: 1.4rem;
+    margin-top: -6px;
+    margin-right: 5px;
+  }
+  
+  .tabPlaceholder h3 {
+    font-size: 1.5rem;
+  }
+
+  .actions {
+  margin-top: 10px;
+  }
+
+  .actionButtons {
+    margin-left: 20px;
+    margin-right: 20px;
+    gap: 10px;
+  }
+
+  .greeting {
+    line-height: 1;
+    font-size: 0.9rem;
+  }
+}
+
+@media(max-width: 380px){
+  .cabinetTitle h1 {
+    font-size: 1.3rem;
+  }
+  .title {
+    font-size: 1.3rem;
+    margin-top: -4px;
+  }
+/*.greeting {
+    line-height: 1;
+    font-size: 0.7rem;
+  }*/
+}
+/* Скрываем блок на экранах шириной менее 768px */
+@media screen and (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}

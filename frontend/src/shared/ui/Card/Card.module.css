@@ -1,0 +1,59 @@
+.card {
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Класс для светлого режима */
+.card-day {
+  background: rgba(10, 15, 20, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-day:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0px 25px rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* Класс для тёмного режима */
+.card-night {
+  background: rgba(20, 25, 30, 0.95);
+  border: 1px solid rgba(180, 150, 80, 0.2);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+  /*box-shadow: 0 0 20px 10px rgba(100, 200, 255, 0.7),
+    0 0 40px 20px rgba(100, 200, 255, 0.5),
+    0 0 60px 30px rgba(100, 200, 255, 0.3);*/
+}
+
+.card-night:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.5);
+  /*box-shadow: 0 6px 25px rgba(180, 150, 80, 0.2);
+  border-color: rgba(180, 150, 80, 0.4);*/
+}
+
+@media (max-width: 480px) {
+  .card-day:hover, .card-night:hover {
+    transform: translateY(0px);
+  }
+}
+
+/*.card {
+  background: rgba(10, 15, 20, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.5);
+} !!!!!! */

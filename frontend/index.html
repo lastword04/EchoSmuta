@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Эхо Смуты</title>
+   
+    <!-- Предзагрузка шрифтов -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/kelly-slab-v18-cyrillic_latin-regular.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/caveat-v23-cyrillic_latin-regular.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/cormorant-garamond-v21-cyrillic_latin-regular.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/cormorant-garamond-v21-cyrillic_latin-italic.woff2">
+ 
+    <!-- Предзагрузка фонов локаций -->
+    <link rel="preload" as="image" href="/images/locations/backgrounds/swamp.png" fetchpriority="low">
+    <link rel="preload" as="image" href="/images/locations/backgrounds/mine.png" fetchpriority="low">
+    <link rel="preload" as="image" href="/images/locations/backgrounds/gems.png" fetchpriority="low">
+    <link rel="preload" as="image" href="/images/locations/backgrounds/lake.png" fetchpriority="low">
+    <link rel="preload" as="image" href="/images/locations/backgrounds/forest.png" fetchpriority="low">
+    <link rel="preload" as="image" href="/images/locations/backgrounds/sands.png" fetchpriority="low">
+    <link rel="preload" as="image" href="/images/locations/backgrounds/skins.png" fetchpriority="low">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

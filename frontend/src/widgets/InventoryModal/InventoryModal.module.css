@@ -1,0 +1,159 @@
+/* ═══ LAYOUT ═══ */
+
+.overlay {
+  position: relative;
+  z-index: 1000;
+  inset: 0;
+  padding: 50px 0;
+}
+
+.modal {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+  width: 800px;  
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 95vw;
+}
+
+/* ═══ HEADER & TABS ═══ */
+
+.header {
+  position: relative;
+  margin-bottom: 10px;
+  margin-top: -4px;
+}
+
+.tabsAndCloseButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dot {
+  color: #000;
+  font-size: 12px;  
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #471a11;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.15s ease, color 0.15s ease;     
+}
+
+.closeButton:hover {
+  transform: scale(1.2);
+  color: #a00;
+}
+
+/* ═══ TAB CONTENT ═══ */
+
+.tabContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--card-table);
+  padding-top: 5px;
+}
+
+.placeholder {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #333;
+}
+
+/* ═══ RESOURCE WRAPPER ═══ */
+
+.resourceWrapper {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.resourceList {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  color: #000;
+  flex: 1;
+  order: 1;
+}
+
+.resourceRow {
+  padding: 0;
+}
+
+.resourceName {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resourceNameText {  
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.resourceNameText:hover {
+  text-decoration: underline;
+  color: #a00;
+}
+
+.resourceAmount {
+  font-size: 14px;
+}
+
+/* ═══ EQUIPMENT BACKPACK ═══ */
+
+.listDivider {
+  height: 1px;
+  background-color: rgba(71, 26, 17, 0.15);
+  margin: 6px 0;
+}
+
+/*.itemWearInline {  
+  color: #000;
+}*/
+
+.itemWearInlineRed {
+  color: #a00;
+}
+
+/* ═══ BUTTONS ═══ */
+
+.errorMessage {
+  color: #a00;
+  font-size: 13px;   
+  margin-bottom: 5px;
+}
+
+/* ═══ RESPONSIVE ═══ */
+
+@media (max-width: 768px) {
+  .resourceWrapper {
+    flex-direction: column;
+  } 
+}
+
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 8px 0 10px;
+  }
+ 
+
+  .closeButton {
+    order: 0;
+    align-self: flex-end;
+  }
+}

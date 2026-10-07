@@ -1,0 +1,151 @@
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║          ЕДИНЫЙ БАЗОВЫЙ КЛАСС ДЛЯ КНОПОК ПЕРЕКЛЮЧЕНИЯ           ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.dot {
+  color: #ddd;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                              LAYOUT                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url('/images/station/background.jpg');
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  display: flex; 
+  overflow-y: auto;
+}
+
+.contentBox {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-left: 420px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.topNavigation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+/* ═══ ПОИСК ТОВАРА ПО ВСЕМ ЛАВКАМ (для ItemSearchView) ═══ */
+
+.searchWrap {
+  margin-top: 10px;
+  max-width: 700px;
+}
+
+.searchHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #f3eddb;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: var(--font-sequel);
+  flex-wrap: wrap;
+}
+
+.searchItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  gap: 16px;
+  text-align: center;
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.searchTable {
+  width: 100%;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  background: url(/images/locations/border/border_nut.gif) 0 0 no-repeat, url(/images/locations/border/border_nut.gif) 0 100% no-repeat, url(/images/locations/border/border_nut.gif) 100% 0 no-repeat, url(/images/locations/border/border_nut.gif) 100% 100% no-repeat, url(/images/locations/border/border-top.gif) top repeat-x, url(/images/locations/border/border-bot.gif) bottom repeat-x, url(/images/locations/border/border-left.gif) 0 repeat-y, url(/images/locations/border/border-right.gif) 100% repeat-y;
+  padding: 9px;
+}
+
+.searchTable th {
+  background: linear-gradient(#d3b98d, #b09468);
+  color: #3a2623;
+  font-family: var(--font-sequel);
+  font-size: 13px;
+  padding: 6px 10px;
+  border: 1px solid rgba(63, 63, 63, 0.8);
+}
+
+.searchTable td {
+  padding: 5px 10px;
+  border: 1px solid rgba(63, 63, 63, 0.4);
+  color: #000;
+  font-size: 13px;
+  text-align: center;
+  background: rgba(243, 237, 219, 0.6);
+}
+
+.searchShopLink {  
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.searchShopLink:hover {
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                         RESPONSIVE                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 950px) {
+  .contentBox {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 830px) {  
+
+  .searchHeader {
+    margin: 0 10px 10px 10px;    
+  }
+}
+
+@media (max-width: 600px) {
+.topNavigation {
+  margin-bottom: 10px;
+  gap: 5px;
+}
+
+.searchHeader {    
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) { 
+  .contentBox {
+    margin-left: 0;
+    margin-right: 0;    
+  }
+  
+}

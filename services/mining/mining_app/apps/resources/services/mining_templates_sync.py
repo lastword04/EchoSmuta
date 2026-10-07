@@ -1,0 +1,6 @@
+# mining_templates_sync.py
+from .mining_templates import MiningTemplateService, MiningTemplateServiceProtocol
+
+# Алиас для единообразия имён
+MiningTemplateSyncService = MiningTemplateService
+MiningTemplateSyncServiceProtocol = MiningTemplateServiceProtocol

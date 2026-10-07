@@ -1,0 +1,17 @@
+.baseMainPage {
+  min-height: 100vh;
+  background: var(--dark-bg);
+  background-image: 
+    linear-gradient(rgba(15, 26, 36, 0.95), rgba(15, 26, 36, 0.96)),
+    url("/images/background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.baseMainPage > * {
+  position: relative;
+  z-index: 1;
+}
+

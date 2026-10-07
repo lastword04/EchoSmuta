@@ -1,0 +1,112 @@
+.authCheckCard {
+  background: linear-gradient(135deg, rgba(10, 15, 20, 0.95) 0%, rgba(26, 44, 30, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 30px;
+  min-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: visible; /* Убираем скроллы */
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  letter-spacing: 1px;
+}
+
+.errorMessage {
+  background: rgba(231, 76, 60, 0.15);
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  color: #e74c3c;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.loginButton,
+.stayButton {
+  flex: 1;
+  font-weight: 500;
+  justify-content: center;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .authCheckCard {
+    min-width: 300px;
+    padding: 25px 20px;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .loginButton,
+  .stayButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .authCheckCard {
+    min-width: 280px;
+    padding: 20px 15px;
+  }
+  
+  .title {
+    font-size: 1.4rem;
+  }
+  
+  .errorMessage {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+  
+  .actions {
+    gap: 10px;
+  }
+  
+  .loginButton,
+  .stayButton {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+}
+
+/* Ночной режим */
+body.night-mode .authCheckCard {
+  background: linear-gradient(135deg, rgba(8, 12, 16, 0.95) 0%, rgba(18, 32, 21, 0.95) 100%);
+  border-color: rgba(196, 159, 42, 0.3);
+}
+
+body.night-mode .errorMessage {
+  background: rgba(231, 76, 60, 0.15);
+  border-color: rgba(231, 76, 60, 0.4);
+}
+
+body.night-mode .title {
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(196, 159, 42, 0.3);
+}

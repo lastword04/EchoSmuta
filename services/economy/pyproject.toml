@@ -1,0 +1,22 @@
+[project]
+name = "economy"
+version = "0.1.0"
+description = "Buyout and resource exchange service"
+requires-python = ">=3.10"
+dependencies = [
+    "alembic>=1.16.4",
+    "asyncpg>=0.31.0",
+    "fastapi>=0.116.1",
+    "granian[reload]>=2.7.9",
+    "httpx>=0.28.1",
+    "pydantic-settings>=2.10.1",
+    "python-jose>=3.5.0",
+    "sqlalchemy>=2.0.42",
+    "redis>=5.0.0",
+    "pyjwt>=2.15.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.9",
+]

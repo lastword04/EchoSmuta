@@ -1,0 +1,54 @@
+.spinner {
+  display: inline-block;
+  position: relative;
+}
+
+.spinnerInner {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--gold) transparent var(--gold) transparent;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Размеры */
+.small {
+  width: 20px;
+  height: 20px;
+}
+
+.small .spinnerInner {
+  border-width: 2px;
+}
+
+.medium {
+  width: 40px;
+  height: 40px;
+}
+
+.medium .spinnerInner {
+  border-width: 3px;
+}
+
+.large {
+  width: 60px;
+  height: 60px;
+}
+
+.large .spinnerInner {
+  border-width: 4px;
+}

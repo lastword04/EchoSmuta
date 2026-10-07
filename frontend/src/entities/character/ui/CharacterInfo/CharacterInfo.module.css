@@ -1,0 +1,223 @@
+.characterContainer {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.characterImageSection {
+  flex-shrink: 0;
+}
+
+.characterImageContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.characterImageBackground {
+  position: relative;
+  display: inline-block;
+  background-color: #f1f1f1;
+}
+
+.squares {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.imageWrapper {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+}
+
+.characterImage {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.imagePlaceholder {
+  width: 200px;
+  height: 200px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: #666;
+}
+
+.characterInfoSection {
+  flex: 1;
+  min-width: 0;
+}
+
+.characterHeader {
+  margin-bottom: 20px;
+}
+
+.characterName {
+  margin: 0 0 10px 0;
+  font-size: 2em;
+  color: #ff4d4d;
+}
+
+.characterStatus {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.statusIndicator {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.statusIndicator.online {
+  background-color: #4caf50;
+}
+
+.statusIndicator.offline {
+  background-color: #f44336;
+}
+
+.characterType {
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.characterRace {
+  margin-bottom: 20px;
+}
+
+.raceContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1em;
+}
+
+.raceShield {
+  width: 12px;
+  height: 12px;
+}
+
+.characterStats {
+  margin-bottom: 20px;
+}
+
+.characterStats h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.3em;
+  color: #ff4d4d;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 4px 0;
+}
+
+.statLabel {
+  color: #ccc;
+  min-width: 120px;
+}
+
+.statValue {
+  color: #fff;
+  font-weight: bold;
+}
+
+.locationInfo {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  font-style: italic;
+}
+
+.personalInfo {
+  margin: 20px 0;
+}
+
+.personalInfo .infoRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 4px 0;
+}
+
+.infoLabel {
+  color: #ccc;
+  min-width: 100px;
+}
+
+.infoValue {
+  color: #fff;
+  font-weight: bold;
+}
+
+.friendsEnemies {
+  margin: 20px 0;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+}
+
+.countRow {
+  margin-bottom: 8px;
+}
+
+.aboutSection {
+  margin-top: 30px;
+}
+
+.aboutSection h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.3em;
+  color: #ff4d4d;
+}
+
+.aboutContent {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 4px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.characterProgress {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+  .characterContainer {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .characterName {
+    font-size: 1.5em;
+  }
+  
+  .statLabel {
+    min-width: 100px;
+  }
+  
+  .infoLabel {
+    min-width: 80px;
+  }
+}

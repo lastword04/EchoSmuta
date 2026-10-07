@@ -1,0 +1,515 @@
+/* src/entities/character/ui/CharacterAttachmentForm/CharacterAttachmentForm.module.css */
+.attachmentCard {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(15, 23, 32, 0.95) 100%);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  padding: 25px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*margin-bottom: 30px;*/
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--light-gold);
+  margin: 0;
+  text-shadow: 0 0 12px rgba(230, 193, 79, 0.5);
+  font-weight: 700;
+}
+
+.backButton {
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 40px;
+  color: var(--text-secondary);
+  font-family: var(--font-text);
+  font-size: 1rem;
+}
+
+.errorMessage {
+  background: linear-gradient(135deg, rgba(211, 47, 47, 0.2), rgba(198, 40, 40, 0.3));
+  border: 1px solid rgba(211, 47, 47, 0.5);
+  color: #ffcdd2;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-family: var(--font-text);
+  font-size: 0.95rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.infoSection,
+.charactersSection {
+  padding-top: 15px;
+  /*background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);*/
+}
+
+.confirmationSection {
+  padding-top: 20px;
+  /*background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);*/
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--light-gold);
+  margin: 0 0 15px 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.infoText {
+  font-family: var(--font-text);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.infoText p {
+  margin: 0 0 15px 0;
+}
+
+.infoText p:last-child {
+  margin-bottom: 0;
+}
+
+.balanceInfo,
+.slotsInfo {
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.costsInfo {
+  background: rgba(45, 90, 61, 0.3);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.costsInfo p {
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+.currencyIcon {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin: 0 2px 1px 2px;
+}
+
+.charactersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+ 
+  gap: 10px;
+}
+
+.characterItem {
+  /*background: linear-gradient(145deg, var(--card-bg) 0%, rgba(15, 23, 32, 0.95) 100%);
+  border: 1px solid var(--card-border);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: relative;*/
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.characterItem:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+.characterItem.selected {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--gold);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.characterInfo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.characterShield {
+  flex-shrink: 0;
+}
+
+.shieldIcon {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+}
+
+.characterDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.characterNameContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.characterName {
+  font-family: var(--font-sequel);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.characterLevel {
+  font-family: var(--font-base);
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.characterCost {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.noCharacters {
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 20px;
+}
+
+/*.confirmationSection {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: rgba(76, 175, 80, 0.3);
+}*/
+
+.confirmationCheckbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 25px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.confirmationCheckbox input[type="checkbox"] {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.confirmationCheckbox label {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.cancelButton,
+.attachButton {
+  min-width: 180px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.attachButton {
+  background: linear-gradient(135deg, #388e3c, #4caf50);
+  border: 1px solid rgba(76, 175, 80, 0.8);
+}
+
+.attachButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #4caf50, #388e3c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Состояние "выполняется": зелёное внутреннее свечение пульсирует */
+.attachButton:disabled {
+  filter: brightness(0.85) saturate(0.7);
+  cursor: not-allowed;
+  animation: attachPulse 1.1s ease-in-out infinite;
+}
+
+@keyframes attachPulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+                inset 0 0 10px rgba(76, 175, 80, 0.35);
+  }
+  50% {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+                inset 0 0 22px rgba(129, 199, 132, 0.75);
+  }
+}
+
+.insufficientFunds {
+  color: #f44336;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(244, 67, 54, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .attachmentCard {
+    padding: 20px 15px;
+  }
+
+  .header {
+    padding-bottom: 10px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  /*.backButton {
+    align-self: flex-start;
+  }*/
+
+  .content {
+    gap: 15px;
+  }
+
+  .infoSection,
+  .charactersSection,
+  .confirmationSection {
+    padding-top: 10px;
+  }
+
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .infoText {
+    font-size: 0.9rem;
+  }
+
+  .characterItem {
+    padding: 12px 15px;
+  }
+
+  .characterInfo {
+    gap: 5px;
+  }
+
+  .shieldIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .characterName {
+    font-size: 1rem;
+  }
+
+  .characterCost {
+    font-size: 0.9rem;
+  }
+
+  .confirmationCheckbox {
+    padding: 12px;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .confirmationCheckbox label {
+    font-size: 0.9rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cancelButton,
+  .attachButton {
+    width: 100%;
+    min-width: auto;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .charactersList {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-bottom: 0;
+  }
+
+  .content {
+    gap: 10px;
+  }
+
+  .infoSection,
+  .charactersSection,
+  .confirmationSection {
+    padding-top: 5px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 10px;
+  }
+
+  .infoText p {
+  margin: 0 0 10px 0;
+  }
+
+  .confirmationCheckbox {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .attachmentCard {
+    padding: 10px 10px 0;
+    border: none;
+    border-radius: 0px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .header {
+    padding: 0 10px 10px 10px;
+  }
+
+  .content {
+    gap: 5px;
+  }
+  
+  .sectionTitle {
+    font-size: 1rem;
+  }
+
+  .infoText {
+    font-size: 0.85rem;
+  }
+
+  .characterItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .characterInfo {
+    width: 100%;
+  }
+
+  .characterCost {
+    align-self: flex-end;
+  }
+  
+  .confirmationCheckbox {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .confirmationCheckbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+
+  .confirmationCheckbox label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 400px) {
+.attachmentCard {
+    padding-top: 0;
+  }
+
+.header {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sectionTitle {
+    margin-bottom: 5px;
+  }
+
+  .backButton {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

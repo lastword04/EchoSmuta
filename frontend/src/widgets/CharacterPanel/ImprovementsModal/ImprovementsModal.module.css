@@ -1,0 +1,323 @@
+.overlay {
+  position: relative;
+  z-index: 1000; 
+  inset: 0; 
+  padding: 50px 0;
+}
+
+.modal {
+  background: url("/images/widgets/character-panel/notebook-modal/background.jpg") center/cover no-repeat /* #d4c4a8*/;
+  width: 700px;
+  border-radius: 12px;
+  padding: 10px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 95vw;
+  /*box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border: 3px solid #8b6f47;*/
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000000;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.closeButton:hover {
+  transform: scale(1.2);
+}
+
+.section {
+  /*background: rgba(255, 255, 255, 0.3);*/
+  background-color: #eee;
+  border: 1px solid #8b6f47;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.pointsInfo {
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 10px;
+  text-align: center;
+  /*font-weight: 600;*/
+}
+
+.pointsCount {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.statsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.statsTable th {
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.statsTable td {
+  padding: 10px 8px;
+  text-align: center !important;
+  font-size: 14px;
+  color: #000000;
+}
+
+.bonus {
+  min-width: 30px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -0.5px;
+  gap: 5px;
+}
+
+.controlButton {
+  background: linear-gradient(180deg, #f3c892, #d48b5c);
+  border: 1px solid #8b6f47;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.controlButton:hover:not(:disabled) {
+  background: linear-gradient(180deg, #ffdb9d, #e69b6d);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.controlButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.controlButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.finalValue {
+  font-weight: bold;
+}
+
+.masteryTable {
+  width: 40%;
+  border-collapse: collapse;
+  margin: 0 auto; 
+}
+
+.masteryTable th {
+  padding: 8px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.masteryTable td {
+  padding: 10px 8px;
+  font-size: 14px;
+  color: #000000;
+}
+
+.weaponName {
+  text-align: center;
+  min-width: 75px;
+}
+
+.masteryValue {
+  min-width: 30px;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.leftSection {
+  flex: 1;
+}
+
+.saveMessage {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a5f1a;
+}
+
+.saveButton {
+  background: linear-gradient(90deg, #f3c892, #d48b5c);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.saveButton {
+  background: linear-gradient(90deg, #f3c892, #d48b5c);
+  color: #000000;
+}
+
+.saveButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  .modal {
+    width: 95vw;
+    padding: 10px;
+    gap: 10px;
+  }
+  .title {
+    font-size: 19px;
+  }
+  .closeButton {
+    font-size: 22px;
+  }
+
+  .section {
+  padding: 10px;
+}
+  .statsTable th,
+  .statsTable td,
+  .masteryTable th,
+  .masteryTable td {
+    padding: 8px 6px;
+  }
+  
+  .pointsInfo {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  .pointsCount {
+    font-size: 15px;
+  }
+  .footer {
+    padding-top: 0px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .saveButton {
+    flex: 1;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 8px 0px 10px;
+  }
+  .modal {
+    padding: 5px 0px;
+    gap: 0;
+  }
+  .title {
+    font-size: 17px;
+    margin-bottom: 5px;
+  }
+  .closeButton {
+    font-size: 20px;
+    padding-bottom: 5px;
+  }
+  .section {
+  padding: 5px 5px 10px;
+  border: none;
+  border-radius: 0px;
+}
+  .statsTable th,
+  .statsTable td,
+  .masteryTable th,
+  .masteryTable td {
+    padding: 6px 4px;
+  }
+  .controlButton {
+    width: 23px;
+    height: 23px;
+    font-size: 14px;
+  }
+
+  .pointsInfo {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  .pointsCount {
+    font-size: 14px;
+  }
+  .bonus,
+  .masteryValue {
+    min-width: 25px;
+  }
+  .footer {
+    padding-top: 5px;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 350px) {
+  .controls {
+    gap: 2px;
+  }
+  .statsTable th,
+  .statsTable td,
+  .masteryTable th,
+  .masteryTable td {
+    padding: 6px 0px;
+    font-size: 13px;
+  }
+}
+
+.error {
+  color: #ef4444;
+}

@@ -1,0 +1,318 @@
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                           LAYOUT                                  ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.shopDetailContainer {
+    width: 100%;
+    max-width: 800px;   
+}
+
+.borderBox {
+    background:
+        url("/images/locations/border/border_nut.gif") 0 0 no-repeat,
+        url("/images/locations/border/border_nut.gif") 0 100% no-repeat,
+        url("/images/locations/border/border_nut.gif") 100% 0 no-repeat,
+        url("/images/locations/border/border_nut.gif") 100% 100% no-repeat,
+        url("/images/locations/border/border-top.gif") top repeat-x,
+        url("/images/locations/border/border-bot.gif") bottom repeat-x,
+        url("/images/locations/border/border-left.gif") 0 repeat-y,
+        url("/images/locations/border/border-right.gif") 100% repeat-y;
+    padding: 9px;
+    box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                          HEADER                                   ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.topSection {
+    display: flex;
+    gap: 5px;
+    align-items: flex-start;
+    background: #eee;       
+}
+
+.infoWrap {
+    display: contents;
+}
+
+.photoContainer {
+    flex: 0 0 auto;
+}
+
+.shopPhoto {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    display: block;    
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                    NAME & DESCRIPTION                             ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.nameBlock {
+    flex: 1 1 auto;
+    min-width: 0;    
+}
+
+.shopName {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 4px;
+    font-family: var(--font-sequel);
+}
+
+.shopDescription {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.shopName,
+.shopDescription {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.itemCardOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(100vh - var(--panel-height, 30vh));
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 50px 0;
+    z-index: 2000;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                          META INFO                                ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.metaBlock {
+    line-height: 1.1; 
+    padding: 4px 4px 0 0;
+    flex: 0 0 auto;
+    margin-left: auto;
+    text-align: left;
+    font-size: 14px;
+    color: #000;
+    font-family: var(--font-sequel);
+    min-width: 0; 
+    overflow-wrap: break-word; 
+    word-break: break-word;
+}
+
+.metaRow {
+    margin-bottom: 4px;
+}
+
+.statusOpen {
+    color: #1a7a1a;
+    font-weight: bold;
+}
+
+.statusClosed {
+    color: #b02020;
+    font-weight: bold;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                          TABLE                                    ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.shopTable { 
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: #000;
+    background: url("/images/widgets/character-panel/notebook-modal/background.jpg") repeat;
+}
+
+.shopTable thead tr {
+    background: url("/images/widgets/chat-panel/buttons/chat-button.png") top repeat-x;
+    height: 19px;
+    line-height: 19px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    border-top: 2px solid var(--card-bg);
+    border-bottom: 2px solid var(--card-bg);
+    font-family: var(--font-sequel);
+}
+
+.shopTable th {
+    padding: 0 3px;
+}
+
+.shopTable td {
+    padding: 3px;    
+    overflow-wrap: break-word;
+    vertical-align: middle;
+}
+
+.shopTable th,
+.shopTable td {
+    text-align: center;
+}
+
+/* ── Таблица поиска (ItemSearchView) ── */
+
+.searchTable {
+    width: 100%;
+}
+
+/* ── Таблица магазина (ShopDetailView) ── */
+
+.shopDetailTable .colRace {   
+    text-align: center;
+}
+
+/* ширины колонок: лавка (5 колонок) */
+.shopDetailTable col:nth-child(1) { width: 24%; }
+.shopDetailTable col:nth-child(2) { width: 20%; }
+.shopDetailTable col:nth-child(3) { width: 32%; }
+.shopDetailTable col:nth-child(4) { width: 16%; }
+.shopDetailTable col:nth-child(5) { width: 8%; }
+
+/* ширины колонок: аптека (6 колонок, с расой) */
+.shopDetailTable.withRace col:nth-child(1) { width: 26%; }
+.shopDetailTable.withRace col:nth-child(2) { width: 12%; }
+.shopDetailTable.withRace col:nth-child(3) { width: 18%; }
+.shopDetailTable.withRace col:nth-child(4) { width: 26%; }
+.shopDetailTable.withRace col:nth-child(5) { width: 12%; }
+.shopDetailTable.withRace col:nth-child(6) { width: 6%; }
+
+/* ширины колонок: поиск */
+.searchTable col:nth-child(1) { width: 24%; }
+.searchTable col:nth-child(2) { width: 18%; }
+.searchTable col:nth-child(3) { width: 14%; }
+.searchTable col:nth-child(4) { width: 14%; }
+.searchTable col:nth-child(5) { width: 30%; }
+
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                        ERRORS                                     ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.errorContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.errorText {
+    font-size: 18px;
+    color: #eee;
+    font-family: var(--font-sequel);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                   МОБИЛЬНЫЕ ВСТАВКИ                               ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.mobileExtra,
+.mobileBuy {
+    display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* ╔═══════════════════════════════════════════════════════════════════╗ */
+/* ║                        RESPONSIVE                                 ║ */
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+/* шапка в столбик: мобилка И узкая средняя колонка 950–1100 */
+@media (max-width: 600px), (min-width: 950px) and (max-width: 1100px) {
+
+    .topSection {
+        height: auto;
+        padding-bottom: 5px;
+    }
+
+    .infoWrap {
+        display: flex;
+        flex-direction: column;        
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .metaBlock {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 830px) {
+    .shopDetailContainer {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hideOnMobile {
+        display: none !important;
+    }
+
+    .mobileExtra {
+        display: block;
+        font-size: 13px;
+        color: #555;
+        margin-top: 2px;
+        line-height: 1.3;
+    }
+
+    .mobileBuy {
+        display: block;
+        margin-top: 4px;
+    }
+
+    .shopTable {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    /* видимые ячейки занимают слоты 1-3, остальные колонки обнуляем */
+    .shopDetailTable col:nth-child(1) { width: 37% !important; }
+    .shopDetailTable col:nth-child(2) { width: 37% !important; }
+    .shopDetailTable col:nth-child(3) { width: 26% !important; }
+    .shopDetailTable col:nth-child(n+4) { width: 0 !important; }
+
+    .searchTable col:nth-child(1) { width: 30% !important; }
+    .searchTable col:nth-child(2) { width: 28% !important; }
+    .searchTable col:nth-child(3) { width: 42% !important; }
+    .searchTable col:nth-child(n+4) { width: 0 !important; }
+
+    .shopTable th {
+        padding: 0 2px;
+    }
+
+    .photoContainer {
+        display: flex;
+        justify-content: center;
+    }    
+}
