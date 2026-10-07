@@ -252,7 +252,7 @@ services:
     command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}", "--appendonly", "yes"]
 
   production-minio:
-    image: minio/minio:latest
+    image: pgsty/silo:latest
     container_name: production-minio
 
     ports:
