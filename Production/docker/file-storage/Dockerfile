@@ -12,7 +12,9 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 COPY ./services/file-storage .
 
-RUN uv sync --frozen
+ENV UV_PROJECT_ENVIRONMENT=/app/.venv
+ENV PATH="/app/.venv/bin:$PATH"
+RUN uv sync
 
 COPY ./Production/docker/scripts/wait-for-it.sh /usr/local/bin/
 COPY ./Production/docker/file-storage/entrypoint.sh /docker/entrypoint.sh

@@ -1,5 +1,6 @@
 import asyncio
 import sys
+import os
 
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -87,6 +88,9 @@ def run_migrations_online() -> None:
     In this scenario we need to create an Engine and associate a connection with the
     context.
     """
+    # Alembic синхронный — заменяем asyncpg на psycopg2
+    _sync_url = settings.db.dsn.replace('postgresql+asyncpg', 'postgresql')
+    config.set_main_option('sqlalchemy.url', _sync_url)
     connectable = engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix='sqlalchemy.',

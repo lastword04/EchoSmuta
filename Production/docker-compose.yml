@@ -237,7 +237,7 @@ services:
     expose:
       - 6379
     volumes:
-      - production-celery-redis-data:/data
+      - production-celery-redis-data:/data   
       - /usr/share/zoneinfo/UTC:/etc/localtime:ro
     networks:
       - production-main-network
@@ -277,14 +277,21 @@ services:
     restart: unless-stopped
     entrypoint: /docker/worker.sh
     environment:
+      - AUTH_SERVICE_APP_CELERY__BROKER_URL=redis://:redis_password@production-celery-redis:6379/0
+      - AUTH_SERVICE_APP_CELERY__RESULT_BACKEND=redis://:redis_password@production-celery-redis:6379/0
+      - AUTH_SERVICE_APP_CELERY__REDBEAT_REDIS_URL=redis://:redis_password@production-celery-redis:6379/1
       - TZ=UTC
+      - AUTH_SERVICE_APP_DB__HOST=production-auth-service-db
+      - AUTH_SERVICE_APP_DB__PORT=5432
+      - AUTH_SERVICE_APP_REDIS__HOST=production-redis
+      - AUTH_SERVICE_APP_REDIS__PORT=6379
     depends_on:
       - production-auth-service-db
       - auth-app
       - production-redis
       - production-celery-redis
-    volumes:
-      - ./services/auth/.:/app/
+    env_file:
+      - ../services/auth/.env.docker
     networks:
       - production-main-network
   
@@ -293,7 +300,14 @@ services:
       context: ..
       dockerfile: Production/docker/auth/Dockerfile
     environment:
+      - AUTH_SERVICE_APP_CELERY__BROKER_URL=redis://:redis_password@production-celery-redis:6379/0
+      - AUTH_SERVICE_APP_CELERY__RESULT_BACKEND=redis://:redis_password@production-celery-redis:6379/0
+      - AUTH_SERVICE_APP_CELERY__REDBEAT_REDIS_URL=redis://:redis_password@production-celery-redis:6379/1
       - TZ=UTC
+      - AUTH_SERVICE_APP_DB__HOST=production-auth-service-db
+      - AUTH_SERVICE_APP_DB__PORT=5432
+      - AUTH_SERVICE_APP_REDIS__HOST=production-redis
+      - AUTH_SERVICE_APP_REDIS__PORT=6379
     container_name: celery-beat-auth
     restart: unless-stopped
     entrypoint: /docker/beat.sh
@@ -302,8 +316,8 @@ services:
       - auth-app
       - production-redis
       - production-celery-redis
-    volumes:
-      - ./services/auth/.:/app/
+    env_file:
+      - ../services/auth/.env.docker
     networks:
       - production-main-network
 
@@ -321,10 +335,14 @@ services:
     entrypoint: /docker/entrypoint.sh
     environment:
       - TZ=UTC
+      - AUTH_SERVICE_APP_DB__HOST=production-auth-service-db
+      - AUTH_SERVICE_APP_DB__PORT=5432
+      - AUTH_SERVICE_APP_REDIS__HOST=production-redis
+      - AUTH_SERVICE_APP_REDIS__PORT=6379
     depends_on:
       - production-auth-service-db
-    volumes: 
-      - ./services/auth/.:/app/
+    env_file:
+      - ../services/auth/.env.docker
     networks:
       - production-main-network
   users-app:
@@ -340,10 +358,12 @@ services:
     entrypoint: /docker/entrypoint.sh
     environment:
       - TZ=UTC
+      - USERS_SERVICE_APP_DB__HOST=production-user-service-db
+      - USERS_SERVICE_APP_DB__PORT=5432
     depends_on:
       - production-user-service-db
-    volumes: 
-      - ./services/users/.:/app/
+    env_file:
+      - ../services/users/.env.docker
     networks:
       - production-main-network
   
@@ -354,7 +374,14 @@ services:
 
     container_name: celery-worker-characters
     environment:
+      - CHARACTER_SERVICE_APP_CELERY__BROKER_URL=redis://:redis_password@production-celery-redis:6379/0
+      - CHARACTER_SERVICE_APP_CELERY__RESULT_BACKEND=redis://:redis_password@production-celery-redis:6379/0
+      - CHARACTER_SERVICE_APP_CELERY__REDBEAT_REDIS_URL=redis://:redis_password@production-celery-redis:6379/1
       - TZ=UTC
+      - CHARACTER_SERVICE_APP_DB__HOST=production-character-service-db
+      - CHARACTER_SERVICE_APP_DB__PORT=5432
+      - CHARACTER_SERVICE_APP_REDIS__HOST=production-redis
+      - CHARACTER_SERVICE_APP_REDIS__PORT=6379
     restart: unless-stopped
     entrypoint: /docker/worker.sh
     depends_on:
@@ -362,8 +389,8 @@ services:
       - characters-app
       - production-redis
       - production-celery-redis
-    volumes:
-      - ./services/characters/.:/app/
+    env_file:
+      - ../services/characters/.env.docker
     networks:
       - production-main-network
 
@@ -376,14 +403,21 @@ services:
     restart: unless-stopped
     entrypoint: /docker/beat.sh
     environment:
+      - CHARACTER_SERVICE_APP_CELERY__BROKER_URL=redis://:redis_password@production-celery-redis:6379/0
+      - CHARACTER_SERVICE_APP_CELERY__RESULT_BACKEND=redis://:redis_password@production-celery-redis:6379/0
+      - CHARACTER_SERVICE_APP_CELERY__REDBEAT_REDIS_URL=redis://:redis_password@production-celery-redis:6379/1
       - TZ=UTC
+      - CHARACTER_SERVICE_APP_DB__HOST=production-character-service-db
+      - CHARACTER_SERVICE_APP_DB__PORT=5432
+      - CHARACTER_SERVICE_APP_REDIS__HOST=production-redis
+      - CHARACTER_SERVICE_APP_REDIS__PORT=6379
     depends_on:
       - production-character-service-db
       - characters-app
       - production-redis
       - production-celery-redis
-    volumes:
-      - ./services/characters/.:/app/
+    env_file:
+      - ../services/characters/.env.docker
     networks:
       - production-main-network
 
@@ -404,8 +438,12 @@ services:
       - production-character-service-db
     environment:
       - TZ=UTC
-    volumes: 
-      - ./services/characters/.:/app/
+      - CHARACTER_SERVICE_APP_DB__HOST=production-character-service-db
+      - CHARACTER_SERVICE_APP_DB__PORT=5432
+      - CHARACTER_SERVICE_APP_REDIS__HOST=production-redis
+      - CHARACTER_SERVICE_APP_REDIS__PORT=6379
+    env_file:
+      - ../services/characters/.env.docker
     networks:
       - production-main-network
       
@@ -423,10 +461,12 @@ services:
     entrypoint: /docker/entrypoint.sh
     environment:
       - TZ=UTC
+      - EMAIL_SERVICE_APP_DB__HOST=production-notification-email-service-db
+      - EMAIL_SERVICE_APP_DB__PORT=5432
     depends_on:
       - production-notification-email-service-db
-    volumes: 
-      - ./services/email/.:/app/
+    env_file:
+      - ../services/email/.env.docker
     networks:
       - production-main-network
       
@@ -444,10 +484,14 @@ services:
     entrypoint: /docker/entrypoint.sh
     environment:
       - TZ=UTC
+      - FILES_SERVICE_APP_DB__HOST=production-file-storage-service-db
+      - FILES_SERVICE_APP_DB__PORT=5432
+      - FILES_SERVICE_APP_REDIS__HOST=production-redis
+      - FILES_SERVICE_APP_REDIS__PORT=6379
     depends_on:
       - production-file-storage-service-db
-    volumes: 
-      - ./services/file-storage/.:/app/
+    env_file:
+      - ../services/file-storage/.env.docker
     networks:
       - production-main-network
 
@@ -465,10 +509,12 @@ services:
     entrypoint: /docker/entrypoint.sh
     environment:
       - TZ=UTC
+      - CAPTCHA_SERVICE_APP_REDIS__HOST=production-redis
+      - CAPTCHA_SERVICE_APP_REDIS__PORT=6379
     depends_on:
       - production-redis
-    volumes: 
-      - ./services/captcha-service/.:/app/
+    env_file:
+      - ../services/captcha-service/.env.docker
     networks:
       - production-main-network
 
@@ -486,10 +532,12 @@ services:
     entrypoint: /docker/entrypoint.sh
     environment:
       - TZ=UTC
+      - FORUM_SERVICE_APP_DB__HOST=production-forum-service-db
+      - FORUM_SERVICE_APP_DB__PORT=5432
     depends_on:
       - production-forum-service-db
-    volumes: 
-      - ./services/forum/.:/app/
+    env_file:
+      - ../services/forum/.env.docker
     networks:
       - production-main-network
       
@@ -507,10 +555,14 @@ services:
     entrypoint: /docker/entrypoint.sh
     environment:
       - TZ=UTC
+      - CHAT_SERVICE_APP_DB__HOST=production-chat-service-db
+      - CHAT_SERVICE_APP_DB__PORT=5432
+      - CHAT_SERVICE_APP_REDIS__HOST=production-redis
+      - CHAT_SERVICE_APP_REDIS__PORT=6379
     depends_on:
       - production-chat-service-db
-    volumes:
-      - ./services/chat/.:/app/
+    env_file:
+      - ../services/chat/.env.docker
     networks:
       - production-main-network
 
@@ -528,10 +580,14 @@ services:
     entrypoint: /docker/entrypoint.sh
     environment:
       - TZ=UTC
+      - MINING_SERVICE_APP_DB__HOST=production-mining-service-db
+      - MINING_SERVICE_APP_DB__PORT=5432
+      - MINING_SERVICE_APP_REDIS__HOST=production-redis
+      - MINING_SERVICE_APP_REDIS__PORT=6379
     depends_on:
       - production-mining-service-db
-    volumes:
-      - ./services/mining/.:/app/
+    env_file:
+      - ../services/mining/.env.docker
     networks:
       - production-main-network
   
@@ -544,14 +600,21 @@ services:
     restart: unless-stopped
     entrypoint: /docker/worker.sh
     environment:
+      - MINING_SERVICE_APP_CELERY__BROKER_URL=redis://:redis_password@production-celery-redis:6379/0
+      - MINING_SERVICE_APP_CELERY__RESULT_BACKEND=redis://:redis_password@production-celery-redis:6379/0
+      - MINING_SERVICE_APP_CELERY__REDBEAT_REDIS_URL=redis://:redis_password@production-celery-redis:6379/1
       - TZ=UTC
+      - MINING_SERVICE_APP_DB__HOST=production-mining-service-db
+      - MINING_SERVICE_APP_DB__PORT=5432
+      - MINING_SERVICE_APP_REDIS__HOST=production-redis
+      - MINING_SERVICE_APP_REDIS__PORT=6379
     depends_on:
       - production-mining-service-db
       - mining-app
       - production-redis
       - production-celery-redis
-    volumes:
-      - ./services/mining/.:/app/
+    env_file:
+      - ../services/mining/.env.docker
     networks:
       - production-main-network
 
@@ -563,14 +626,21 @@ services:
     restart: unless-stopped
     entrypoint: /docker/beat.sh
     environment:
+      - MINING_SERVICE_APP_CELERY__BROKER_URL=redis://:redis_password@production-celery-redis:6379/0
+      - MINING_SERVICE_APP_CELERY__RESULT_BACKEND=redis://:redis_password@production-celery-redis:6379/0
+      - MINING_SERVICE_APP_CELERY__REDBEAT_REDIS_URL=redis://:redis_password@production-celery-redis:6379/1
       - TZ=UTC
+      - MINING_SERVICE_APP_DB__HOST=production-mining-service-db
+      - MINING_SERVICE_APP_DB__PORT=5432
+      - MINING_SERVICE_APP_REDIS__HOST=production-redis
+      - MINING_SERVICE_APP_REDIS__PORT=6379
     depends_on:
       - production-mining-service-db
       - mining-app
       - production-redis
       - production-celery-redis
-    volumes:
-      - ./services/mining/.:/app/
+    env_file:
+      - ../services/mining/.env.docker
     networks:
       - production-main-network
 
@@ -588,14 +658,16 @@ services:
     entrypoint: /docker/entrypoint.sh
     environment:
       - TZ=UTC
+      - ECONOMY_SERVICE_APP_DB__HOST=production-economy-service-db
+      - ECONOMY_SERVICE_APP_DB__PORT=5432
+      - ECONOMY_SERVICE_APP_REDIS__HOST=production-redis
+      - ECONOMY_SERVICE_APP_REDIS__PORT=6379
     depends_on:
       - production-economy-service-db
       - production-redis
-      # economy засеивает свои ресурсы, забирая их из mining API при старте,
-      # поэтому mining-app должен подняться раньше
       - mining-app
-    volumes:
-      - ./services/economy/.:/app/
+    env_file:
+      - ../services/economy/.env.docker
     networks:
       - production-main-network
 
